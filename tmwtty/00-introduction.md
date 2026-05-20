@@ -150,6 +150,6 @@ For each item in the plan, run this loop:
 | I want to... | Go to... |
 |--------------|----------|
 | Start building | [`01-getting-started.md`](./01-getting-started.md) |
-| Write my seed prompt | [`02-seed-prompt.md`](./02-seed-prompt.md) |
+| Write my seed prompt | [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) |
 | See the plan format | [`03-plan-format.md`](./03-plan-format.md) |
 | Understand agent modes | [`04-agent-modes.md`](./04-agent-modes.md) |

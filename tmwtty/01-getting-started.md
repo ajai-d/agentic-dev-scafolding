@@ -12,7 +12,7 @@
 
 ## Step 1 — Fill In Your Seed Prompt
 
-Open [`02-seed-prompt.md`](./02-seed-prompt.md) and fill in the template:
+Open [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) and fill in the template:
 
 - **What I Want To Build** — your intent in plain language
 - **Done Looks Like** — how you'll know it's complete
@@ -40,6 +40,6 @@ That's it. The agent will:
 | File | Purpose |
 |------|---------|
 | [`00-introduction.md`](./00-introduction.md) | The methodology — what the agent reads |
-| [`02-seed-prompt.md`](./02-seed-prompt.md) | Your seed — what you fill in |
+| [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Your seed — what you fill in |
 | [`03-plan-format.md`](./03-plan-format.md) | How the plan is structured |
 | [`04-agent-modes.md`](./04-agent-modes.md) | Interactive / Autopilot / Fleet reference |
