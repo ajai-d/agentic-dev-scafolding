@@ -101,7 +101,7 @@
 #### 📘 Lesson 1.1 — What is Agentic SDLC?
 
 > **Outcome:** You can explain agentic dev to a colleague in one minute.
-> **Status:** ✅ Done *(see `01-lesson-0-what-is-agentic-sdlc.md`)*
+> **Status:** ⏳ Next up
 
 **Covers**
 - The **Golden Rule** — intent · execute · govern.
@@ -126,7 +126,7 @@
 #### 📘 Lesson 1.2 — The Agent Contract
 
 > **Outcome:** A repo so well-configured any agent can drop in and work safely.
-> **Status:** 🚧 In progress
+> **Status:** ⏳ Pending
 
 **The instruction layer (3 layers — narrowest wins)**
 
@@ -137,12 +137,14 @@
 | Path-specific | `.github/instructions/*.instructions.md` | Per file type / folder |
 
 **Plus**
-- ✅ Foundation files — Git, `.gitignore`, `.gitattributes`, `LICENSE`, `README` *(done)*
-- ✅ Memory files — `PROGRESS.md` · `DECISIONS.md` · `NEXT.md` *(done)*
-- ⏳ Conventional Commits + PR template
-- ⏳ `.env.example` + secrets discipline
-- ⏳ Push to GitHub + branch protection
-- ⏳ **Hello-Agent** task — prove the loop works
+- Foundation files — Git, `.gitignore`, `.gitattributes`, `LICENSE`, `README`
+- Memory files — `PROGRESS.md` · `DECISIONS.md` · `NEXT.md`
+- Conventional Commits + PR template
+- `.env.example` + secrets discipline
+- Push to GitHub + branch protection
+- **Hello-Agent** task — prove the loop works
+
+> 📁 *Note:* Some config files (`.gitignore`, `.gitattributes`, `LICENSE`) were committed during the curriculum-design phase and remain in place. We will revisit them in this lesson and recreate the rest fresh.
 
 ---
 
@@ -369,24 +371,16 @@ Every lesson follows the same shape:
 
 ## 6. Where We Are Now
 
+🆕 **Fresh start.** All prior artifacts archived in [`./archive/`](./archive/).
+
 | Phase | Status |
 |---|---|
-| **1.1** What is Agentic SDLC? | ✅ Done |
-| **1.2** The Agent Contract | 🚧 In progress |
-| ⤷ Foundation files | ✅ Done |
-| ⤷ Memory files | ✅ Done |
-| ⤷ `AGENTS.md` | ⏳ **Next** |
-| ⤷ `.github/copilot-instructions.md` | ⏳ |
-| ⤷ Path-specific instructions | ⏳ |
-| ⤷ Conventional Commits + PR template | ⏳ |
-| ⤷ `.env.example` | ⏳ |
-| ⤷ Push to GitHub + branch protection | ⏳ |
-| ⤷ Hello-Agent task | ⏳ |
+| **1.1** What is Agentic SDLC? | ⏳ **Next up** |
+| **1.2** The Agent Contract | ⏳ |
 | **1.3** Prompt Files | ⏳ |
-| **3.3** Review It (govern agent output) | ⏳ *(added in v2.2)* |
 | Phase 2 → 6 | ⏳ |
 
-See [`NEXT.md`](./NEXT.md) for the exact prompt to send next.
+> The fresh memory files (`PROGRESS.md` · `DECISIONS.md` · `NEXT.md`) will be created as part of Lesson 1.2 (Agent Contract).
 
 ---
 
@@ -406,15 +400,15 @@ See [`NEXT.md`](./NEXT.md) for the exact prompt to send next.
 
 ## 8. Resume Cold (5 min)
 
-If context is ever lost, read these in order:
+If context is ever lost:
 
 | Step | File | Purpose |
 |:-:|---|---|
-| 1 | **`00-course.md`** *(this file)* | Agreement + roadmap |
-| 2 | [`02-running-use-case.md`](./02-running-use-case.md) | What we're building |
-| 3 | [`PROGRESS.md`](./PROGRESS.md) | What's been done |
-| 4 | [`DECISIONS.md`](./DECISIONS.md) | Why we chose what we chose |
-| 5 | [`NEXT.md`](./NEXT.md) | The very next thing to do |
+| 1 | **`00-course.md`** *(this file)* | Agreement + roadmap + current status |
+| 2 | [`PROGRESS.md`](./PROGRESS.md) *(created in Lesson 1.2)* | What's been done |
+| 3 | [`DECISIONS.md`](./DECISIONS.md) *(created in Lesson 1.2)* | Why we chose what we chose |
+| 4 | [`NEXT.md`](./NEXT.md) *(created in Lesson 1.2)* | The very next thing to do |
+| 5 | [`./archive/`](./archive/) | Historical artifacts from the curriculum-design phase |
 
 ---
 
@@ -422,6 +416,7 @@ If context is ever lost, read these in order:
 
 | Version | Date | Highlights |
 |---|---|---|
+| **v2.2 (fresh start)** | 2026-05-20 | Archived all prior artifacts. Lesson 1.1 status reset to *Next up.* Ready to teach the curriculum from scratch. |
 | **v2.2** | 2026-05-20 | Added Lesson 3.3 — *Review It (govern agent output).* The "humans govern outcomes" half of the Golden Rule, taught explicitly. |
 | **v2.1** | 2026-05-20 | Better formatting + lesson cards. Added path-specific instructions (1.2), prompt files (1.3), skill packaging (5.3). |
-| **v2.0** | 2026-05-19 | Fast Track curriculum introduced. v1.2 filed as `90-reference-comprehensive-curriculum.md`. |
+| **v2.0** | 2026-05-19 | Fast Track curriculum introduced. v1.2 filed as `90-reference-comprehensive-curriculum.md` (now in archive). |
