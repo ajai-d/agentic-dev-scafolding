@@ -25,10 +25,11 @@ A file at the repo root that any AI agent reads to understand the house rules. T
 - Safety rules (no secrets, no deleting without asking)
 - Memory files to read before starting work
 
-**Prompt you gave:**
+**Try it yourself — give your AI agent this prompt:**
+
 > Create an AGENTS.md file for this repo. It should define: the project name (Agentic Dev Scaffolding), the language style (clear, 8th-grade reading level), commit conventions (Conventional Commits), file formatting rules (UTF-8, LF line endings, trailing newline), and a rule that agents must never commit secrets or delete files without asking.
 
-**Result:** [`AGENTS.md`](./AGENTS.md) ✅
+**Expected result:** An [`AGENTS.md`](./AGENTS.md) file at the repo root with sections for project info, tone, commits, formatting, and safety rules. ✅
 
 ---
 
