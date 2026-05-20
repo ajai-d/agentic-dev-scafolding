@@ -1,18 +1,55 @@
-# Archive
+# Agentic Dev Scaffolding
 
-Historical artifacts from the meta-journey of designing the curriculum.
+> Learn Agentic SDLC from scratch — one concept at a time, one commit at a time.
 
-Kept for context — not part of the active learning path. The course doc (`../00-course.md`) is the single active document.
+This is a **hands-on learning repo** that teaches traditional developers how to work with AI coding agents. You'll go from zero to multi-agent orchestration using GitHub Copilot.
 
-| File | What it was |
-|---|---|
-| `OLD-README.md` | Original repo README from the curriculum-design phase |
-| `01-lesson-0-what-is-agentic-sdlc.md` | First-pass Lesson 0 — we will re-do this fresh |
-| `02-running-use-case.md` | The locked-in "Top 5 Stocks" use case spec |
-| `03-lesson-1-setup-repo.md` | Prompt book from the partial Lesson 1 run |
-| `90-reference-comprehensive-curriculum.md` | Comprehensive v1.2 curriculum (38 lessons) — deep reference |
-| `PROGRESS.md` | Journal of the curriculum-design phase |
-| `DECISIONS.md` | Decision log D-001 through D-019 from the design phase |
-| `NEXT.md` | The previous pick-up point |
+## 📚 Course Structure
 
-Git history is intact. Run `git log --oneline` from the repo root to see the full design journey.
+The full curriculum lives in [`00-course.md`](./00-course.md). Here's the overview:
+
+| Phase | Topic | Lessons |
+|-------|-------|:-------:|
+| 1 | The Mental Model | 4 |
+| 2 | Spec-Driven Development | 2 |
+| 3 | Full SDLC (the demo) | 3 |
+| 4 | Autonomous Agents | 1 |
+| 5 | Multi-Agent Orchestration | 3 |
+| 6 | Production Realities | 1 |
+
+**Total:** 14 lessons · ~8–10 hours
+
+## ✅ Prerequisites
+
+- [Git](https://git-scm.com/downloads) installed
+- [Node.js](https://nodejs.org/) (v18+)
+- [Python](https://www.python.org/downloads/) (3.11+)
+- A [GitHub](https://github.com/signup) account
+- [GitHub Copilot](https://github.com/features/copilot) access (free tier works)
+- A code editor (VS Code recommended)
+
+## 🚀 Getting Started
+
+1. **Clone this repo:**
+   ```bash
+   git clone https://github.com/ajai-d/agentic-dev-scafolding.git
+   cd agentic-dev-scafolding
+   ```
+
+2. **Start with Lesson 1.0:**
+   Open [`lesson-1.0.md`](./lesson-1.0.md) and follow the prompts.
+
+3. **Work through lessons in order:**
+   Each lesson builds on the previous one. Follow the prompts, execute them with your AI agent, and see the results.
+
+## 🧠 Learning Model
+
+This course uses the **"Tell Me What To Tell You"™** method:
+- Each lesson gives you a prompt to send to your AI agent
+- The agent executes it
+- You approve the result
+- The step is documented so anyone can repeat it
+
+## 📄 License
+
+[MIT](./LICENSE) — use it, share it, learn from it.
