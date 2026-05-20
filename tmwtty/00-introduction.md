@@ -1,0 +1,115 @@
+# 📘 Tell Me What To Tell You™ (TMWTTY)
+
+> 🎯 **The methodology.** Read once. Reference any time you start a new project.
+
+<table>
+<tr><td><b>What</b></td><td>A repeatable methodology for building software with AI agents</td></tr>
+<tr><td><b>Outcome</b></td><td>You understand the 3 stages and can apply TMWTTY to any project</td></tr>
+<tr><td><b>Read time</b></td><td>~5 minutes</td></tr>
+<tr><td><b>Prerequisites</b></td><td>None</td></tr>
+</table>
+
+---
+
+## 🗺️ Roadmap
+
+| § | Topic |
+|:-:|---|
+| 1 | Executive Summary |
+| 2 | The Problem TMWTTY Solves |
+| 3 | The 3 Stages |
+| 4 | Folder Structure |
+| 5 | Next Steps |
+
+---
+
+## 1️⃣ Executive Summary
+
+TMWTTY is a structured, 3-stage framework for AI-assisted software development. It eliminates the guesswork of prompt engineering by providing a deterministic workflow:
+
+> **Seed → Plan → Execute**
+
+Every step is documented as it's executed — producing both working software and a built-in history of how it was built. The result is a reusable tutorial that any engineer, regardless of experience level, can follow to reproduce the same outcome.
+
+---
+
+## 2️⃣ The Problem TMWTTY Solves
+
+| Challenge | Without TMWTTY | With TMWTTY |
+|-----------|----------------|-------------|
+| "I don't know what to ask the AI" | Trial and error | AI provides the exact prompt |
+| "My process isn't repeatable" | Knowledge lives in someone's head | Every step captured in a tutorial |
+| "Others can't onboard quickly" | Tribal knowledge, shadowing | Self-service playbook anyone can follow |
+| "I don't know which AI mode to use" | Chat for everything | Plan assigns the right mode per task |
+| "Quality varies by person" | Inconsistent prompting | Standardized prompts, consistent output |
+| "I lost track of what was done" | Reconstruct from memory | Built-in history with decisions documented |
+| "Starting a new project from scratch" | Reinvent every time | Fork a tutorial, adapt, ship faster |
+
+---
+
+## 3️⃣ The 3 Stages
+
+```
+  ┌────────────────┐        ┌────────────────┐         ┌────────────────┐
+  │                │        │                │         │                │
+  │    1. SEED     │        │    2. PLAN     │         │   3. EXECUTE   │
+  │                │        │                │         │                │
+  │  State intent  │───────▶│  Structured    │───────▶│  TMWTTY loop   │
+  │  in plain      │        │  roadmap w/    │         │  per plan      │
+  │  language      │        │  agent modes   │         │  item          │
+  │                │        │                │         │                │
+  └────────────────┘        └────────────────┘         └────────────────┘
+```
+
+### Stage 1 — Seed
+
+State your intent in plain language:
+
+> *"I want to build an MCP server that returns the top 5 performing stocks."*
+
+One sentence. No jargon. This is the genesis of the project.
+
+### Stage 2 — Plan
+
+The AI transforms your seed into a **structured plan** — deliverables sequenced by dependency, with an agent mode assigned to each item.
+
+You review, refine, and approve before execution begins.
+
+### Stage 3 — Execute
+
+For each item in the plan, the TMWTTY loop runs:
+
+| Step | Action |
+|:----:|--------|
+| 1 | AI explains the concept |
+| 2 | AI provides the exact prompt to send |
+| 3 | You send it back |
+| 4 | AI executes |
+| 5 | You review and approve |
+| 6 | AI commits, pushes, and documents the step |
+
+> 🔁 Then move to the next item. Repeat until the plan is complete.
+
+---
+
+## 4️⃣ Folder Structure
+
+Every TMWTTY project follows this layout:
+
+| Folder | Purpose |
+|--------|---------|
+| `tmwtty/` | The methodology reference (you're reading it) |
+| `plan/` | The structured plan for this project |
+| `project/` | Production source code |
+| `tutorial/` | Step-by-step playbook captured during execution |
+
+---
+
+## 5️⃣ Next Steps
+
+| I want to... | Go to... |
+|--------------|----------|
+| Start building | [`01-getting-started.md`](./01-getting-started.md) |
+| Write my seed prompt | [`02-seed-prompt.md`](./02-seed-prompt.md) |
+| See the plan format | [`03-plan-format.md`](./03-plan-format.md) |
+| Understand agent modes | [`04-agent-modes.md`](./04-agent-modes.md) |
