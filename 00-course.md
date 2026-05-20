@@ -101,7 +101,7 @@
 #### 📘 Lesson 1.0 — Environment Setup
 
 > **Outcome:** A local Git repo ready for agentic development — folder, `git init`, foundation files.
-> **Status:** ⏳ Documenting — see [`lesson-1.0.md`](./lesson-1.0.md)
+> **Status:** ✅ Done — see [`lesson-1.0.md`](./lesson-1.0.md)
 
 **Covers**
 - Create project folder
