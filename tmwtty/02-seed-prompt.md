@@ -1,64 +1,65 @@
-# Seed Prompt Template
+# 📘 Seed Prompt
 
-> Fill this in to kick off any TMWTTY project. Give the completed prompt to your AI agent.
+> 🎯 **Your starting point.** Fill this in and give it to your AI agent. That's all you need to begin.
+
+<table>
+<tr><td><b>What</b></td><td>The seed that kicks off any TMWTTY project</td></tr>
+<tr><td><b>Format</b></td><td>Intent + success criteria + working instructions</td></tr>
+</table>
 
 ---
 
-## The Template
+## 🗺️ Template
 
 ```markdown
 ## What I Want To Build
 
 [Describe your project in plain language. What does it do? Who is it for?]
 
-## Tech Stack (optional)
+## Done Looks Like
 
-[List any preferences — languages, frameworks, tools. Leave blank if you want the AI to recommend.]
+[How will you know it's complete? What's the minimum viable outcome?]
 
-## Constraints
+## How To Work With Me
 
-[Any limitations — budget, timeline, must-use tools, must-avoid approaches.]
-
-## Success Looks Like
-
-[How will you know it's done? What's the minimum viable outcome?]
+Read `tmwtty/00-introduction.md` for the methodology.
+Build the plan interactively — propose items one at a time, I'll approve or adjust.
+Then execute each item using TMWTTY (tell me what to tell you for each step).
+Document every step in `tutorial/` as we go.
 ```
 
 ---
 
-## Example (filled in)
+## 📝 Example (filled in)
 
 ```markdown
 ## What I Want To Build
 
-An MCP server that returns the top 5 performing stocks of the day.
-It should have a Python backend using FastMCP, a TypeScript client,
-and a simple React UI to display the results.
+An MCP server that returns the top 5 performing stocks of the day,
+with a TypeScript client and a simple React UI to display the results.
 
-## Tech Stack
-
-- Python 3.11+ with FastMCP
-- TypeScript with strict mode
-- React + Vite for the UI
-- Pytest for backend tests
-- Playwright for E2E tests
-
-## Constraints
-
-- Must use GitHub Copilot as the only AI tool
-- Must follow spec-driven development
-- Should be completable in under 10 hours
-
-## Success Looks Like
+## Done Looks Like
 
 - MCP server responds with 5 stock tickers + prices
 - UI displays them in a clean table
 - All tests pass
 - Anyone can clone and run it locally
+
+## How To Work With Me
+
+Read `tmwtty/00-introduction.md` for the methodology.
+Build the plan interactively — propose items one at a time, I'll approve or adjust.
+Then execute each item using TMWTTY (tell me what to tell you for each step).
+Document every step in `tutorial/` as we go.
 ```
 
 ---
 
-## What Happens Next
+## ▶️ What Happens Next
 
-After you give this to your AI agent, it will generate a **structured plan** (see [`03-plan-format.md`](./03-plan-format.md)) that breaks your seed into actionable items.
+Give this to your AI agent. It will:
+
+1. Read the introduction to understand TMWTTY
+2. Interview you to build the plan (Interactive mode)
+3. Execute each plan item using the TMWTTY loop
+4. Document steps in `tutorial/` as it goes

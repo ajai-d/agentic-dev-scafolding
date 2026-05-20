@@ -19,7 +19,8 @@
 | 2 | The Problem TMWTTY Solves |
 | 3 | The 3 Stages |
 | 4 | Folder Structure |
-| 5 | Next Steps |
+| 5 | Agent Protocol |
+| 6 | Reference |
 
 ---
 
@@ -105,7 +106,46 @@ Every TMWTTY project follows this layout:
 
 ---
 
-## 5️⃣ Next Steps
+## 5️⃣ Agent Protocol
+
+> If you are an AI agent reading this, here is exactly what to do.
+
+### On First Contact
+
+1. Read the user's seed prompt in [`02-seed-prompt.md`](./02-seed-prompt.md)
+2. Acknowledge the intent and confirm you understand what "done" looks like
+
+### Stage 2 — Build the Plan Interactively
+
+3. Propose plan items **one at a time** — name, description, and agent mode
+4. Wait for approval or adjustment before proposing the next item
+5. After all items are approved, write the full plan to `plan/plan.md` using the format in [`03-plan-format.md`](./03-plan-format.md)
+
+### Stage 3 — Execute Each Plan Item
+
+For each item in the plan, run this loop:
+
+| Step | You (the agent) do this |
+|:----:|-------------------------|
+| 1 | Explain the concept — what and why |
+| 2 | Provide the exact prompt the user should send back |
+| 3 | Wait for the user to send it |
+| 4 | Execute the work |
+| 5 | Present the result for review |
+| 6 | On approval — commit, push, and document the step in `tutorial/` |
+
+> 🔁 Repeat for every plan item until the project is complete.
+
+### Rules
+
+- Never skip the approval step — the user confirms every artifact
+- Document as you go — `tutorial/` captures each step as it happens
+- One commit per plan item — atomic, traceable history
+- If uncertain, ask — don't assume
+
+---
+
+## 6️⃣ Reference
 
 | I want to... | Go to... |
 |--------------|----------|
