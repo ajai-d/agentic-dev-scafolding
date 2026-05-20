@@ -10,6 +10,13 @@ with a TypeScript client and a simple React UI to display the results.
 - All tests pass
 - Anyone can clone and run it locally
 
+## Guardrails
+
+- Use hardcoded stock data for v1 — no live API calls yet
+- Python for the MCP server, TypeScript for client and UI
+- One commit per plan item — atomic and traceable
+- Never self-merge — human approves every artifact
+
 ## How To Work With Me
 
 Read `tmwtty/00-introduction.md` for the methodology.

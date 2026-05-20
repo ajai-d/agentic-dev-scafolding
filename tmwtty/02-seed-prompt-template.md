@@ -21,6 +21,15 @@
 
 [How will you know it's complete? What's the minimum viable outcome?]
 
+## Guardrails (optional)
+
+[Constraints the agent must follow. Remove this section if not needed.]
+
+- Example: No external API calls — use hardcoded data for v1
+- Example: Python only — no JavaScript
+- Example: Must work offline
+- Example: Do not refactor existing code unless asked
+
 ## How To Work With Me
 
 Read `tmwtty/00-introduction.md` for the methodology.
