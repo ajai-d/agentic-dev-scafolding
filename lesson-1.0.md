@@ -101,6 +101,60 @@ git commit -m "chore: initialize repo with git config and MIT license"
 
 ---
 
+### Concept 7: `README.md`
+
+**What it is:** Your project's front door — the first thing anyone sees on GitHub. Explains what this is, how to get started, and what to expect.
+
+**Try it yourself — give your AI agent this prompt:**
+
+> Create a README.md that explains: this is a learning repo for Agentic SDLC, lists the course structure (link to 00-course.md), shows prerequisites (Git, Node, Python, GitHub account), and has a "Getting Started" section that tells people to clone and follow the lessons in order.
+
+**Expected result:** A [`README.md`](./README.md) with sections for course structure, prerequisites, getting started, and the TMWTTY™ learning model.
+
+---
+
+### Concept 8: `.env.example`
+
+**What it is:** Shows what environment variables the project needs — without actual secrets. Developers copy it to `.env` and fill in real values. `.gitignore` excludes `.env` but allows `.env.example`.
+
+**Try it yourself — give your AI agent this prompt:**
+
+> Create a `.env.example` file with placeholder entries for: `GITHUB_TOKEN`, `OPENAI_API_KEY`, and `STOCK_API_KEY`. Add a comment at the top explaining to copy it to `.env` and fill in real values.
+
+**Expected result:** A [`.env.example`](./.env.example) with commented instructions and placeholder values.
+
+---
+
+### Concept 9: Conventional Commits + PR Template
+
+**What it is:** Conventional Commits is a naming convention for commit messages: `type(scope): description`. A PR template auto-fills the description when opening a Pull Request.
+
+**Try it yourself — give your AI agent this prompt:**
+
+> Create `.github/PULL_REQUEST_TEMPLATE.md` with sections for: Summary (what changed), Type of change (checklist: feat/fix/docs/chore), How to test, and a Checklist (tests pass, docs updated, no secrets committed).
+
+**Expected result:** A [`.github/PULL_REQUEST_TEMPLATE.md`](./.github/PULL_REQUEST_TEMPLATE.md) that GitHub auto-fills on every new PR.
+
+---
+
+### Concept 10: Push to GitHub
+
+**What it is:** Publishing your local repo to GitHub so it's backed up, shareable, and collaborative.
+
+**Try it yourself — give your AI agent this prompt:**
+
+> Create a public GitHub repo called `agentic-dev-scaffolding` and push all local commits to it.
+
+**Or do it manually:**
+
+```powershell
+gh repo create agentic-dev-scaffolding --public --source=. --push
+```
+
+**Expected result:** Your repo is live at `https://github.com/<your-username>/agentic-dev-scaffolding`.
+
+---
+
 ## ✅ Lesson Complete
 
 After this lesson, your repo has:
@@ -110,5 +164,8 @@ After this lesson, your repo has:
 | `.gitignore` | Keeps junk out of version control |
 | `.gitattributes` | Consistent line endings across all OS |
 | `LICENSE` | MIT — open for anyone to use |
+| `README.md` | Project landing page |
+| `.env.example` | Secrets template (copy to `.env`) |
+| `.github/PULL_REQUEST_TEMPLATE.md` | Auto-fills PR descriptions |
 
-Your working tree is clean with one commit on `main`. You're ready for Lesson 1.1 (concepts) and Lesson 1.2 (the agent contract).
+Your working tree is clean, pushed to GitHub, and ready for Lesson 1.1 (concepts) and Lesson 1.2 (the agent contract).
