@@ -84,6 +84,12 @@
 - Filed v1.2 as `90-reference-comprehensive-curriculum.md` for future deep dives.
 - Fast Track is now the active learning path.
 
+### ✅ Replaced prompt anatomy with 6-element agentic framing (D-017)
+- Learner challenged the "goal + constraints + verification" framing and the 4S Framework.
+- Honest review: both were partial truths; 4S is dated for agentic work.
+- Adopted a **6-element anatomy**: Goal · Context · Specification · Sources · Guardrails · Verification.
+- 4S and comment-driven development kept as labeled side notes (apply to inline completions only).
+
 ---
 
 ## Next up

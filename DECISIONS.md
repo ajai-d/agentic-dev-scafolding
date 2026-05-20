@@ -228,3 +228,25 @@
   - Keep two separate active curricula (rejected — re-creates the confusion v1.0 had with the original charter+curriculum split).
   - Single 6-lesson minimal curriculum (rejected — under-serves the SDLC and multi-agent topics the learner explicitly called out).
 - **Revisit when:** Learner finishes Fast Track and wants to deepen, *or* asks to swap back to the comprehensive version.
+
+---
+
+## D-017 (2026-05-20) — Replace "goal + constraints + verification" / 4S Framework with the 6-element agentic prompt anatomy
+- **Context:** Earlier curriculum versions (v1.x and the initial Fast Track v2.0) defined the "anatomy of a good prompt" as either *"goal + constraints + verification"* (my own simplification) or the **4S Framework** (Single · Specific · Short · Surround) borrowed from the GH-300 reference. Learner challenged this; honest review showed both framings are partial truths.
+  - "Goal + constraints + verification" is a useful subset but misses **context, sources, and specification** as separate elements.
+  - **4S** is dated — it originated in the inline-completion era when token budgets were tight. "Short" is *often wrong* for agentic prompts, which routinely run 100+ words.
+  - **Comment-driven development** is genuinely effective — for inline completions. It does not apply to the agentic execution prompts we use throughout this course.
+- **Decision:** Adopt a **6-element agentic prompt anatomy** as the canonical framing in the Fast Track curriculum:
+  1. **Goal** — what to produce.
+  2. **Context** — what the agent should already know.
+  3. **Specification** — explicit requirements.
+  4. **Sources** — citations to trusted references.
+  5. **Guardrails** — what not to do.
+  6. **Verification** — how to prove it worked.
+  Keep **4S** and **comment-driven development** as labeled side notes, scoped to the inline-completion surface where they actually apply.
+- **Why:** Teach what works in practice for agentic work, not what's most-cited or catchy. Every prompt I wrote during this session uses 5 or 6 of these elements; only 2 or 3 of 4S.
+- **Alternatives considered:**
+  - Keep both frameworks side-by-side without ranking (rejected — invites confusion for beginners).
+  - Keep 4S as primary (rejected — empirically not how the prompts in this very session were written).
+  - Add ROLE/PERSONA and EXAMPLES as 7th and 8th elements (deferred — useful but not foundational; can mention in Phase 5).
+- **Revisit when:** Copilot or the broader industry adopts a different canonical framing that proves more useful in practice.

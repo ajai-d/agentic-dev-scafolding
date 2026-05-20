@@ -58,7 +58,14 @@ This is called **"Tell Me What To Tell You."** It is the same shape as **"Interv
 - The five core words: **Agent · Spec · Context · Tool · Loop.**
 - The three autonomy levels: **Interactive → Autopilot → Fleet.**
 - The 7 Copilot surfaces (completions, Chat, Inline Chat, Edits, Agent Mode, CLI, GitHub.com) — when to use each.
-- Anatomy of a good prompt: **goal + constraints + verification.**
+- **Anatomy of a good *agentic* prompt** — six elements; use what each prompt needs, not all of them:
+  1. **Goal** — what to produce.
+  2. **Context** — what the agent should know (stack, conventions, locked-in decisions).
+  3. **Specification** — explicit requirements (sections, fields, file names).
+  4. **Sources** — cite trusted references (e.g., GitHub templates, official docs).
+  5. **Guardrails** — what *not* to do (safety + scope).
+  6. **Verification** — how to prove it worked (show-before-commit, run tests).
+- *Side note:* The **4S Framework** (Single · Specific · Short · Surround) and **comment-driven development** are real techniques — but they apply to **inline completions**, not to the agentic execution prompts we write in this course. Mentioned for vocabulary; not the daily-driver pattern.
 
 **1.2 The Agent Contract** *(in progress)*
 *A repo so well-configured any agent can drop in and work safely.* Covers:
