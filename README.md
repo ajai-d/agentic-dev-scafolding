@@ -20,7 +20,8 @@ A **teaching repo** and a **reusable scaffolding template** in one. The lessons 
 
 | File | Purpose |
 |---|---|
-| [`00-course.md`](./00-course.md) | The single source of truth — charter (who/why/how) + full curriculum (8 phases, ~33 lessons). |
+| [`00-course.md`](./00-course.md) | The active learning path — Fast Track curriculum (10 lessons, ~6–8 hours). |
+| [`90-reference-comprehensive-curriculum.md`](./90-reference-comprehensive-curriculum.md) | Deep reference covering every Copilot feature (38 lessons). For dipping into when a project needs it. |
 | [`01-lesson-0-what-is-agentic-sdlc.md`](./01-lesson-0-what-is-agentic-sdlc.md) | The mental model. Start here for the *what* and *why*. |
 | [`02-running-use-case.md`](./02-running-use-case.md) | The "Top 5 Stocks" demo we build across every lesson. |
 | [`03-lesson-1-setup-repo.md`](./03-lesson-1-setup-repo.md) | Lesson 1 — repo setup, concept by concept (with the prompts that built each piece). |

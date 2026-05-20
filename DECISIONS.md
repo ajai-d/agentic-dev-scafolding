@@ -208,3 +208,23 @@
   - Defer governance topics to a v2.0 (rejected — they're foundational, not advanced).
   - Restructure into a cert-prep curriculum (rejected — learner doesn't care about the cert).
 - **Revisit when:** Copilot launches new surfaces, plan tiers shift again, or the Token-Based Billing rollout (June 2026) materially changes economics.
+
+---
+
+## D-016 (2026-05-19) — Switch active learning path to a Fast Track curriculum (v2.0); file v1.2 as reference
+- **Context:** Learner reviewed the comprehensive v1.2 curriculum (8 phases, ~38 lessons, ~21–24 hours) and found it overwhelming. Wanted a simpler curriculum focused on **core concepts only**: spec-driven development, agentic dev basics, full SDLC, autonomous agents, multi-agent orchestration, plus "anything I'm missing."
+- **Decision:**
+  - Create a **Fast Track curriculum** (`00-course.md` v2.0) — 6 phases, **10 lessons**, ~6–8 hours total.
+  - Rename the existing comprehensive curriculum to `90-reference-comprehensive-curriculum.md` (filed at the back of the repo).
+  - Fast Track is the **active learning path**. Comprehensive is a **deep reference** to dip into when a real project needs more depth.
+  - Topics covered in Fast Track: agent loop & surfaces, agent contract (instructions + memory + tools), Interview Me spec pattern, spec→tasks→code, full SDLC build & verify, Cloud Agent, 5 multi-agent patterns, Custom Agents (Planner/Coder/Reviewer), and one combined "production realities" lesson covering cost/governance/security/responsibility.
+  - Topics deferred to reference: path-specific instructions, prompt files, MCP server authoring from scratch, skill packaging, stuck-agent recovery, Copilot Spaces, fleet orchestration, multi-model strategy detail, IP indemnity deep dive.
+- **Why:**
+  - Cognitive load — 38 lessons feels like a course; 10 lessons feels like a journey.
+  - Most learners will never need the deep reference *until they need it*; better to have it available than mandatory.
+  - The skipped topics are still 1 file away — discoverable, never lost.
+- **Alternatives considered:**
+  - Trim v1.2 in place (rejected — destroys the reference value).
+  - Keep two separate active curricula (rejected — re-creates the confusion v1.0 had with the original charter+curriculum split).
+  - Single 6-lesson minimal curriculum (rejected — under-serves the SDLC and multi-agent topics the learner explicitly called out).
+- **Revisit when:** Learner finishes Fast Track and wants to deepen, *or* asks to swap back to the comprehensive version.

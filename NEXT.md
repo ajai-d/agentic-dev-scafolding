@@ -14,7 +14,13 @@
 
 ## 👉 The very next thing to do
 
-**Lesson 1 → Concept #6: `AGENTS.md`** — the universal agent contract written to the `agents.md` open standard. This is the biggest concept in Lesson 1. (Curriculum lesson **1.2** in `00-course.md` v1.2.)
+**Lesson 1.2 (Agent Contract) → next sub-step: `AGENTS.md`** — the universal agent contract.
+
+Per Fast Track v2.0, Lesson 1.2 is the single combined "Agent Contract" lesson. We are mid-way through it:
+- ✅ Foundation files (Git, `.gitignore`, `.gitattributes`, `LICENSE`, `README`).
+- ✅ Memory files (`PROGRESS`, `DECISIONS`, `NEXT`).
+- ⏳ **Next:** `AGENTS.md`.
+- After that: `.github/copilot-instructions.md` → Conventional Commits + PR template → `.env.example` → push to GitHub → Hello Agent task.
 
 ---
 

@@ -75,10 +75,14 @@
 ### ✅ Course doc consolidated; curriculum locked at v1.2
 - v1.0: Researched 2025–2026 best practices; merged charter + curriculum; added 6 lessons from initial audit (D-008–D-013).
 - v1.1: Added Tools & Skills coverage — 0.5, 1.6, 4.2 (renamed), 6.5 (D-014).
-- **v1.2: Incorporated GH-300 reference guide** (D-015):
-  - New lessons: 0.4 (Chat power moves), 5.8 (Responsible AI 6 principles).
-  - Enriched lessons: 0.2 (all 7 surfaces), 0.3 (4S Framework + comment-driven dev), 5.1 (tautological test trap), 5.5 (content exclusions + IP indemnity + secure SDLC pipeline), 8.1 (plan tiers + Token-Based Billing transition).
-- Curriculum locked at **v1.2**. Course now has ~38 lessons across 8 phases.
+- v1.2: Incorporated GH-300 reference guide — added 0.4, 5.8; enriched 0.2, 0.3, 5.1, 5.5, 8.1 (D-015).
+- Curriculum at v1.2 had ~38 lessons across 8 phases.
+
+### ✅ Switched to Fast Track curriculum (v2.0)
+- Learner found v1.2 overwhelming.
+- Created **Fast Track v2.0** at `00-course.md`: 6 phases, 10 lessons, ~6–8 hours (D-016).
+- Filed v1.2 as `90-reference-comprehensive-curriculum.md` for future deep dives.
+- Fast Track is now the active learning path.
 
 ---
 
