@@ -112,3 +112,8 @@ $RECYCLE.BIN/
 # ─────────────────────────────────────────────────────────────
 *.log
 logs/
+
+# Local reference material (kept on disk, not committed)
+GitHub Copilot Mastery*.html
+references/
+*.local.md
