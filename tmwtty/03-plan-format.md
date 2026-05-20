@@ -19,17 +19,17 @@
 
 [Which modes will be used — see 04-agent-modes.md]
 
-- **Interactive** — for decisions, setup, and approval-heavy steps
-- **Autopilot** — for well-defined implementation tasks
-- **Fleet** — for parallelizable work (e.g., build + test simultaneously)
+- **Interactive** — Agent mode in VS Code, TMWTTY loop with approval at every step
+- **Autonomous** — Coding Agent (cloud), assign issue and review PR
+- **Parallel** — Multiple Coding Agents, independent items run simultaneously
 
 ## Plan Items
 
 | # | Item | Agent Mode | Description | Status |
 |---|------|-----------|-------------|--------|
 | 1 | ... | Interactive | ... | ⬜ |
-| 2 | ... | Autopilot | ... | ⬜ |
-| 3 | ... | Fleet | ... | ⬜ |
+| 2 | ... | Autonomous | ... | ⬜ |
+| 3 | ... | Parallel | ... | ⬜ |
 
 ## Dependencies
 
