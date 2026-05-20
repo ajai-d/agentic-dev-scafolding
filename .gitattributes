@@ -37,3 +37,7 @@
 *.ico      binary
 *.pdf      binary
 *.zip      binary
+*.woff     binary
+*.woff2    binary
+*.ttf      binary
+*.otf      binary
