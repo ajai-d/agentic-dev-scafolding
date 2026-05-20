@@ -97,6 +97,11 @@
 - Skill packaging → new 5.3 *Skill packaging — bundle instructions + prompt + tool.*
 - Fast Track bumped v2.0 → **v2.1**. Now 12 lessons, ~7–9 hours.
 
+### ✅ Added Lesson 3.3 — Review It (D-019)
+- Honest audit surfaced a real gap: the "humans govern outcomes" half of the Golden Rule had no dedicated teaching.
+- Added **Lesson 3.3 — Review It (Govern Agent Output)** with: 5 AI-specific traps, 4-question review checklist, mindset shift, hands-on with a deliberately-flawed PR + Copilot Code Review.
+- Fast Track bumped v2.1 → **v2.2**. Now 13 lessons, ~8–10 hours.
+
 ---
 
 ## Next up

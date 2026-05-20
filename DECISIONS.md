@@ -270,3 +270,20 @@
   - Add them as a new Phase (rejected — adding phases breaks the lean shape; folding them into existing phases preserves coherence).
   - Cover only some (rejected — the three are a natural trilogy: layered instructions → reusable prompts → packaged skills).
 - **Revisit when:** Copilot deprecates or renames any of the underlying file formats.
+
+---
+
+## D-019 (2026-05-20) — Add Lesson 3.3 — Review It (Govern Agent Output)
+- **Context:** Honest audit revealed that the "humans govern outcomes" half of the Golden Rule was never taught explicitly. Learners had no toolkit for the AI-specific failure modes that look fine on the surface and fail subtly underneath.
+- **Decision:** Add a standalone **Lesson 3.3 — Review It (Govern Agent Output)** at the end of Phase 3, immediately after *Verify It*. Phase 3 grows from 2 → 3 lessons. Fast Track total: 12 → 13 lessons, ~7–9 → ~8–10 hours.
+- **Content:**
+  - **5 AI-specific traps:** invented APIs · plausible-but-wrong logic · tautological tests · over-eager refactor · missing edge case.
+  - **4-question review checklist:** Does it run? · Does it match intent? · Is it secure? · Does it match conventions?
+  - **Mindset:** read AI code like a senior reviewing a junior; *guilty until proven innocent.*
+  - **Hands-on:** a deliberately-flawed PR for the Stocks demo + enabling Copilot Code Review.
+- **Why:** Reviewing AI-generated code is a *distinct* skill from reviewing human-written code. Without it, learners either over-trust (ship bugs) or over-distrust (lose the speed advantage). This is arguably the single most important practical skill in the course.
+- **Alternatives considered:**
+  - Fold into 3.2 (Verify) — rejected; not enough visibility, and the topic deserves its own lesson card.
+  - Skip — rejected; this is the actionable form of governance, the third leg of the Golden Rule.
+  - Add hallucination naming + recovery patterns at the same time — deferred to a future bump (learner chose to add just this one for now).
+- **Revisit when:** Copilot Code Review's capabilities materially change, or new AI failure modes become dominant.

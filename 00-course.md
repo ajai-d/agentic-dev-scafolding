@@ -7,7 +7,7 @@
 
 | | |
 |---|---|
-| **Version** | 2.1 (Fast Track) |
+| **Version** | 2.2 (Fast Track) |
 | **Date** | 2026-05-20 |
 | **Tooling** | GitHub Copilot ecosystem only |
 | **Status** | 🚧 Phase 1 in progress |
