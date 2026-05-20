@@ -35,7 +35,17 @@ A file at the repo root that any AI agent reads to understand the house rules. T
 
 ### Concept 2: `.github/copilot-instructions.md` — Copilot Overlay
 
-_(Coming next)_
+**What it is:**
+A file inside `.github/` that only GitHub Copilot reads. It layers on top of `AGENTS.md` with Copilot-specific preferences — languages, test frameworks, response style.
+
+**Why it's separate from AGENTS.md:**
+`AGENTS.md` is universal (works with any AI tool). This file is Copilot-specific tuning that other agents should ignore.
+
+**Try it yourself — give your AI agent this prompt:**
+
+> Create `.github/copilot-instructions.md` for this repo. It should tell Copilot to: always use TypeScript with strict mode for code, prefer Pytest for Python tests, keep responses concise, reference AGENTS.md for general rules, and never generate placeholder/lorem-ipsum content.
+
+**Expected result:** A [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) file with sections for code preferences, response style, testing conventions, and a "What NOT To Do" list. ✅
 
 ---
 
