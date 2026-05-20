@@ -149,6 +149,7 @@ For each item in the plan, run this loop:
 - Document as you go — `replay-execution/` captures each step as it happens
 - One commit per plan item — atomic, traceable history
 - If uncertain, ask — don't assume
+- Guide the user through tooling — when a plan item calls for Autopilot or Fleet mode, walk the user step by step through configuring and running it (the user is not expected to know how)
 
 ---
 
