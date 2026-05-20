@@ -101,7 +101,7 @@
 #### 📘 Lesson 1.1 — What is Agentic SDLC?
 
 > **Outcome:** You can explain agentic dev to a colleague in one minute.
-> **Status:** ⏳ Next up
+> **Status:** ✅ Done — see [`lesson-1.1.md`](./lesson-1.1.md)
 
 **Covers**
 - The **Golden Rule** — intent · execute · govern.
@@ -371,16 +371,14 @@ Every lesson follows the same shape:
 
 ## 6. Where We Are Now
 
-🆕 **Fresh start.** All prior artifacts archived in [`./archive/`](./archive/).
-
 | Phase | Status |
 |---|---|
-| **1.1** What is Agentic SDLC? | ⏳ **Next up** |
-| **1.2** The Agent Contract | ⏳ |
+| **1.1** What is Agentic SDLC? | ✅ Done — [`lesson-1.1.md`](./lesson-1.1.md) |
+| **1.2** The Agent Contract | ⏳ **Next up** |
 | **1.3** Prompt Files | ⏳ |
 | Phase 2 → 6 | ⏳ |
 
-> The fresh memory files (`PROGRESS.md` · `DECISIONS.md` · `NEXT.md`) will be created as part of Lesson 1.2 (Agent Contract).
+> The memory files (`PROGRESS.md` · `DECISIONS.md` · `NEXT.md`) will be created as part of Lesson 1.2.
 
 ---
 
