@@ -79,14 +79,14 @@
 
 | # | Phase | Lessons | Outcome |
 |---|---|:---:|---|
-| **1** | Mental Model | 3 | Speak the language; build the agent contract; ship a first skill |
+| **1** | Mental Model | 4 | Set up the environment; speak the language; build the agent contract; ship a first skill |
 | **2** | Spec-Driven Development | 2 | Write specs an agent can execute |
 | **3** | Full SDLC *(the demo)* | 3 | Build · verify · review agent output critically |
 | **4** | Autonomous Agents | 1 | Hand off an issue, get a draft PR back |
 | **5** | Multi-Agent Orchestration | 3 | Agents collaborate; package the team as a skill |
 | **6** | Production Realities | 1 | Cost · Security · Governance · Responsibility |
 
-**Total:** 13 lessons · ~8–10 hours · each producing one commit.
+**Total:** 14 lessons · ~8–10 hours · each producing one commit.
 
 ---
 
@@ -95,6 +95,21 @@
 > Each lesson is **atomic**: one concept, one prompt, one commit. Stop after any lesson without losing your place.
 
 ### Phase 1 — The Mental Model
+
+---
+
+#### 📘 Lesson 1.0 — Environment Setup
+
+> **Outcome:** A local Git repo ready for agentic development — folder, `git init`, foundation files.
+> **Status:** ⏳ Documenting — see [`lesson-1.0.md`](./lesson-1.0.md)
+
+**Covers**
+- Create project folder
+- Initialize Git (`git init`, default branch = `main`)
+- `.gitignore` — what to keep out of version control
+- `.gitattributes` — consistent line endings across OS
+- `LICENSE` — MIT for open sharing
+- First commit
 
 ---
 
