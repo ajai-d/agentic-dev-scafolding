@@ -26,7 +26,7 @@
 Read `tmwtty/00-introduction.md` for the methodology.
 Build the plan interactively — propose items one at a time, I'll approve or adjust.
 Then execute each item using TMWTTY (tell me what to tell you for each step).
-Document every step in `tutorial/` as we go.
+Document every step in `replay-execution/` as we go.
 ```
 
 ---

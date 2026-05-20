@@ -31,7 +31,7 @@ TMWTTY is a structured, 3-stage framework for AI-assisted software development. 
 
 > **Seed → Plan → Execute**
 
-Every step is documented as it's executed — producing both working software and a built-in history of how it was built. The result is a reusable tutorial that any engineer, regardless of experience level, can follow to reproduce the same outcome.
+Every step is documented as it's executed — producing both working software and a built-in history of how it was built. The result is a reusable replay-execution log that any engineer, regardless of experience level, can follow to reproduce the same outcome.
 
 ---
 
@@ -40,12 +40,12 @@ Every step is documented as it's executed — producing both working software an
 | Challenge | Without TMWTTY | With TMWTTY |
 |-----------|----------------|-------------|
 | "I don't know what to ask the AI" | Trial and error | AI provides the exact prompt |
-| "My process isn't repeatable" | Knowledge lives in someone's head | Every step captured in a tutorial |
+| "My process isn't repeatable" | Knowledge lives in someone's head | Every step captured in a replay-execution log |
 | "Others can't onboard quickly" | Tribal knowledge, shadowing | Self-service playbook anyone can follow |
 | "I don't know which AI mode to use" | Chat for everything | Plan assigns the right mode per task |
 | "Quality varies by person" | Inconsistent prompting | Standardized prompts, consistent output |
 | "I lost track of what was done" | Reconstruct from memory | Built-in history with decisions documented |
-| "Starting a new project from scratch" | Reinvent every time | Fork a tutorial, adapt, ship faster |
+| "Starting a new project from scratch" | Reinvent every time | Fork a replay-execution, adapt, ship faster |
 
 ---
 
@@ -103,13 +103,13 @@ Every TMWTTY project follows this layout:
 | `tmwtty/` | The methodology reference (you're reading it) |
 | `plan/` | The structured plan for this project |
 | `project/` | Production source code |
-| `tutorial/` | Step-by-step playbook captured during execution |
+| `replay-execution/` | Step-by-step playbook captured during execution |
 
 ---
 
 ## 5️⃣ Philosophy
 
-The methodology is intentionally minimal — it's a conversation protocol, not a prescription. The agent and user negotiate the details (tutorial format, commit conventions, folder structure) during the interactive plan-building phase. Every project decides its own specifics through the TMWTTY loop.
+The methodology is intentionally minimal — it's a conversation protocol, not a prescription. The agent and user negotiate the details (execution-log format, commit conventions, folder structure) during the interactive plan-building phase. Every project decides its own specifics through the TMWTTY loop.
 
 ---
 
@@ -139,14 +139,14 @@ For each item in the plan, run this loop:
 | 3 | Wait for the user to send it |
 | 4 | Execute the work |
 | 5 | Present the result for review |
-| 6 | On approval — commit, push, and document the step in `tutorial/` |
+| 6 | On approval — commit, push, and document the step in `replay-execution/` |
 
 > 🔁 Repeat for every plan item until the project is complete.
 
 ### Rules
 
 - Never skip the approval step — the user confirms every artifact
-- Document as you go — `tutorial/` captures each step as it happens
+- Document as you go — `replay-execution/` captures each step as it happens
 - One commit per plan item — atomic, traceable history
 - If uncertain, ask — don't assume
 

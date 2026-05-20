@@ -15,7 +15,7 @@ A real project built from scratch using TMWTTY — a 3-stage methodology for wor
 | [`tmwtty/`](./tmwtty/) | The methodology — how TMWTTY works |
 | [`plan/`](./plan/) | The structured plan for this project |
 | [`project/`](./project/) | Source code |
-| [`tutorial/`](./tutorial/) | Step-by-step playbook captured during execution |
+| [`replay-execution/`](./replay-execution/) | Step-by-step playbook captured during execution |
 | [`archive/`](./archive/) | Prior iterations and reference material |
 
 ## Getting Started
@@ -24,7 +24,7 @@ A real project built from scratch using TMWTTY — a 3-stage methodology for wor
 2. Follow [`tmwtty/01-getting-started.md`](./tmwtty/01-getting-started.md) — it walks you through
 3. Fill in [`tmwtty/02-seed-prompt-template.md`](./tmwtty/02-seed-prompt-template.md) — state what you want to build
 4. Generate and approve your plan in `plan/plan.md`
-5. Execute — code goes to `project/`, steps recorded in `tutorial/`
+5. Execute — code goes to `project/`, steps recorded in `replay-execution/`
 
 ## License
 

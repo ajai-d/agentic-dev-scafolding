@@ -31,7 +31,7 @@ That's it. The agent will:
 1. Read the methodology
 2. Interview you to build the plan interactively
 3. Execute each item using the TMWTTY loop
-4. Document everything in `tutorial/`
+4. Document everything in `replay-execution/`
 
 ---
 
