@@ -1,7 +1,7 @@
 # 🚀 Agentic SDLC Course — Fast Track
 
 > **The simple, focused learning path.**
-> 12 lessons · 6 phases · ~7–9 hours · each ends with a commit.
+> 13 lessons · 6 phases · ~8–10 hours · each ends with a commit.
 >
 > For the deep reference, see [`90-reference-comprehensive-curriculum.md`](./90-reference-comprehensive-curriculum.md).
 
@@ -10,7 +10,7 @@
 | **Version** | 2.2 (Fast Track) |
 | **Date** | 2026-05-20 |
 | **Tooling** | GitHub Copilot ecosystem only |
-| **Status** | 🚧 Phase 1 in progress |
+| **Status** | 🆕 Fresh start — about to begin Lesson 1.1 |
 
 ---
 
@@ -81,12 +81,12 @@
 |---|---|:---:|---|
 | **1** | Mental Model | 3 | Speak the language; build the agent contract; ship a first skill |
 | **2** | Spec-Driven Development | 2 | Write specs an agent can execute |
-| **3** | Full SDLC *(the demo)* | 2 | Build + verify a real working app end-to-end |
+| **3** | Full SDLC *(the demo)* | 3 | Build · verify · review agent output critically |
 | **4** | Autonomous Agents | 1 | Hand off an issue, get a draft PR back |
 | **5** | Multi-Agent Orchestration | 3 | Agents collaborate; package the team as a skill |
 | **6** | Production Realities | 1 | Cost · Security · Governance · Responsibility |
 
-**Total:** 12 lessons · ~7–9 hours · each producing one commit.
+**Total:** 13 lessons · ~8–10 hours · each producing one commit.
 
 ---
 
@@ -210,6 +210,41 @@
 - GitHub Actions CI on every PR.
 - ⚠️ The **tautological test trap** — tests that always pass.
 - Your first real Pull Request: review → approve → merge.
+
+---
+
+#### 📘 Lesson 3.3 — Review It (Govern Agent Output)
+
+> **Outcome:** You can read AI-generated code the way a senior reviews a junior's first PR.
+> **Why it matters:** This is the *"humans govern outcomes"* half of the Golden Rule. The most important practical skill in the course.
+
+**The 5 AI-specific traps**
+
+| # | Trap | Smell |
+|:-:|---|---|
+| 1 | **Invented APIs** | Calls to functions that *should* exist but don't (or wrong signature) |
+| 2 | **Plausible-but-wrong logic** | Looks like a senior wrote it; quietly does the wrong thing |
+| 3 | **Tautological tests** | Always pass; tell you nothing |
+| 4 | **Over-eager refactor** | You asked for 1 line; got changes to 12 files |
+| 5 | **Missing edge case** | Happy path only; empty list / network failure / unicode untested |
+
+**The 4-question review checklist**
+
+| # | Question |
+|:-:|---|
+| 1 | **Does it run?** |
+| 2 | **Does it do what was asked?** (matches *intent*, not just compiles) |
+| 3 | **Is it secure?** (secrets · scope · imports) |
+| 4 | **Does it match our conventions?** |
+
+**The mindset**
+
+> Read AI code the way a senior engineer reads a junior's first PR.
+> *Polite. Specific. Skeptical.* Treat every diff as **guilty until proven innocent.**
+
+**Hands-on**
+- I deliberately ship a flawed PR for the Stocks demo. You find the trap(s).
+- Enable **Copilot Code Review** as a second pair of eyes — and learn its limits.
 
 ---
 
@@ -348,6 +383,7 @@ Every lesson follows the same shape:
 | ⤷ Push to GitHub + branch protection | ⏳ |
 | ⤷ Hello-Agent task | ⏳ |
 | **1.3** Prompt Files | ⏳ |
+| **3.3** Review It (govern agent output) | ⏳ *(added in v2.2)* |
 | Phase 2 → 6 | ⏳ |
 
 See [`NEXT.md`](./NEXT.md) for the exact prompt to send next.
@@ -386,5 +422,6 @@ If context is ever lost, read these in order:
 
 | Version | Date | Highlights |
 |---|---|---|
+| **v2.2** | 2026-05-20 | Added Lesson 3.3 — *Review It (govern agent output).* The "humans govern outcomes" half of the Golden Rule, taught explicitly. |
 | **v2.1** | 2026-05-20 | Better formatting + lesson cards. Added path-specific instructions (1.2), prompt files (1.3), skill packaging (5.3). |
 | **v2.0** | 2026-05-19 | Fast Track curriculum introduced. v1.2 filed as `90-reference-comprehensive-curriculum.md`. |
