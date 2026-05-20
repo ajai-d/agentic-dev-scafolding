@@ -72,16 +72,13 @@
 - Learner approved.
 - Committed as `docs: add README.md`.
 
-### ✅ Course doc consolidated; curriculum locked at v1.1
-- v1.0: Researched 2025–2026 best practices (GitHub Copilot CLI/Coding Agent/instructions/setup-steps, `agents.md`, Spec Kit, MCP, multi-agent patterns).
-- Decided "Interview Me" pattern over Spec Kit (D-008).
-- Decided Copilot-only (D-009).
-- Decided cost lessons late (D-010), no graduation project (D-011).
-- Removed non-Copilot vendor references (D-012).
-- Merged `00-learning-charter.md` and `04-curriculum.md` into single `00-course.md` (D-013).
-- v1.0 added 6 best-practice lessons: 1.7 (issue templates, was 1.6), 4.4, 5.5, 5.6, 6.3, 7.4.
-- **v1.1 added Tools & Skills coverage** (D-014): 0.4 (Tools/Skills concept), 1.6 (Prompt files), 4.2 renamed to "Build your own MCP tools", 6.5 (Skill packaging).
-- Curriculum locked at **v1.1**. Course now has ~36 lessons across 8 phases.
+### ✅ Course doc consolidated; curriculum locked at v1.2
+- v1.0: Researched 2025–2026 best practices; merged charter + curriculum; added 6 lessons from initial audit (D-008–D-013).
+- v1.1: Added Tools & Skills coverage — 0.5, 1.6, 4.2 (renamed), 6.5 (D-014).
+- **v1.2: Incorporated GH-300 reference guide** (D-015):
+  - New lessons: 0.4 (Chat power moves), 5.8 (Responsible AI 6 principles).
+  - Enriched lessons: 0.2 (all 7 surfaces), 0.3 (4S Framework + comment-driven dev), 5.1 (tautological test trap), 5.5 (content exclusions + IP indemnity + secure SDLC pipeline), 8.1 (plan tiers + Token-Based Billing transition).
+- Curriculum locked at **v1.2**. Course now has ~38 lessons across 8 phases.
 
 ---
 

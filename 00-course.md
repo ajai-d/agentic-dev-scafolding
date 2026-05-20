@@ -2,7 +2,7 @@
 
 > The one document that says **who we are, how we work, and what we'll learn — in order.**
 > Replaces the earlier separate "learning charter" and "curriculum" files.
-> **Version:** 1.1 · **Date:** 2026-05-19 · **Tooling scope:** GitHub Copilot ecosystem only.
+> **Version:** 1.2 · **Date:** 2026-05-19 · **Tooling scope:** GitHub Copilot ecosystem only.
 
 ---
 
@@ -87,9 +87,10 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 | # | Lesson | Outcome |
 |---|---|---|
 | **0.1** | What is Agentic SDLC? *(done — Lesson 0)* | Mental model: humans set intent, agents execute, humans govern. |
-| **0.2** | The Agent Surface Map — Copilot autocomplete vs. Chat vs. CLI vs. Cloud Agent | Decision framework for which surface to use when. |
-| **0.3** | Anatomy of a good prompt — *goal + constraints + verification* | A reusable prompt template you'll use forever. |
-| **0.4** | Tools, Skills & the Agent's Toolbox | What "tools" and "skills" mean; instructions tell agents *how*, tools give them *what they can do*. |
+| **0.2** | **Copilot Surfaces** — completions, Chat, Inline Chat (`Ctrl+I`), Copilot Edits, Agent Mode, Copilot CLI, GitHub.com integrations | Decision framework for which surface to use when. |
+| **0.3** | **Anatomy of a good prompt** — *goal + constraints + verification*, the **4S Framework** (Single · Specific · Short · Surround), and **comment-driven development** (write the docstring first) | A reusable prompt template + the most effective prompt-engineering technique. |
+| **0.4** | **Chat power moves** — slash commands (`/explain`, `/fix`, `/tests`, `/doc`, `/new`, `/clear`) and context references (`@workspace`, `#file`, `#selection`, `#editor`, `#terminalLastCommand`) | Daily-driver fluency with Copilot Chat. |
+| **0.5** | **Tools, Skills & the Agent's Toolbox** | What "tools" and "skills" mean; instructions tell agents *how*, tools give them *what they can do*. |
 
 ---
 
@@ -163,13 +164,14 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 
 | # | Lesson | Outcome |
 |---|---|---|
-| **5.1** | Verification-first prompting — "write a failing test, then fix it" | A muscle memory that catches plausible-looking bugs. |
+| **5.1** | Verification-first prompting — "write a failing test, then fix it" + the **tautological test trap** (tests that always pass) | Muscle memory that catches plausible-looking bugs. |
 | **5.2** | CI as the eval harness — GitHub Actions runs tests on every agent PR | Green-before-merge is enforced, not requested. |
 | **5.3** | `.github/workflows/copilot-setup-steps.yml` — pre-bake the cloud agent's environment | Cloud Agent runs with the same deps as local. |
 | **5.4** | Sandboxing — devcontainers, permission allowlists, scoped tools | Agents can't accidentally touch what they shouldn't. |
-| **5.5** | Security considerations — prompt injection, data exfiltration, secret leakage | A short threat-model for agent-authored code. |
+| **5.5** | **Security & content exclusions** — prompt injection, data exfiltration, secret leakage; **content exclusion patterns** (`**/*.env`, `secrets/**`, `vendor/**`); **duplication detection filter** + **IP indemnity** prerequisites; the secure SDLC pipeline (Code Gen → Human Review → SAST → Peer Review → Merge) | A complete threat-model + governance layer for agent-authored code. |
 | **5.6** | Handling stuck or runaway agents — when to stop, how to redirect | Recovery patterns when an agent loops or drifts. |
 | **5.7** | Quality metrics — task success, intervention rate, defect escape, $/PR | A dashboard of agent trust. |
+| **5.8** | **Microsoft's 6 Responsible AI principles** — Fairness, Reliability & Safety, Privacy & Security, Inclusiveness, Transparency, Accountability | A short framing of *you are the author of record*. |
 
 ---
 
@@ -207,9 +209,9 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 
 | # | Lesson | Outcome |
 |---|---|---|
-| **8.1** | Premium request economics | Read your usage page; understand multipliers; spot waste. |
+| **8.1** | **Premium request economics + plan tiers** — Free / Pro / Pro+ / Business / Enterprise; per-model multipliers; the **Token-Based Billing transition** (effective June 1, 2026) | Read your usage page; understand multipliers; spot waste; know what's changing. |
 | **8.2** | Model selection strategy | A decision flowchart: which model for which task. |
-| **8.3** | Team workflows & governance — CODEOWNERS, agent labels, audit trail | Multi-developer + multi-agent without chaos. |
+| **8.3** | Team workflows & governance — CODEOWNERS, agent labels, audit logs (Business/Enterprise) | Multi-developer + multi-agent without chaos. |
 
 ---
 
@@ -240,7 +242,7 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 | Phase 6 | ~2.5 hours |
 | Phase 7 | ~2 hours |
 | Phase 8 | ~1.5 hours |
-| **Total** | **~19–22 hours**, ~36 lessons, each producing a commit. |
+| **Total** | **~21–24 hours**, ~38 lessons, each producing a commit. |
 
 ---
 
@@ -267,12 +269,17 @@ For full reasoning, see [`DECISIONS.md`](./DECISIONS.md). One-line summary:
 
 ## Part 8 — Best-Practices Coverage Audit
 
-This curriculum was audited against current (2025–2026) industry best practices. ✅ = covered; ⏳ = covered in a later phase; 🔍 = added during audit; ⭐ = added in v1.1 (Tools & Skills).
+This curriculum was audited against current (2025–2026) industry best practices and the GitHub Copilot Mastery (GH-300) reference. ✅ = covered; 🔍 = added during initial audit; ⭐ = added in v1.1 (Tools & Skills); 💎 = added in v1.2 (GH-300 incorporation).
 
 | Best practice | Where covered |
 |---|---|
-| **Tools concept** (function-calling, agent toolbox) | 0.4 ⭐ |
-| **Skills concept** (packaged capabilities) | 0.4 ⭐ |
+| Copilot surfaces (completions, Chat, Inline Chat, Edits, Agent, CLI, GitHub.com) | 0.2 💎 *(expanded)* |
+| 4S Framework (Single, Specific, Short, Surround) | 0.3 💎 |
+| Comment-driven development | 0.3 💎 |
+| Chat slash commands (`/explain`, `/fix`, `/tests`, `/doc`, `/new`, `/clear`) | 0.4 💎 |
+| Context references (`@workspace`, `#file`, `#selection`, `#editor`, `#terminalLastCommand`) | 0.4 💎 |
+| **Tools concept** (function-calling, agent toolbox) | 0.5 ⭐ |
+| **Skills concept** (packaged capabilities) | 0.5 ⭐ |
 | `AGENTS.md` (open standard) | 1.2 ✅ |
 | `.github/copilot-instructions.md` | 1.3 ✅ |
 | `.github/instructions/*.instructions.md` (path-specific) | 1.4 ✅ |
@@ -288,16 +295,21 @@ This curriculum was audited against current (2025–2026) industry best practice
 | Spec-Driven Development (Interview Me) | Phase 2 ✅ |
 | Spec → Tasks → Code pipeline | 2.5–2.6 ✅ |
 | MCP — concepts, third-party servers | Phase 4 ✅ |
-| **Building MCP tools** (designing a tool well) | 4.2 ⭐ (renamed/promoted) |
+| **Building MCP tools** (designing a tool well) | 4.2 ⭐ |
 | MCP servers configured in Copilot | 4.4 🔍 |
 | Verification-first prompting | 5.1 ✅ |
+| Tautological test trap | 5.1 💎 |
 | CI as eval harness | 5.2 ✅ |
 | Sandboxing & devcontainers | 5.4 ✅ |
 | Prompt-injection / security threat model | 5.5 🔍 |
+| Content exclusions (`.env`, `secrets/**`, `vendor/**`) | 5.5 💎 |
+| Duplication detection filter + IP indemnity | 5.5 💎 |
+| Secure SDLC pipeline (Code Gen → Review → SAST → Merge) | 5.5 💎 |
 | Handling stuck or runaway agents | 5.6 🔍 |
 | Quality metrics (success rate, intervention rate, $/PR) | 5.7 ✅ |
+| **Responsible AI 6 principles** (Fairness, Reliability, Privacy, Inclusiveness, Transparency, Accountability) | 5.8 💎 |
 | Industry workflow patterns (5 patterns) | 6.1 ✅ |
-| Copilot Custom Agents | 6.2 ✅ |
+| Copilot Custom Agents (`.agent.md` format) | 6.2 ✅ |
 | Copilot Spaces | 6.3 🔍 |
 | Cross-surface Copilot workflows | 6.4 ✅ |
 | **Skill packaging** (instructions + prompt + tool as one unit) | 6.5 ⭐ |
@@ -305,33 +317,45 @@ This curriculum was audited against current (2025–2026) industry best practice
 | Reviewing agent PRs | 7.3 ✅ |
 | Copilot Code Review | 7.4 🔍 |
 | Fleet orchestration | 7.5 ✅ |
-| Premium request economics | 8.1 ✅ |
+| Premium request economics + plan tiers (Free→Enterprise) | 8.1 💎 *(expanded)* |
+| Token-Based Billing transition (June 2026) | 8.1 💎 |
 | Model selection strategy | 8.2 ✅ |
-| CODEOWNERS, agent labels, audit | 8.3 ✅ |
+| CODEOWNERS, agent labels, audit logs | 8.3 ✅ |
 
 ---
 
-## Part 9 — Open Items ✅ Resolved at v1.1
+## Part 9 — Open Items ✅ Resolved at v1.2
 
-All audit additions accepted by the learner on 2026-05-19. Curriculum is **locked at v1.1**. Future changes require a new version + a new entry in `DECISIONS.md`.
+All audit additions accepted by the learner on 2026-05-19. Curriculum is **locked at v1.2**. Future changes require a new version + a new entry in `DECISIONS.md`.
 
 ### v1.0 additions (best-practices audit, 6 lessons)
 | Lesson | Status |
 |---|---|
-| 1.7 — Issue templates *(was 1.6 in v1.0)* | ✅ Accepted |
-| 4.4 — MCP in Copilot | ✅ Accepted |
-| 5.5 — Security threat model | ✅ Accepted |
-| 5.6 — Handling stuck agents | ✅ Accepted |
-| 6.3 — Copilot Spaces | ✅ Accepted *(may merge with 6.4 if Spaces feature shifts)* |
-| 7.4 — Copilot Code Review | ✅ Accepted |
+| 1.7 — Issue templates | ✅ |
+| 4.4 — MCP in Copilot | ✅ |
+| 5.5 — Security threat model | ✅ |
+| 5.6 — Handling stuck agents | ✅ |
+| 6.3 — Copilot Spaces | ✅ |
+| 7.4 — Copilot Code Review | ✅ |
 
 ### v1.1 additions (Tools & Skills, 3 lessons + 1 rename)
 | Lesson | Status |
 |---|---|
-| **0.4 — Tools, Skills & the Agent's Toolbox** | ⭐ Added in v1.1 |
-| **1.6 — Prompt files** | ⭐ Added in v1.1 |
-| **4.2 — Build your own MCP tools** *(renamed/promoted from "Refactor server with FastMCP")* | ⭐ Renamed in v1.1 |
-| **6.5 — Skill packaging** | ⭐ Added in v1.1 |
+| 0.5 — Tools, Skills & the Agent's Toolbox | ⭐ |
+| 1.6 — Prompt files | ⭐ |
+| 4.2 — Build your own MCP tools *(renamed)* | ⭐ |
+| 6.5 — Skill packaging | ⭐ |
+
+### v1.2 additions (GH-300 reference incorporation, 2 new lessons + enrichments)
+| Lesson | Status |
+|---|---|
+| **0.2 — Copilot Surfaces** *(expanded to include Inline Chat, Copilot Edits)* | 💎 |
+| **0.3 — Anatomy of a Prompt** *(added 4S Framework + comment-driven development)* | 💎 |
+| **0.4 — Chat power moves** *(new: slash commands + context references)* | 💎 |
+| **5.1 — Verification-first prompting** *(added tautological test trap)* | 💎 |
+| **5.5 — Security & content exclusions** *(expanded: content exclusions, duplication detection, IP indemnity, secure SDLC pipeline)* | 💎 |
+| **5.8 — Microsoft's 6 Responsible AI principles** *(new)* | 💎 |
+| **8.1 — Premium requests + plan tiers + TBB transition** *(expanded)* | 💎 |
 
 ---
 
@@ -348,5 +372,6 @@ If context is ever lost, read in this order — 5 minutes, full context restored
 ---
 
 *Change history:*
-*v1.1 (2026-05-19) — Tools & Skills coverage: added 0.4 (Tools, Skills & the Agent's Toolbox), 1.6 (Prompt files), 6.5 (Skill packaging); renamed 4.2 to "Build your own MCP tools — designing a tool well". Renumbered downstream Phase 1 lessons.*
+*v1.2 (2026-05-19) — GH-300 reference incorporation. Added 0.4 (Chat power moves), 5.8 (Responsible AI 6 principles). Enriched 0.2 (more surfaces), 0.3 (4S + comment-driven), 5.1 (tautological tests), 5.5 (content exclusions + IP indemnity + secure SDLC), 8.1 (plan tiers + TBB).*
+*v1.1 (2026-05-19) — Tools & Skills coverage: added 0.5 (Tools, Skills & the Agent's Toolbox; was 0.4), 1.6 (Prompt files), 6.5 (Skill packaging); renamed 4.2 to "Build your own MCP tools — designing a tool well". Renumbered downstream Phase 1 lessons.*
 *v1.0 (2026-05-19) — merged previous `00-learning-charter.md` and `04-curriculum.md` into one document. Added Phase 1.6, 4.4, 5.5, 5.6, 6.3, 7.4 from best-practices audit.*

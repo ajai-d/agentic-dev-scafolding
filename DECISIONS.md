@@ -187,3 +187,24 @@
   - Skip prompt files (rejected — they're the simplest "skill" Copilot supports and a natural bridge to Custom Agents + MCP).
   - Make 4.2 about both FastMCP best practices *and* tool design separately (rejected — too granular; one combined lesson is cleaner).
 - **Revisit when:** Copilot's prompt-file feature changes substantially, or a new skill-packaging format emerges.
+
+---
+
+## D-015 (2026-05-19) — Incorporate GH-300 reference material; bump curriculum to v1.2
+- **Context:** Learner shared a GitHub Copilot Mastery (GH-300 certification prep) guide and asked to incorporate any missing concepts — explicitly excluding the cert-prep apparatus (practice exam, exam tips). The audit surfaced ~11 gaps in v1.1.
+- **Decision:** Adopt all 11 missing concepts as either new lessons or enrichments of existing lessons. Bump from **v1.1 → v1.2**.
+  - **New lessons (2):**
+    - **0.4** Chat power moves — slash commands + context references.
+    - **5.8** Microsoft's 6 Responsible AI principles.
+  - **Enriched lessons (5):**
+    - **0.2** expanded to cover all 7 Copilot surfaces (completions, Chat, Inline Chat, Edits, Agent Mode, CLI, GitHub.com).
+    - **0.3** added 4S Framework (Single, Specific, Short, Surround) and comment-driven development.
+    - **5.1** added "tautological test trap" warning.
+    - **5.5** expanded to include content exclusion patterns, duplication detection filter, IP indemnity prerequisites, and the secure SDLC pipeline.
+    - **8.1** added plan tiers (Free / Pro / Pro+ / Business / Enterprise) and the Token-Based Billing transition (effective June 1, 2026).
+- **Why:** The GH-300 reference is the most comprehensive working inventory of Copilot ecosystem topics. Skipping these would leave gaps in *daily-driver fluency* (slash commands, context references), *governance* (content exclusions, IP indemnity), and *responsibility* (the 6 principles).
+- **Alternatives considered:**
+  - Adopt only the doing-better topics (rejected — learner explicitly chose "all missing concepts").
+  - Defer governance topics to a v2.0 (rejected — they're foundational, not advanced).
+  - Restructure into a cert-prep curriculum (rejected — learner doesn't care about the cert).
+- **Revisit when:** Copilot launches new surfaces, plan tiers shift again, or the Token-Based Billing rollout (June 2026) materially changes economics.

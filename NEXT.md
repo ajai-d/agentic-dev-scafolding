@@ -14,7 +14,7 @@
 
 ## 👉 The very next thing to do
 
-**Lesson 1 → Concept #6: `AGENTS.md`** — the universal agent contract written to the `agents.md` open standard. This is the biggest concept in Lesson 1. (Curriculum lesson **1.2** in `00-course.md` v1.1.)
+**Lesson 1 → Concept #6: `AGENTS.md`** — the universal agent contract written to the `agents.md` open standard. This is the biggest concept in Lesson 1. (Curriculum lesson **1.2** in `00-course.md` v1.2.)
 
 ---
 
