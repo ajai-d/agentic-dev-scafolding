@@ -250,3 +250,23 @@
   - Keep 4S as primary (rejected — empirically not how the prompts in this very session were written).
   - Add ROLE/PERSONA and EXAMPLES as 7th and 8th elements (deferred — useful but not foundational; can mention in Phase 5).
 - **Revisit when:** Copilot or the broader industry adopts a different canonical framing that proves more useful in practice.
+
+---
+
+## D-018 (2026-05-20) — Promote path-specific instructions, prompt files, and skill packaging into Fast Track (v2.1)
+- **Context:** v2.0 Fast Track had explicitly deferred these three topics to the comprehensive reference. Learner asked to pull them back into the active curriculum because they are foundational to making Copilot productive at scale.
+- **Decision:**
+  - **Path-specific instructions** (`.github/instructions/*.instructions.md`) → folded into the existing Lesson 1.2 (Agent Contract) as the third layer of the instruction stack (`AGENTS.md` + `copilot-instructions.md` + path-specific).
+  - **Prompt files** (`.github/prompts/*.prompt.md`) → new Lesson **1.3** — *Your first skill — prompt files.* Positioned right after the agent contract because every prompt file is a tiny reusable skill.
+  - **Skill packaging** (instructions + prompt + tool bundled) → new Lesson **5.3** — at the end of Phase 5, after the Planner/Coder/Reviewer team, where it consolidates everything from Phases 1–5 into a reusable, named, shareable skill.
+  - Removed those three topics from the "deliberately not covered" section.
+  - Bumped Fast Track from **v2.0 → v2.1**. Course goes from 10 lessons to 12; estimated time from ~6–8 hrs to ~7–9 hrs.
+- **Why:**
+  - Path-specific instructions are essentially free once you understand the universal `AGENTS.md` layer — and they prevent the agent from applying e.g. Python style rules to TypeScript files.
+  - Prompt files are the lowest-friction "skill" in the Copilot ecosystem; learners should ship one early so the *concept* of a skill is concrete before Phase 5.
+  - Skill packaging is the natural capstone of Phase 5 — it ties multi-agent orchestration back to a single, named, shareable artifact.
+- **Alternatives considered:**
+  - Keep them in the reference and revisit later (rejected by learner — explicitly requested).
+  - Add them as a new Phase (rejected — adding phases breaks the lean shape; folding them into existing phases preserves coherence).
+  - Cover only some (rejected — the three are a natural trilogy: layered instructions → reusable prompts → packaged skills).
+- **Revisit when:** Copilot deprecates or renames any of the underlying file formats.

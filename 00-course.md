@@ -38,14 +38,14 @@ This is called **"Tell Me What To Tell You."** It is the same shape as **"Interv
 
 | Phase | Lessons | What you will be able to do at the end |
 |---|---|---|
-| **1. Mental model** | 2 | Speak the language; understand what an agent really is |
+| **1. Mental model** | 3 | Speak the language; build the agent contract; make your first reusable skill |
 | **2. Spec-driven development** | 2 | Write specs an agent can execute |
 | **3. Full SDLC (the Stocks demo)** | 2 | Build + verify a real working app, end-to-end |
 | **4. Autonomous agents** | 1 | Hand off an issue, agent ships a PR |
-| **5. Multi-agent orchestration** | 2 | Make agents work together (Planner, Coder, Reviewer) |
+| **5. Multi-agent orchestration** | 3 | Make agents work together — and package the team as a reusable skill |
 | **6. Production realities** | 1 | Cost, security, governance — keep it sustainable |
 
-**Total:** 10 lessons, ~6–8 hours.
+**Total:** 12 lessons, ~7–9 hours.
 
 ---
 

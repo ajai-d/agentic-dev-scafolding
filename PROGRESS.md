@@ -90,6 +90,13 @@
 - Adopted a **6-element anatomy**: Goal · Context · Specification · Sources · Guardrails · Verification.
 - 4S and comment-driven development kept as labeled side notes (apply to inline completions only).
 
+### ✅ Promoted Path-specific instructions, Prompt files, Skill packaging into Fast Track (D-018)
+- Learner asked to pull these from the reference into the active curriculum.
+- Path-specific instructions → folded into 1.2 (Agent Contract) as a third instruction layer.
+- Prompt files → new 1.3 *Your first skill — prompt files.*
+- Skill packaging → new 5.3 *Skill packaging — bundle instructions + prompt + tool.*
+- Fast Track bumped v2.0 → **v2.1**. Now 12 lessons, ~7–9 hours.
+
 ---
 
 ## Next up
