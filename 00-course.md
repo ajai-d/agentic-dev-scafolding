@@ -1,221 +1,390 @@
-# Agentic SDLC Course — Fast Track (v2.0)
+# 🚀 Agentic SDLC Course — Fast Track
 
-> **The simple, focused learning path.** ~10 lessons, ~6–8 hours total, each ending in a commit.
+> **The simple, focused learning path.**
+> 12 lessons · 6 phases · ~7–9 hours · each ends with a commit.
 >
-> For the deep reference covering every Copilot feature and edge case, see [`90-reference-comprehensive-curriculum.md`](./90-reference-comprehensive-curriculum.md).
->
-> **Version:** 2.0 (Fast Track) · **Date:** 2026-05-19 · **Tooling:** GitHub Copilot only.
+> For the deep reference, see [`90-reference-comprehensive-curriculum.md`](./90-reference-comprehensive-curriculum.md).
+
+| | |
+|---|---|
+| **Version** | 2.1 (Fast Track) |
+| **Date** | 2026-05-20 |
+| **Tooling** | GitHub Copilot ecosystem only |
+| **Status** | 🚧 Phase 1 in progress |
+
+---
+
+## 📑 Table of Contents
+
+1. [The Setup](#1-the-setup)
+2. [Roadmap at a Glance](#2-roadmap-at-a-glance)
+3. [The Curriculum](#3-the-curriculum)
+4. [What We Skip (on purpose)](#4-what-we-skip-on-purpose)
+5. [Lesson Anatomy](#5-lesson-anatomy)
+6. [Where We Are Now](#6-where-we-are-now)
+7. [Required Tools](#7-required-tools)
+8. [Resume Cold (5 min)](#8-resume-cold-5-min)
 
 ---
 
 ## 1. The Setup
 
-### Who we are
-- **You** — a traditional developer learning Agentic SDLC.
-- **Me** — your teacher and the agent that executes your prompts.
+### 👥 Who we are
 
-### The Golden Rule (memorize)
-> **Humans set intent. Agents execute. Humans govern outcomes.**
+| Role | Who |
+|---|---|
+| **Learner** | A traditional developer learning Agentic SDLC |
+| **Teacher / Agent** | Me — explains concepts, hands you prompts, executes on your "go" |
 
-### How we work (the loop)
-1. I explain a concept in plain language.
-2. I hand you the prompt.
-3. You send it.
-4. I execute. I show you the result.
-5. You approve. I commit. We update the journal.
+### ��️ The Golden Rule
 
-This is called **"Tell Me What To Tell You."** It is the same shape as **"Interview Me"** (Phase 2 pattern) — *agent-led structured elicitation of human expertise.*
+> ### **Humans set intent. Agents execute. Humans govern outcomes.**
 
-### Running use case
+### 🔁 How we work — *Tell Me What To Tell You*
+
+```
+  1. I explain the concept (plain language)
+       ↓
+  2. I hand you the prompt
+       ↓
+  3. You send it
+       ↓
+  4. I execute → I show you the result
+       ↓
+  5. You approve → I commit → we update the journal
+```
+
+> This pattern reappears as **"Interview Me"** in Phase 2.
+> Both are *agent-led structured elicitation of human expertise.*
+
+### 🎯 Running use case
+
 **"Top 5 Stocks" MCP demo** — see [`02-running-use-case.md`](./02-running-use-case.md).
-- Step 1: Hardcoded list of 5 stocks.
-- Step 2: Real Yahoo Finance API.
-- One button. One MCP server. One MCP client. One SPA.
+
+```
+  [ One button ]
+        ↓
+  [ SPA UI (TypeScript) ]
+        ↓
+  [ MCP Client (TypeScript) ]
+        ↓
+  [ MCP Server (Python) ]
+        ↓
+  [ 5 stocks → hardcoded (Step 1) → Yahoo Finance (Step 2) ]
+```
 
 ---
 
-## 2. The Six Phases — Roadmap At A Glance
+## 2. Roadmap at a Glance
 
-| Phase | Lessons | What you will be able to do at the end |
-|---|---|---|
-| **1. Mental model** | 3 | Speak the language; build the agent contract; make your first reusable skill |
-| **2. Spec-driven development** | 2 | Write specs an agent can execute |
-| **3. Full SDLC (the Stocks demo)** | 2 | Build + verify a real working app, end-to-end |
-| **4. Autonomous agents** | 1 | Hand off an issue, agent ships a PR |
-| **5. Multi-agent orchestration** | 3 | Make agents work together — and package the team as a reusable skill |
-| **6. Production realities** | 1 | Cost, security, governance — keep it sustainable |
+| # | Phase | Lessons | Outcome |
+|---|---|:---:|---|
+| **1** | Mental Model | 3 | Speak the language; build the agent contract; ship a first skill |
+| **2** | Spec-Driven Development | 2 | Write specs an agent can execute |
+| **3** | Full SDLC *(the demo)* | 2 | Build + verify a real working app end-to-end |
+| **4** | Autonomous Agents | 1 | Hand off an issue, get a draft PR back |
+| **5** | Multi-Agent Orchestration | 3 | Agents collaborate; package the team as a skill |
+| **6** | Production Realities | 1 | Cost · Security · Governance · Responsibility |
 
-**Total:** 12 lessons, ~7–9 hours.
+**Total:** 12 lessons · ~7–9 hours · each producing one commit.
 
 ---
 
-## 3. The Curriculum — Lesson By Lesson
+## 3. The Curriculum
+
+> Each lesson is **atomic**: one concept, one prompt, one commit. Stop after any lesson without losing your place.
 
 ### Phase 1 — The Mental Model
 
-**1.1 What is Agentic SDLC?** *(done — Lesson 0)*
-- The Golden Rule.
-- The five core words: **Agent · Spec · Context · Tool · Loop.**
-- The three autonomy levels: **Interactive → Autopilot → Fleet.**
-- The 7 Copilot surfaces (completions, Chat, Inline Chat, Edits, Agent Mode, CLI, GitHub.com) — when to use each.
-- **Anatomy of a good *agentic* prompt** — six elements; use what each prompt needs, not all of them:
-  1. **Goal** — what to produce.
-  2. **Context** — what the agent should know (stack, conventions, locked-in decisions).
-  3. **Specification** — explicit requirements (sections, fields, file names).
-  4. **Sources** — cite trusted references (e.g., GitHub templates, official docs).
-  5. **Guardrails** — what *not* to do (safety + scope).
-  6. **Verification** — how to prove it worked (show-before-commit, run tests).
-- *Side note:* The **4S Framework** (Single · Specific · Short · Surround) and **comment-driven development** are real techniques — but they apply to **inline completions**, not to the agentic execution prompts we write in this course. Mentioned for vocabulary; not the daily-driver pattern.
+---
 
-**1.2 The Agent Contract** *(in progress)*
-*A repo so well-configured any agent can drop in and work safely.* Covers:
-- Foundation files (Git, `.gitignore`, `.gitattributes`, `LICENSE`, `README`) — ✅ already done.
-- **Instruction layer**: `AGENTS.md` (universal) + `.github/copilot-instructions.md` (Copilot overlay).
-- **Memory layer**: `PROGRESS.md`, `DECISIONS.md`, `NEXT.md` — ✅ already done.
-- **Tool layer** preview: what tools and skills mean (deep dive in Phase 3).
-- Conventional Commits + PR template + `.env.example`.
-- Push to GitHub.
-- A tiny "Hello Agent" task to prove the full loop works.
+#### 📘 Lesson 1.1 — What is Agentic SDLC?
+
+> **Outcome:** You can explain agentic dev to a colleague in one minute.
+> **Status:** ✅ Done *(see `01-lesson-0-what-is-agentic-sdlc.md`)*
+
+**Covers**
+- The **Golden Rule** — intent · execute · govern.
+- The **5 core words** — Agent · Spec · Context · Tool · Loop.
+- The **3 autonomy levels** — Interactive → Autopilot → Fleet.
+- The **7 Copilot surfaces** — completions, Chat, Inline Chat, Edits, Agent Mode, CLI, GitHub.com.
+- The **6-element agentic prompt anatomy** *(canonical)*:
+
+| # | Element | Asks |
+|:-:|---|---|
+| 1 | **Goal** | What to produce |
+| 2 | **Context** | What the agent should already know |
+| 3 | **Specification** | Explicit requirements |
+| 4 | **Sources** | Citations to trusted references |
+| 5 | **Guardrails** | What *not* to do |
+| 6 | **Verification** | How to prove it worked |
+
+> 💡 *Side note:* The **4S Framework** and **comment-driven development** apply to **inline completions**, not agentic prompts. Useful vocabulary; not the daily-driver pattern here.
+
+---
+
+#### 📘 Lesson 1.2 — The Agent Contract
+
+> **Outcome:** A repo so well-configured any agent can drop in and work safely.
+> **Status:** 🚧 In progress
+
+**The instruction layer (3 layers — narrowest wins)**
+
+| Layer | File | Scope |
+|---|---|---|
+| Universal | `AGENTS.md` | Any agent, any task |
+| Copilot overlay | `.github/copilot-instructions.md` | Copilot-specific tuning |
+| Path-specific | `.github/instructions/*.instructions.md` | Per file type / folder |
+
+**Plus**
+- ✅ Foundation files — Git, `.gitignore`, `.gitattributes`, `LICENSE`, `README` *(done)*
+- ✅ Memory files — `PROGRESS.md` · `DECISIONS.md` · `NEXT.md` *(done)*
+- ⏳ Conventional Commits + PR template
+- ⏳ `.env.example` + secrets discipline
+- ⏳ Push to GitHub + branch protection
+- ⏳ **Hello-Agent** task — prove the loop works
+
+---
+
+#### 📘 Lesson 1.3 — Your First Skill: Prompt Files
+
+> **Outcome:** A reusable, invokable prompt — your first "skill."
+
+**Covers**
+- What `.github/prompts/*.prompt.md` files are.
+- Anatomy: front-matter (`description`, `mode`, `tools`) + body using the 6-element pattern.
+- Build a `/review-pr` (or `/explain-this-file`) prompt file you can invoke any time.
+
+> 🎯 **Rule of thumb:** Every workflow you repeat is a prompt file waiting to be born.
 
 ---
 
 ### Phase 2 — Spec-Driven Development
 
-**2.1 Why specs are the new source code**
-- The power inversion: specs persist, code regenerates.
-- The **Interview Me** pattern: the agent asks questions, you answer, the agent compiles a spec.
-- Anatomy of a good spec: **Intent · User-visible behavior · Acceptance tests · Out-of-scope · Open questions.**
+---
 
-**2.2 Spec → Tasks → Code**
-- Run the interview to produce `specs/001-top5-stocks.md`.
-- Have the agent extract a task list from the spec.
+#### 📘 Lesson 2.1 — Why Specs Are the New Source Code
+
+> **Outcome:** You understand SDD and can run the *Interview Me* pattern.
+
+**Covers**
+- The **power inversion** — specs persist; code regenerates.
+- The **Interview Me** pattern — agent asks, you answer, agent compiles.
+- **Anatomy of a good spec** — Intent · User-visible behavior · Acceptance tests · Out-of-scope · Open questions.
+
+---
+
+#### 📘 Lesson 2.2 — Spec → Tasks → Code
+
+> **Outcome:** First feature shipped from a spec.
+
+**Covers**
+- Run the interview → produce `specs/001-top5-stocks.md`.
+- Agent extracts a task list from the spec.
 - Approve and execute tasks one at a time.
 
 ---
 
 ### Phase 3 — The Full SDLC (the Stocks Demo)
 
-**3.1 Build it**
-- MCP server in Python with one tool: `get_top_stocks` (hardcoded → real Yahoo Finance).
-- MCP client in TypeScript.
-- One-page SPA with one button.
-- End-to-end: click → see 5 stocks.
-- Along the way: learn what MCP **tools** really are and how Copilot uses them.
+---
 
-**3.2 Verify it**
-- Write a happy-path test (Pytest + Playwright).
-- GitHub Actions CI runs it on every PR.
-- Watch out for the **tautological test trap** (tests that always pass).
-- Open your first real Pull Request → review → merge.
+#### 📘 Lesson 3.1 — Build It
+
+> **Outcome:** A working end-to-end demo. Click → see 5 stocks.
+
+**Covers**
+- **MCP server** (Python) — one tool: `get_top_stocks`.
+- **MCP client** (TypeScript).
+- **SPA UI** — one HTML page, one button.
+- What MCP **tools** really are and how Copilot uses them.
+
+---
+
+#### 📘 Lesson 3.2 — Verify It
+
+> **Outcome:** Tests green in CI; first real PR merged.
+
+**Covers**
+- Happy-path test — Pytest (server) + Playwright (UI).
+- GitHub Actions CI on every PR.
+- ⚠️ The **tautological test trap** — tests that always pass.
+- Your first real Pull Request: review → approve → merge.
 
 ---
 
 ### Phase 4 — Autonomous Agents
 
-**4.1 Copilot Cloud Agent — issue → PR**
-- Enable Copilot Coding Agent in the repo.
-- Open a GitHub Issue with a clean spec.
-- Assign it to Copilot.
+---
+
+#### 📘 Lesson 4.1 — Copilot Cloud Agent: Issue → PR
+
+> **Outcome:** Hand off a spec; get back a draft PR. *Magic.*
+
+**Covers**
+- Enable Copilot Coding Agent in repo settings.
+- Open an Issue with a clean spec → assign to Copilot.
 - Agent ships a draft PR.
-- You review session logs, request changes if needed, approve, merge.
-- Discover the one thing Cloud Agent **cannot** do: self-merge. Human approval is always required.
+- Review session logs · request changes · approve · merge.
+
+> ⚠️ Cloud Agent **cannot self-merge.** Human approval always required.
 
 ---
 
 ### Phase 5 — Multi-Agent Orchestration
 
-**5.1 Why & when multi-agent**
-- The 5 workflow patterns (in plain language):
-  - **Prompt chaining** — do X, then Y, then Z.
-  - **Routing** — easy task to cheap model; hard task to smart model.
-  - **Parallelization** — review for security and style at the same time.
-  - **Orchestrator-workers** — one agent plans, others execute.
-  - **Evaluator-optimizer** — implement → test → if failing, iterate.
-- When *not* to use multi-agent (it is not always the answer).
+---
 
-**5.2 Build a Planner / Coder / Reviewer team**
-- Three **Copilot Custom Agents** with scoped instructions:
-  - **Planner** — turns a spec into tasks.
-  - **Coder** — implements one task at a time.
-  - **Reviewer** — checks the diff before merge.
-- Run a small feature through the team end-to-end.
+#### 📘 Lesson 5.1 — Why & When Multi-Agent
+
+> **Outcome:** A mental library of when one agent isn't enough.
+
+**The 5 workflow patterns**
+
+| Pattern | When to use |
+|---|---|
+| **Prompt chaining** | Fixed sequence: do X, then Y, then Z |
+| **Routing** | Easy → cheap model; hard → smart model |
+| **Parallelization** | Multiple independent reviews at once |
+| **Orchestrator-workers** | One agent plans, others execute |
+| **Evaluator-optimizer** | Implement → test → iterate on failure |
+
+> 🚫 Also: when *not* to use multi-agent (often!).
+
+---
+
+#### 📘 Lesson 5.2 — Build a Planner / Coder / Reviewer Team
+
+> **Outcome:** Three Copilot Custom Agents collaborating on a real task.
+
+| Role | What they do |
+|---|---|
+| **Planner** | Spec → task list |
+| **Coder** | Implement one task at a time |
+| **Reviewer** | Check the diff before merge |
+
+---
+
+#### 📘 Lesson 5.3 — Skill Packaging
+
+> **Outcome:** A reusable, shareable, named **skill** that bundles everything.
+
+**The skill recipe** *(three layers, one name)*
+
+```
+  ┌───────────────────────────────────────────────┐
+  │  Instructions   .github/instructions/*.md     │
+  │      +                                        │
+  │  Prompt File    .github/prompts/*.prompt.md   │
+  │      +                                        │
+  │  MCP Tool       (Phase 3 server)              │
+  │      =                                        │
+  │  ★  One named, shareable Skill                │
+  └───────────────────────────────────────────────┘
+```
+
+> Anyone in your org can now invoke it with one command.
 
 ---
 
 ### Phase 6 — Production Realities
 
-**6.1 Cost, governance, security, responsible AI** *(one combined practical lesson)*
-- **Cost awareness:** plan tiers (Free → Enterprise), premium request multipliers, when to pick which model. Token-Based Billing transition (June 2026) — what is changing.
-- **Governance:** CODEOWNERS, branch protection, audit logs, agent labels on PRs.
-- **Security:** content exclusions (`.env`, `secrets/**`), prompt-injection awareness, the secure SDLC pipeline.
-- **Responsibility:** Microsoft 6 Responsible AI principles in one paragraph + the rule that matters most — **you are the author of record for every line of code you commit, no matter who wrote it.**
+---
+
+#### 📘 Lesson 6.1 — Cost, Governance, Security, Responsibility
+
+> **Outcome:** You can run agentic dev sustainably — solo or in a team.
+
+| Topic | Covers |
+|---|---|
+| 💰 **Cost** | Plan tiers (Free → Enterprise) · premium request multipliers · model selection · Token-Based Billing transition (June 2026) |
+| 🛡️ **Governance** | CODEOWNERS · branch protection · audit logs · agent labels on PRs |
+| 🔒 **Security** | Content exclusions (`.env`, `secrets/**`) · prompt-injection awareness · secure SDLC pipeline |
+| ⚖️ **Responsibility** | Microsoft's 6 Responsible AI principles + **you are the author of record for every committed line.** |
 
 ---
 
-## 4. What We Deliberately *Do Not* Cover Here
+## 4. What We Skip (on purpose)
 
-The Fast Track skips topics that are valuable but not foundational. They are all in [`90-reference-comprehensive-curriculum.md`](./90-reference-comprehensive-curriculum.md) if you want them later:
+These are **valuable but not foundational.** All in [`90-reference-comprehensive-curriculum.md`](./90-reference-comprehensive-curriculum.md) — dip in when a real project needs them.
 
-- Path-specific instructions (`.github/instructions/*.instructions.md`)
-- Prompt files (`.github/prompts/*.prompt.md`)
 - Building production MCP servers from scratch
-- Skill packaging (instructions + prompt + tool as one unit)
 - Stuck-agent recovery patterns
 - Copilot Spaces (grouped context)
 - Fleet orchestration (many parallel cloud agents)
 - Detailed multi-model strategy
 - IP indemnity / duplication detection deep dive
 
-Dip in whenever a real project needs them.
-
 ---
 
-## 5. How Each Lesson Is Structured
+## 5. Lesson Anatomy
+
+Every lesson follows the same shape:
 
 | Step | What |
+|:-:|---|
+| 1️⃣ | **What** — concept in plain language |
+| 2️⃣ | **Why** — why it matters |
+| 3️⃣ | **Prompt** — the exact words you send |
+| 4️⃣ | **Why the prompt is good** — the reusable pattern inside it |
+| 5️⃣ | **Result** — commit hash + one-line outcome |
+| 6️⃣ | **What you unlocked** — the new capability |
+
+---
+
+## 6. Where We Are Now
+
+| Phase | Status |
 |---|---|
-| 1 | **What** — concept in plain language |
-| 2 | **Why** — why it matters |
-| 3 | **Prompt** — the exact words you send |
-| 4 | **Why the prompt is good** — the reusable pattern inside it |
-| 5 | **Result** — commit hash + one-line outcome |
-| 6 | **What you unlocked** — the new capability |
+| **1.1** What is Agentic SDLC? | ✅ Done |
+| **1.2** The Agent Contract | 🚧 In progress |
+| ⤷ Foundation files | ✅ Done |
+| ⤷ Memory files | ✅ Done |
+| ⤷ `AGENTS.md` | ⏳ **Next** |
+| ⤷ `.github/copilot-instructions.md` | ⏳ |
+| ⤷ Path-specific instructions | ⏳ |
+| ⤷ Conventional Commits + PR template | ⏳ |
+| ⤷ `.env.example` | ⏳ |
+| ⤷ Push to GitHub + branch protection | ⏳ |
+| ⤷ Hello-Agent task | ⏳ |
+| **1.3** Prompt Files | ⏳ |
+| Phase 2 → 6 | ⏳ |
+
+See [`NEXT.md`](./NEXT.md) for the exact prompt to send next.
 
 ---
 
-## 6. Current State (where we are right now)
+## 7. Required Tools
 
-- ✅ **Lesson 1.1** — done (Lesson 0 doc).
-- 🚧 **Lesson 1.2** — in progress.
-  - ✅ Foundation files done (Git, `.gitignore`, `.gitattributes`, `LICENSE`, `README`).
-  - ✅ Memory files done (`PROGRESS`, `DECISIONS`, `NEXT`).
-  - ⏳ Remaining for 1.2: `AGENTS.md` → `.github/copilot-instructions.md` → Conventional Commits + PR template → `.env.example` → Push to GitHub → Hello Agent task.
-
-See [`NEXT.md`](./NEXT.md) for the very next prompt to send.
-
----
-
-## 7. Required Tools (One-Time Setup)
-
-| Tool | Status |
-|---|---|
-| Git, Python 3.10+, Node 20+, GitHub CLI | ✅ |
-| VS Code + GitHub Copilot extension | recommended |
-| GitHub Copilot subscription | assumed yes |
-| MCP Inspector (Phase 3+) | install when needed |
+| Tool | Purpose | Status |
+|---|---|:-:|
+| Git | Version control | ✅ |
+| Python 3.10+ | MCP server stack | ✅ |
+| Node.js 20+ | MCP client + SPA | ✅ |
+| GitHub CLI (`gh`) | GitHub from terminal | ✅ |
+| VS Code + Copilot extension | Editor + Copilot Chat | recommended |
+| GitHub Copilot subscription | CLI · Cloud Agent · Chat · Custom Agents | assumed yes |
+| MCP Inspector | MCP development (Phase 3+) | install when needed |
 
 ---
 
-## 8. Resume Cold (5 minutes)
+## 8. Resume Cold (5 min)
 
-If context is ever lost:
-1. This file (`00-course.md`) — the agreement + roadmap.
-2. [`02-running-use-case.md`](./02-running-use-case.md) — what we are building.
-3. [`PROGRESS.md`](./PROGRESS.md) — what has been done.
-4. [`DECISIONS.md`](./DECISIONS.md) — why we chose what we chose.
-5. [`NEXT.md`](./NEXT.md) — the very next thing to do.
+If context is ever lost, read these in order:
+
+| Step | File | Purpose |
+|:-:|---|---|
+| 1 | **`00-course.md`** *(this file)* | Agreement + roadmap |
+| 2 | [`02-running-use-case.md`](./02-running-use-case.md) | What we're building |
+| 3 | [`PROGRESS.md`](./PROGRESS.md) | What's been done |
+| 4 | [`DECISIONS.md`](./DECISIONS.md) | Why we chose what we chose |
+| 5 | [`NEXT.md`](./NEXT.md) | The very next thing to do |
 
 ---
 
-*Change history:*
-*v2.0 (2026-05-19) — Fast Track curriculum. Replaces v1.2 as the active learning path. v1.2 retained as `90-reference-comprehensive-curriculum.md` for deeper dives.*
+### 📜 Change History
+
+| Version | Date | Highlights |
+|---|---|---|
+| **v2.1** | 2026-05-20 | Better formatting + lesson cards. Added path-specific instructions (1.2), prompt files (1.3), skill packaging (5.3). |
+| **v2.0** | 2026-05-19 | Fast Track curriculum introduced. v1.2 filed as `90-reference-comprehensive-curriculum.md`. |
