@@ -10,7 +10,7 @@
 | **Version** | 2.2 (Fast Track) |
 | **Date** | 2026-05-20 |
 | **Tooling** | GitHub Copilot ecosystem only |
-| **Status** | 🆕 Fresh start — about to begin Lesson 1.1 |
+| **Status** | 🚧 Lesson 1.1 ✅ done · 1.2 next |
 
 ---
 
