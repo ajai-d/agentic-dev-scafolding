@@ -112,7 +112,7 @@ Every TMWTTY project follows this layout:
 
 ### On First Contact
 
-1. Read the user's seed prompt in [`02-seed-prompt.md`](./02-seed-prompt.md)
+1. Read the user's seed prompt in [`plan/seed.md`](../plan/seed.md)
 2. Acknowledge the intent and confirm you understand what "done" looks like
 
 ### Stage 2 — Build the Plan Interactively

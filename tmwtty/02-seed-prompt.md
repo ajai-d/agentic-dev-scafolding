@@ -1,10 +1,11 @@
-# 📘 Seed Prompt
+# 📘 Seed Prompt Template
 
-> 🎯 **Your starting point.** Fill this in and give it to your AI agent. That's all you need to begin.
+> 🎯 **Your starting point.** Copy this template, fill it in, and save it to `plan/seed.md`. That's your project's seed.
 
 <table>
-<tr><td><b>What</b></td><td>The seed that kicks off any TMWTTY project</td></tr>
+<tr><td><b>What</b></td><td>The reusable template that kicks off any TMWTTY project</td></tr>
 <tr><td><b>Format</b></td><td>Intent + success criteria + working instructions</td></tr>
+<tr><td><b>Save to</b></td><td><code>plan/seed.md</code></td></tr>
 </table>
 
 ---
@@ -30,36 +31,9 @@ Document every step in `tutorial/` as we go.
 
 ---
 
-## 📝 Example (filled in)
+## ▶️ What To Do
 
-```markdown
-## What I Want To Build
-
-An MCP server that returns the top 5 performing stocks of the day,
-with a TypeScript client and a simple React UI to display the results.
-
-## Done Looks Like
-
-- MCP server responds with 5 stock tickers + prices
-- UI displays them in a clean table
-- All tests pass
-- Anyone can clone and run it locally
-
-## How To Work With Me
-
-Read `tmwtty/00-introduction.md` for the methodology.
-Build the plan interactively — propose items one at a time, I'll approve or adjust.
-Then execute each item using TMWTTY (tell me what to tell you for each step).
-Document every step in `tutorial/` as we go.
-```
-
----
-
-## ▶️ What Happens Next
-
-Give this to your AI agent. It will:
-
-1. Read the introduction to understand TMWTTY
-2. Interview you to build the plan (Interactive mode)
-3. Execute each plan item using the TMWTTY loop
-4. Document steps in `tutorial/` as it goes
+1. Copy the template above
+2. Fill in "What I Want To Build" and "Done Looks Like"
+3. Save it to `plan/seed.md`
+4. Give it to your AI agent with: *"Read `tmwtty/00-introduction.md` and follow TMWTTY."*
