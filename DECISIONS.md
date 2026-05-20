@@ -170,3 +170,20 @@
   - Keep both files and add cross-references (rejected — still two files to maintain).
   - Reject some audit additions (rejected by learner — all 6 accepted).
 - **Revisit when:** A major change to the curriculum is requested → bump to v1.1 and log the diff.
+
+---
+
+## D-014 (2026-05-19) — Add explicit "Tools & Skills" coverage; bump curriculum to v1.1
+- **Context:** Learner asked: *"What about tools and skills? I don't see them in the curriculum."* The v1.0 audit covered MCP infrastructure but never named "tools" or "skills" as first-class concepts, and missed Copilot's native **prompt files** (`.github/prompts/*.prompt.md`) entirely.
+- **Decision:**
+  - Add **0.4 — Tools, Skills & the Agent's Toolbox** (conceptual lesson).
+  - Add **1.6 — Prompt files** (Copilot's reusable named-prompt feature).
+  - Rename **4.2** from "Refactor server with FastMCP" to **"Build your own MCP tools — designing a tool well"** to foreground tool authorship.
+  - Add **6.5 — Skill packaging in the Copilot ecosystem** (instructions + prompt file + MCP tool bundled as one reusable skill).
+  - Bump curriculum from **v1.0 → v1.1**. Renumber downstream Phase 1 lessons (1.6 → 1.7, 1.7 → 1.8, etc.).
+- **Why:** "Tools" and "skills" are first-class concepts in agentic AI vocabulary; teaching MCP without explicitly teaching what a tool *is* leaves a foundational gap. Prompt files are a real Copilot feature that turns reusable prompts into skill primitives — they're the lowest-friction way to learn skill packaging before MCP work begins.
+- **Alternatives considered:**
+  - Defer skill packaging to a later phase (rejected — needs to be visible early as a mental model).
+  - Skip prompt files (rejected — they're the simplest "skill" Copilot supports and a natural bridge to Custom Agents + MCP).
+  - Make 4.2 about both FastMCP best practices *and* tool design separately (rejected — too granular; one combined lesson is cleaner).
+- **Revisit when:** Copilot's prompt-file feature changes substantially, or a new skill-packaging format emerges.

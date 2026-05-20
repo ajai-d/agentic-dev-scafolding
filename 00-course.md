@@ -2,7 +2,7 @@
 
 > The one document that says **who we are, how we work, and what we'll learn — in order.**
 > Replaces the earlier separate "learning charter" and "curriculum" files.
-> **Version:** 1.0 · **Date:** 2026-05-19 · **Tooling scope:** GitHub Copilot ecosystem only.
+> **Version:** 1.1 · **Date:** 2026-05-19 · **Tooling scope:** GitHub Copilot ecosystem only.
 
 ---
 
@@ -89,6 +89,7 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 | **0.1** | What is Agentic SDLC? *(done — Lesson 0)* | Mental model: humans set intent, agents execute, humans govern. |
 | **0.2** | The Agent Surface Map — Copilot autocomplete vs. Chat vs. CLI vs. Cloud Agent | Decision framework for which surface to use when. |
 | **0.3** | Anatomy of a good prompt — *goal + constraints + verification* | A reusable prompt template you'll use forever. |
+| **0.4** | Tools, Skills & the Agent's Toolbox | What "tools" and "skills" mean; instructions tell agents *how*, tools give them *what they can do*. |
 
 ---
 
@@ -103,11 +104,12 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 | **1.3** | `.github/copilot-instructions.md` — Copilot-specific overlay | Copilot reads its native instructions file. |
 | **1.4** | `.github/instructions/*.instructions.md` — path-specific instructions | Python rules apply only to `.py` files; TS rules only to `.ts`. |
 | **1.5** | PR template + Conventional Commits | Machine-readable history; consistent PR shape. |
-| **1.6** | Issue templates for agent-friendly task specification | Issues that Copilot Cloud Agent can pick up directly. |
-| **1.7** | `.env.example` + secrets discipline | Block `.env`, document required keys. |
-| **1.8** | Memory files (`PROGRESS.md`, `DECISIONS.md`, `NEXT.md`) ✅ *(already done)* | Externalize context so any session can resume cold. |
-| **1.9** | Push to GitHub + branch protection basics | Real remote; agents can never silently overwrite `main`. |
-| **1.10** | First Agent Task — `HELLO_AGENT.md` | Prove the full loop: prompt → agent → review → commit. |
+| **1.6** | **Prompt files** (`.github/prompts/*.prompt.md`) — reusable named prompts | Build your first "skill" — a named, invokable prompt you can reuse forever. |
+| **1.7** | Issue templates for agent-friendly task specification | Issues that Copilot Cloud Agent can pick up directly. |
+| **1.8** | `.env.example` + secrets discipline | Block `.env`, document required keys. |
+| **1.9** | Memory files (`PROGRESS.md`, `DECISIONS.md`, `NEXT.md`) ✅ *(already done)* | Externalize context so any session can resume cold. |
+| **1.10** | Push to GitHub + branch protection basics | Real remote; agents can never silently overwrite `main`. |
+| **1.11** | First Agent Task — `HELLO_AGENT.md` | Prove the full loop: prompt → agent → review → commit. |
 
 ---
 
@@ -148,7 +150,7 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 | # | Lesson | Outcome |
 |---|---|---|
 | **4.1** | MCP concepts — Host, Client, Server; stdio vs. HTTP; tools vs. resources vs. prompts | Speak MCP fluently. |
-| **4.2** | Refactor our server with `FastMCP` best practices | Type hints, docstrings, stderr-only logging, MCP Inspector. |
+| **4.2** | **Build your own MCP tools — designing a tool well** (FastMCP best practices) | Add real capabilities to the agent's toolbox — type hints, docstrings, stderr-only logging, MCP Inspector. |
 | **4.3** | Consume third-party MCP servers (GitHub MCP, filesystem) | Use existing servers in Copilot CLI and Copilot Chat. |
 | **4.4** | Configure MCP servers in Copilot | Make Copilot itself agentic via MCP tools. |
 | **4.5** | Publish our server *(optional)* | Make it installable for anyone to drop into Copilot. |
@@ -181,6 +183,7 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 | **6.2** | Copilot Custom Agents — Planner / Coder / Reviewer / Tester as four named agents with scoped instructions + MCP tools | A four-role agent team, all in Copilot. |
 | **6.3** | Copilot Spaces — grouped context across files/repos for multi-step work | Persistent task context outside chat. |
 | **6.4** | Cross-surface workflows — Copilot Chat (IDE) + Copilot CLI (terminal) + Copilot Cloud Agent (GitHub) | Right Copilot surface for the right phase. |
+| **6.5** | **Skill packaging in the Copilot ecosystem** — instructions + prompt file + MCP tool bundled as one reusable, sharable skill | Package the "Interview Me" pattern (or any workflow) as a one-command, shareable skill. |
 
 ---
 
@@ -237,7 +240,7 @@ Each lesson is atomic: one concept, one prompt, one commit. You can stop after a
 | Phase 6 | ~2.5 hours |
 | Phase 7 | ~2 hours |
 | Phase 8 | ~1.5 hours |
-| **Total** | **~18–20 hours**, ~33 lessons, each producing a commit. |
+| **Total** | **~19–22 hours**, ~36 lessons, each producing a commit. |
 
 ---
 
@@ -264,38 +267,43 @@ For full reasoning, see [`DECISIONS.md`](./DECISIONS.md). One-line summary:
 
 ## Part 8 — Best-Practices Coverage Audit
 
-This curriculum was audited against current (2025–2026) industry best practices. ✅ = covered; ⏳ = covered in a later phase; 🔍 = added during audit.
+This curriculum was audited against current (2025–2026) industry best practices. ✅ = covered; ⏳ = covered in a later phase; 🔍 = added during audit; ⭐ = added in v1.1 (Tools & Skills).
 
 | Best practice | Where covered |
 |---|---|
+| **Tools concept** (function-calling, agent toolbox) | 0.4 ⭐ |
+| **Skills concept** (packaged capabilities) | 0.4 ⭐ |
 | `AGENTS.md` (open standard) | 1.2 ✅ |
 | `.github/copilot-instructions.md` | 1.3 ✅ |
 | `.github/instructions/*.instructions.md` (path-specific) | 1.4 ✅ |
 | `.github/workflows/copilot-setup-steps.yml` (Cloud Agent env) | 5.3 ✅ |
 | Conventional Commits | 1.5 ✅ |
 | PR templates | 1.5 ✅ |
-| Issue templates for agentic workflows | 1.6 🔍 *(added)* |
-| `.env` discipline + `.env.example` | 1.7 ✅ |
-| ADR-style decision records (`DECISIONS.md`) | 1.8 ✅ |
-| `PROGRESS.md` / `NEXT.md` memory files | 1.8 ✅ |
-| Branch protection + agent permissions | 1.9 ✅ |
+| **Prompt files** (`.github/prompts/*.prompt.md`) | 1.6 ⭐ |
+| Issue templates for agentic workflows | 1.7 🔍 |
+| `.env` discipline + `.env.example` | 1.8 ✅ |
+| ADR-style decision records (`DECISIONS.md`) | 1.9 ✅ |
+| `PROGRESS.md` / `NEXT.md` memory files | 1.9 ✅ |
+| Branch protection + agent permissions | 1.10 ✅ |
 | Spec-Driven Development (Interview Me) | Phase 2 ✅ |
 | Spec → Tasks → Code pipeline | 2.5–2.6 ✅ |
-| MCP — concepts, FastMCP, third-party servers | Phase 4 ✅ |
-| MCP servers configured in Copilot | 4.4 🔍 *(added)* |
+| MCP — concepts, third-party servers | Phase 4 ✅ |
+| **Building MCP tools** (designing a tool well) | 4.2 ⭐ (renamed/promoted) |
+| MCP servers configured in Copilot | 4.4 🔍 |
 | Verification-first prompting | 5.1 ✅ |
 | CI as eval harness | 5.2 ✅ |
 | Sandboxing & devcontainers | 5.4 ✅ |
-| Prompt-injection / security threat model | 5.5 🔍 *(added)* |
-| Handling stuck or runaway agents | 5.6 🔍 *(added)* |
+| Prompt-injection / security threat model | 5.5 🔍 |
+| Handling stuck or runaway agents | 5.6 🔍 |
 | Quality metrics (success rate, intervention rate, $/PR) | 5.7 ✅ |
 | Industry workflow patterns (5 patterns) | 6.1 ✅ |
 | Copilot Custom Agents | 6.2 ✅ |
-| Copilot Spaces | 6.3 🔍 *(added)* |
+| Copilot Spaces | 6.3 🔍 |
 | Cross-surface Copilot workflows | 6.4 ✅ |
+| **Skill packaging** (instructions + prompt + tool as one unit) | 6.5 ⭐ |
 | Copilot Cloud Agent (issue → PR) | 7.1–7.2 ✅ |
 | Reviewing agent PRs | 7.3 ✅ |
-| Copilot Code Review | 7.4 🔍 *(added)* |
+| Copilot Code Review | 7.4 🔍 |
 | Fleet orchestration | 7.5 ✅ |
 | Premium request economics | 8.1 ✅ |
 | Model selection strategy | 8.2 ✅ |
@@ -303,18 +311,27 @@ This curriculum was audited against current (2025–2026) industry best practice
 
 ---
 
-## Part 9 — Open Items ✅ Resolved at v1.0
+## Part 9 — Open Items ✅ Resolved at v1.1
 
-All 6 audit additions were accepted by the learner on 2026-05-19. Curriculum is **locked at v1.0**. Future changes require a new version + a new entry in `DECISIONS.md`.
+All audit additions accepted by the learner on 2026-05-19. Curriculum is **locked at v1.1**. Future changes require a new version + a new entry in `DECISIONS.md`.
 
+### v1.0 additions (best-practices audit, 6 lessons)
 | Lesson | Status |
 |---|---|
-| 1.6 — Issue templates | ✅ Accepted |
+| 1.7 — Issue templates *(was 1.6 in v1.0)* | ✅ Accepted |
 | 4.4 — MCP in Copilot | ✅ Accepted |
 | 5.5 — Security threat model | ✅ Accepted |
 | 5.6 — Handling stuck agents | ✅ Accepted |
-| 6.3 — Copilot Spaces | ✅ Accepted *(optional — may be merged with 6.4 if Spaces feature shifts)* |
+| 6.3 — Copilot Spaces | ✅ Accepted *(may merge with 6.4 if Spaces feature shifts)* |
 | 7.4 — Copilot Code Review | ✅ Accepted |
+
+### v1.1 additions (Tools & Skills, 3 lessons + 1 rename)
+| Lesson | Status |
+|---|---|
+| **0.4 — Tools, Skills & the Agent's Toolbox** | ⭐ Added in v1.1 |
+| **1.6 — Prompt files** | ⭐ Added in v1.1 |
+| **4.2 — Build your own MCP tools** *(renamed/promoted from "Refactor server with FastMCP")* | ⭐ Renamed in v1.1 |
+| **6.5 — Skill packaging** | ⭐ Added in v1.1 |
 
 ---
 
@@ -330,4 +347,6 @@ If context is ever lost, read in this order — 5 minutes, full context restored
 
 ---
 
-*Change history: v1.0 (2026-05-19) — merged previous `00-learning-charter.md` and `04-curriculum.md` into one document. Added Phase 1.6, 4.4, 5.5, 5.6, 6.3, 7.4 from best-practices audit.*
+*Change history:*
+*v1.1 (2026-05-19) — Tools & Skills coverage: added 0.4 (Tools, Skills & the Agent's Toolbox), 1.6 (Prompt files), 6.5 (Skill packaging); renamed 4.2 to "Build your own MCP tools — designing a tool well". Renumbered downstream Phase 1 lessons.*
+*v1.0 (2026-05-19) — merged previous `00-learning-charter.md` and `04-curriculum.md` into one document. Added Phase 1.6, 4.4, 5.5, 5.6, 6.3, 7.4 from best-practices audit.*

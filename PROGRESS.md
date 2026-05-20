@@ -72,15 +72,16 @@
 - Learner approved.
 - Committed as `docs: add README.md`.
 
-### ✅ Course doc consolidated; curriculum locked at v1.0
-- Researched 2025–2026 best practices (GitHub Copilot CLI/Coding Agent/instructions/setup-steps, `agents.md`, Spec Kit, MCP, multi-agent patterns).
-- Decided to drop Spec Kit in favor of the "Interview Me" pattern (D-008).
-- Decided Copilot-only (no other AI ecosystems) (D-009).
-- Decided cost lessons taught late (D-010), no graduation project (D-011).
-- Removed non-Copilot vendor references from all docs (D-012).
+### ✅ Course doc consolidated; curriculum locked at v1.1
+- v1.0: Researched 2025–2026 best practices (GitHub Copilot CLI/Coding Agent/instructions/setup-steps, `agents.md`, Spec Kit, MCP, multi-agent patterns).
+- Decided "Interview Me" pattern over Spec Kit (D-008).
+- Decided Copilot-only (D-009).
+- Decided cost lessons late (D-010), no graduation project (D-011).
+- Removed non-Copilot vendor references (D-012).
 - Merged `00-learning-charter.md` and `04-curriculum.md` into single `00-course.md` (D-013).
-- Added 6 best-practice lessons from audit: 1.6, 4.4, 5.5, 5.6, 6.3, 7.4.
-- Curriculum locked at **v1.0**.
+- v1.0 added 6 best-practice lessons: 1.7 (issue templates, was 1.6), 4.4, 5.5, 5.6, 6.3, 7.4.
+- **v1.1 added Tools & Skills coverage** (D-014): 0.4 (Tools/Skills concept), 1.6 (Prompt files), 4.2 renamed to "Build your own MCP tools", 6.5 (Skill packaging).
+- Curriculum locked at **v1.1**. Course now has ~36 lessons across 8 phases.
 
 ---
 
