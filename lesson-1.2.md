@@ -51,7 +51,21 @@ A file inside `.github/` that only GitHub Copilot reads. It layers on top of `AG
 
 ### Concept 3: Path-Specific Instructions
 
-_(Pending)_
+**What it is:**
+Files in `.github/instructions/` that give agents **different rules for different file types**. Each file has a `applyTo` glob pattern in the front-matter — Copilot only applies those rules when editing matching files.
+
+**The 3-layer hierarchy:**
+| Layer | File | Scope |
+|-------|------|-------|
+| Universal | `AGENTS.md` | Every agent, every file |
+| Copilot overlay | `.github/copilot-instructions.md` | All Copilot interactions |
+| Path-specific | `.github/instructions/*.md` | Only matching file types |
+
+**Try it yourself — give your AI agent this prompt:**
+
+> Create two path-specific instruction files: (1) `.github/instructions/python.md` that applies to `**/*.py` and requires docstrings, type hints, and snake_case naming, and (2) `.github/instructions/typescript.md` that applies to `**/*.ts` and requires JSDoc comments, interfaces over types, and camelCase naming.
+
+**Expected result:** Two files in `.github/instructions/`, each with `applyTo` front-matter targeting the correct glob pattern and language-specific coding rules. ✅
 
 ---
 
