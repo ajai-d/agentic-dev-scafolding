@@ -69,36 +69,12 @@ Files in `.github/instructions/` that give agents **different rules for differen
 
 ---
 
-### Concept 4: Prompt Files
-
-_(Pending)_
-
----
-
-### Concept 5: Memory Files
+### Concept 4: Memory Files
 
 _(Pending — already created: PROGRESS.md, DECISIONS.md, TODO.md)_
 
 ---
 
-### Concept 6: Conventional Commits + PR Template
-
-_(Pending)_
-
----
-
-### Concept 7: `.env.example` — Secrets Pattern
-
-_(Pending)_
-
----
-
-### Concept 8: Fresh `README.md`
-
-_(Pending)_
-
----
-
-### Concept 9: Hello-Agent — Prove the Loop Works
+### Concept 5: Hello-Agent — Prove the Loop Works
 
 _(Pending)_

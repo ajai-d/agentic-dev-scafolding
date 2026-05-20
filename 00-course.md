@@ -100,7 +100,7 @@
 
 #### 📘 Lesson 1.0 — Environment Setup
 
-> **Outcome:** A local Git repo ready for agentic development — folder, `git init`, foundation files.
+> **Outcome:** A local Git repo ready for development — folder, `git init`, foundation files, pushed to GitHub.
 > **Status:** ✅ Done — see [`lesson-1.0.md`](./lesson-1.0.md)
 
 **Covers**
@@ -109,6 +109,10 @@
 - `.gitignore` — what to keep out of version control
 - `.gitattributes` — consistent line endings across OS
 - `LICENSE` — MIT for open sharing
+- `README.md` — project landing page
+- `.env.example` + secrets discipline
+- Conventional Commits + PR template
+- Push to GitHub
 - First commit
 
 ---
@@ -141,7 +145,7 @@
 #### 📘 Lesson 1.2 — The Agent Contract
 
 > **Outcome:** A repo so well-configured any agent can drop in and work safely.
-> **Status:** ⏳ Pending
+> **Status:** ⏳ In Progress
 
 **The instruction layer (3 layers — narrowest wins)**
 
@@ -149,17 +153,11 @@
 |---|---|---|
 | Universal | `AGENTS.md` | Any agent, any task |
 | Copilot overlay | `.github/copilot-instructions.md` | Copilot-specific tuning |
-| Path-specific | `.github/instructions/*.instructions.md` | Per file type / folder |
+| Path-specific | `.github/instructions/*.md` | Per file type / folder |
 
 **Plus**
-- Foundation files — Git, `.gitignore`, `.gitattributes`, `LICENSE`, `README`
-- Memory files — `PROGRESS.md` · `DECISIONS.md` · `NEXT.md`
-- Conventional Commits + PR template
-- `.env.example` + secrets discipline
-- Push to GitHub + branch protection
+- Memory files — `PROGRESS.md` · `DECISIONS.md` · `TODO.md`
 - **Hello-Agent** task — prove the loop works
-
-> 📁 *Note:* Some config files (`.gitignore`, `.gitattributes`, `LICENSE`) were committed during the curriculum-design phase and remain in place. We will revisit them in this lesson and recreate the rest fresh.
 
 ---
 
