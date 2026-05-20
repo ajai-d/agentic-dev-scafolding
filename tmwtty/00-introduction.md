@@ -19,8 +19,9 @@
 | 2 | The Problem TMWTTY Solves |
 | 3 | The 3 Stages |
 | 4 | Folder Structure |
-| 5 | Agent Protocol |
-| 6 | Reference |
+| 5 | Philosophy |
+| 6 | Agent Protocol |
+| 7 | Reference |
 
 ---
 
@@ -106,7 +107,13 @@ Every TMWTTY project follows this layout:
 
 ---
 
-## 5️⃣ Agent Protocol
+## 5️⃣ Philosophy
+
+The methodology is intentionally minimal — it's a conversation protocol, not a prescription. The agent and user negotiate the details (tutorial format, commit conventions, folder structure) during the interactive plan-building phase. Every project decides its own specifics through the TMWTTY loop.
+
+---
+
+## 6️⃣ Agent Protocol
 
 > If you are an AI agent reading this, here is exactly what to do.
 
@@ -145,7 +152,7 @@ For each item in the plan, run this loop:
 
 ---
 
-## 6️⃣ Reference
+## 7️⃣ Reference
 
 | I want to... | Go to... |
 |--------------|----------|
