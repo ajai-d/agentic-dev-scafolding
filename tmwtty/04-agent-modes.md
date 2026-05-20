@@ -1,18 +1,18 @@
-﻿# $([char]0x1F4D8) GitHub Copilot Modes & Capabilities
+# 📘 GitHub Copilot Modes & Capabilities
 
-> $([char]0x1F3AF) **Reference guide.** The official GitHub Copilot modes, tools, and configuration the agent helps you set up.
+> 🎯 **Reference guide.** The official GitHub Copilot modes, tools, and configuration the agent helps you set up.
 
 <table>
 <tr><td><b>What</b></td><td>Complete reference for GitHub Copilot capabilities used in TMWTTY</td></tr>
 <tr><td><b>Source</b></td><td>GitHub official documentation (2025-2026)</td></tr>
-<tr><td><b>Key point</b></td><td>The agent guides you through setup — you don't need to know this upfront</td></tr>
+<tr><td><b>Key point</b></td><td>The agent guides you through setup — you don’t need to know this upfront</td></tr>
 </table>
 
 ---
 
-## $([char]0x1F5FA)$([char]0xFE0F) Roadmap
+## 🗺️ Roadmap
 
-| $([char]0x00A7) | Topic |
+| § | Topic |
 |:-:|---|
 | 1 | Copilot Chat Modes |
 | 2 | Coding Agent (Cloud) |
@@ -23,7 +23,7 @@
 
 ---
 
-## 1$([char]0xFE0F)$([char]0x20E3) Copilot Chat Modes (VS Code)
+## 1️⃣ Copilot Chat Modes (VS Code)
 
 These are the three modes available in the Copilot Chat panel:
 
@@ -57,7 +57,7 @@ These are the three modes available in the Copilot Chat panel:
 
 ---
 
-## 2$([char]0xFE0F)$([char]0x20E3) Coding Agent (Cloud)
+## 2️⃣ Coding Agent (Cloud)
 
 The **Copilot Coding Agent** operates outside your IDE — entirely in the cloud:
 
@@ -84,7 +84,7 @@ The **Copilot Coding Agent** operates outside your IDE — entirely in the cloud
 
 ---
 
-## 3$([char]0xFE0F)$([char]0x20E3) MCP Servers & Tools
+## 3️⃣ MCP Servers & Tools
 
 **Model Context Protocol (MCP)** connects Copilot to external tools and data sources.
 
@@ -103,7 +103,7 @@ The **Copilot Coding Agent** operates outside your IDE — entirely in the cloud
 
 ### Configuration file (`.vscode/mcp.json`)
 
-`json
+```json
 {
   "servers": {
     "my-server": {
@@ -113,13 +113,13 @@ The **Copilot Coding Agent** operates outside your IDE — entirely in the cloud
     }
   }
 }
-`
+```
 
 > MCP tools are only available in **Agent mode** — not Ask or Edit.
 
 ---
 
-## 4$([char]0xFE0F)$([char]0x20E3) Custom Instructions
+## 4️⃣ Custom Instructions
 
 Tell Copilot how to behave in your project:
 
@@ -130,19 +130,19 @@ Tell Copilot how to behave in your project:
 
 ### Example `.github/copilot-instructions.md`
 
-`markdown
+```markdown
 - Use TypeScript with strict mode
 - Prefer functional components in React
 - Use async/await, never .then()
 - All functions must have JSDoc comments
 - Use pytest for Python tests
-`
+```
 
 > These files act as a persistent system prompt — Copilot reads them automatically.
 
 ---
 
-## 5$([char]0xFE0F)$([char]0x20E3) How TMWTTY Maps to Modes
+## 5️⃣ How TMWTTY Maps to Modes
 
 | TMWTTY Stage | Copilot Mode | Why |
 |:-------------|:-------------|:----|
@@ -162,9 +162,9 @@ Tell Copilot how to behave in your project:
 
 ---
 
-## 6$([char]0xFE0F)$([char]0x20E3) Choosing the Right Mode
+## 6️⃣ Choosing the Right Mode
 
-`
+```
 Is this a learning moment, decision, or risky change?
   -> YES -> Interactive (Agent mode, TMWTTY loop)
 
@@ -175,8 +175,8 @@ Is the spec clear and well-defined?
 
 Are there multiple independent items?
   -> YES -> Parallel (assign multiple issues)
-`
+```
 
 > Remember: The agent guides you through configuring and using each mode.
-> You don't need to memorize this — the plan tells you what mode each item uses,
+> You don’t need to memorize this — the plan tells you what mode each item uses,
 > and the agent walks you through it when the time comes.
