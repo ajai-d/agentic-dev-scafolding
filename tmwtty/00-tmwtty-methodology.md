@@ -101,7 +101,6 @@ Every TMWTTY project follows this layout:
 |--------|---------|
 | `tmwtty/` | The methodology reference (you're reading it) |
 | `plan/` | The structured plan for this project |
-| `project/` | Production source code |
 | `replay-execution/` | Step-by-step playbook captured during execution |
 
 ---
