@@ -13,7 +13,7 @@
 
 | # | Item | Agent Mode | Description | Status |
 |---|------|-----------|-------------|--------|
-| 1 | Project Scaffolding | Interactive Agent | Initialize repo structure, install dependencies, configure Python MCP server, TypeScript client, and React UI projects. Set up `.gitignore`, `README.md`, and workspace config. | ⬜ |
+| 1 | Project Scaffolding | Interactive Agent | Initialize repo structure, install dependencies, configure Python MCP server, TypeScript client, and React UI projects. Set up `.gitignore`, `README.md`, and workspace config. | ✅ |
 | 2 | MCP Server — Top 5 Stocks | Interactive Agent | Build Python MCP server using MCP SDK exposing a tool that returns top 5 performing stocks with ticker symbols and prices. Hardcoded data. Unit tests. | ⬜ |
 | 3 | TypeScript MCP Client | Interactive Agent | Build TypeScript client using MCP TypeScript SDK that connects to the Python MCP server and calls the top 5 stocks tool. Unit tests. | ⬜ |
 | 4 | React UI — Stock Display | Interactive Agent | Build React app that uses the TypeScript client to fetch top 5 stocks and displays them in a clean table. Component tests. | ⬜ |
