@@ -66,7 +66,11 @@ One sentence. No jargon. This is the genesis of the project.
 
 ### Stage 2 — Plan
 
-The AI transforms your seed into a **structured plan** — deliverables sequenced by dependency, with an agent mode assigned to each item.
+The AI transforms your seed into an **optimized plan** — deliverables sequenced by dependency, with an agent mode assigned to each item. The plan prioritizes:
+
+- **Efficiency** — shortest path to done, minimal token usage, no unnecessary steps
+- **Best practices** — industry-standard coding, architecture, and security patterns
+- **Atomicity** — each item is a single, independently deliverable unit of work
 
 You review, refine, and approve before execution begins.
 
@@ -152,7 +156,8 @@ Areas to cover:
 
 3. Propose plan items **one at a time** — name, description, and agent mode
 4. Wait for approval or adjustment before proposing the next item
-5. After all items are approved, write the full plan to `plan/plan.md` using the format in [`03-plan-format.md`](./03-plan-format.md)
+5. After all items are approved, write the full plan to `plan/plan.md`
+6. Optimize the plan for: shortest path to done, minimal token usage, industry-standard architecture, coding best practices, and clear dependency ordering
 
 ### Stage 3 — Execute Each Plan Item (Spec-Driven Development)
 
@@ -188,4 +193,3 @@ For each item in the plan, run this loop:
 |--------------|----------|
 | Start building | [`01-getting-started.md`](./01-getting-started.md) |
 | Write my seed prompt | [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) |
-| See the plan format | [`03-plan-format.md`](./03-plan-format.md) |

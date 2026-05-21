@@ -16,7 +16,6 @@ Use [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) as an example t
 
 - **What I Want To Build** — your intent in plain language
 - **Done Looks Like** — how you'll know it's complete
-- **Guardrails** (optional) — constraints the agent must follow
 
 ---
 
@@ -41,4 +40,3 @@ That's it. The agent will:
 |------|---------|
 | [`00-tmwtty-methodology.md`](./00-tmwtty-methodology.md) | The methodology — what the agent reads |
 | [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Example template — use to create `plan/seed.md` |
-| [`03-plan-format.md`](./03-plan-format.md) | How the plan is structured |
