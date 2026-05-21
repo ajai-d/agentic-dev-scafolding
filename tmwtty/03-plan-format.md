@@ -19,17 +19,17 @@
 
 [Which modes will be used — see 04-agent-modes.md]
 
-- **Interactive** — Agent mode in VS Code, TMWTTY loop with approval at every step
-- **Autonomous** — Coding Agent (cloud), assign issue and review PR
-- **Parallel** — Multiple Coding Agents, independent items run simultaneously
+- **Interactive Agent** — TMWTTY loop with approval at every step
+- **Autonomous Agent** — agent works independently, human reviews output
+- **Multi-Agent Orchestration** — multiple agents work in parallel
 
 ## Plan Items
 
 | # | Item | Agent Mode | Description | Status |
 |---|------|-----------|-------------|--------|
-| 1 | ... | Interactive | ... | ⬜ |
-| 2 | ... | Autonomous | ... | ⬜ |
-| 3 | ... | Parallel | ... | ⬜ |
+| 1 | ... | Interactive Agent | ... | ⬜ |
+| 2 | ... | Autonomous Agent | ... | ⬜ |
+| 3 | ... | Multi-Agent | ... | ⬜ |
 
 ## Dependencies
 
