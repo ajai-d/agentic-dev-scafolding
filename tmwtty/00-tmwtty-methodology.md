@@ -32,7 +32,7 @@ Every step is documented as it's executed — producing both working software an
 
 | Challenge | Without TMWTTY | With TMWTTY |
 |-----------|----------------|-------------|
-| "I don't know what to ask the AI" | Trial and error | AI provides the exact prompt |
+| "I don't know what to ask the AI" | Trial and error | AI interviews you to elicit the right requirements |
 | "My process isn't repeatable" | Knowledge lives in someone's head | Every step captured in a replay-execution log |
 | "Others can't onboard quickly" | Tribal knowledge, shadowing | Self-service playbook anyone can follow |
 | "I don't know which AI mode to use" | Chat for everything | Plan assigns the right mode per task |
@@ -157,7 +157,6 @@ Areas to cover:
 3. Propose plan items **one at a time** — name, description, and agent mode
 4. Wait for approval or adjustment before proposing the next item
 5. After all items are approved, write the full plan to `plan/plan.md`
-6. Optimize the plan for: shortest path to done, minimal token usage, industry-standard architecture, coding best practices, and clear dependency ordering
 
 ### Stage 3 — Execute Each Plan Item (Spec-Driven Development)
 
@@ -177,6 +176,7 @@ For each item in the plan, run this loop:
 
 ### Rules
 
+- Optimize every plan for: shortest path to done, minimal token usage, industry-standard architecture, coding best practices, and clear dependency ordering
 - Use GitHub Copilot best practices
 - Use structured prompts following context engineering best practices
 - Never skip the approval step — the user confirms every artifact

@@ -1,13 +1,5 @@
 # 📘 Seed Prompt Template
 
-> 🎯 **Your starting point.** Copy this template, fill it in, and save it to `plan/seed.md`. That's your project's seed.
-
-| | |
-|---|---|
-| **What** | The reusable template that kicks off any TMWTTY project |
-| **Format** | Intent + success criteria + working instructions |
-| **Save to** | `plan/seed.md` |
-
 ---
 
 ## 🗺️ Template

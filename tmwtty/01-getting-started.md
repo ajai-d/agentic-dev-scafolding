@@ -1,13 +1,5 @@
 # 📘 Getting Started with TMWTTY
 
-> 🎯 **Two steps. That's it.**
-
-| | |
-|---|---|
-| **What** | How to start any TMWTTY project |
-| **Outcome** | Your AI agent is working with you using the TMWTTY methodology |
-| **Time** | ~2 minutes |
-
 ---
 
 ## Step 1 — Create Your Seed Prompt
