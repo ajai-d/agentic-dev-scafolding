@@ -157,7 +157,7 @@ Areas to cover:
 
 3. Propose plan items **one at a time** — name, description, and agent mode
 4. Wait for approval or adjustment before proposing the next item
-5. After all items are approved, write the full plan to `plan/plan.md`
+5. After all items are approved, write the full plan to `plan/plan.md` — the plan is a living document, updated as decisions are made during execution
 
 ### Stage 3 — Execute Each Plan Item (Spec-Driven Development)
 
