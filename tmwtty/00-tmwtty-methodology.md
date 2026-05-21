@@ -11,17 +11,15 @@
 
 ---
 
-## 🗺️ Roadmap
-
 | § | Topic |
 |:-:|---|
-| 1 | Executive Summary |
-| 2 | The Problem TMWTTY Solves |
-| 3 | The 3 Stages |
-| 4 | Folder Structure |
-| 5 | Philosophy |
-| 6 | Agent Protocol |
-| 7 | Reference |
+| 1 | [Executive Summary](#1️⃣-executive-summary) |
+| 2 | [The Problem TMWTTY Solves](#2️⃣-the-problem-tmwtty-solves) |
+| 3 | [The 3 Stages](#3️⃣-the-3-stages) |
+| 4 | [Folder Structure](#4️⃣-folder-structure) |
+| 5 | [Philosophy](#5️⃣-philosophy) |
+| 6 | [Agent Protocol](#6️⃣-agent-protocol) |
+| 7 | [Reference](#7️⃣-reference) |
 
 ---
 
