@@ -71,6 +71,7 @@ The AI transforms your seed into an **optimized plan** — deliverables sequence
 - **Efficiency** — shortest path to done, minimal token usage, no unnecessary steps
 - **Best practices** — industry-standard coding, architecture, and security patterns
 - **Atomicity** — each item is a single, independently deliverable unit of work
+- **Production-grade** — the output is deployment-ready: CI/CD, infrastructure as code, observability, security hardening, and cloud-native deployment to Azure (or the target platform) using well-architected framework principles
 
 You review, refine, and approve before execution begins.
 
