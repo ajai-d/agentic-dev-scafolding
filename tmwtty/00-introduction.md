@@ -2,12 +2,12 @@
 
 > 🎯 **The methodology.** Read once. Reference any time you start a new project.
 
-<table>
-<tr><td><b>What</b></td><td>A repeatable methodology for building software with AI agents</td></tr>
-<tr><td><b>Outcome</b></td><td>You understand the 3 stages and can apply TMWTTY to any project</td></tr>
-<tr><td><b>Read time</b></td><td>~5 minutes</td></tr>
-<tr><td><b>Prerequisites</b></td><td>None</td></tr>
-</table>
+| | |
+|---|---|
+| **What** | A repeatable methodology for building software with AI agents |
+| **Outcome** | You understand the 3 stages and can apply TMWTTY to any project |
+| **Read time** | ~5 minutes |
+| **Prerequisites** | None |
 
 ---
 

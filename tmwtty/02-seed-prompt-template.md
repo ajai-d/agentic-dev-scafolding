@@ -2,11 +2,11 @@
 
 > 🎯 **Your starting point.** Copy this template, fill it in, and save it to `plan/seed.md`. That's your project's seed.
 
-<table>
-<tr><td><b>What</b></td><td>The reusable template that kicks off any TMWTTY project</td></tr>
-<tr><td><b>Format</b></td><td>Intent + success criteria + working instructions</td></tr>
-<tr><td><b>Save to</b></td><td><code>plan/seed.md</code></td></tr>
-</table>
+| | |
+|---|---|
+| **What** | The reusable template that kicks off any TMWTTY project |
+| **Format** | Intent + success criteria + working instructions |
+| **Save to** | `plan/seed.md` |
 
 ---
 

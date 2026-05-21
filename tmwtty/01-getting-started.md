@@ -2,11 +2,11 @@
 
 > 🎯 **Two steps. That's it.**
 
-<table>
-<tr><td><b>What</b></td><td>How to start any TMWTTY project</td></tr>
-<tr><td><b>Outcome</b></td><td>Your AI agent is working with you using the TMWTTY methodology</td></tr>
-<tr><td><b>Time</b></td><td>~2 minutes</td></tr>
-</table>
+| | |
+|---|---|
+| **What** | How to start any TMWTTY project |
+| **Outcome** | Your AI agent is working with you using the TMWTTY methodology |
+| **Time** | ~2 minutes |
 
 ---
 
