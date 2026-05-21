@@ -21,5 +21,3 @@ with a TypeScript client and a simple React UI to display the results.
 
 Follow `tmwtty/00-tmwtty-methodology.md`.
 Use GitHub Copilot best practices.
-Use agent modes as appropriate: Interactive Agent, Autonomous Agent, or Multi-Agent Orchestration.
-Use structured prompts following context engineering best practices.

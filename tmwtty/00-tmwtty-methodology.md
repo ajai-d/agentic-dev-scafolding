@@ -17,9 +17,10 @@
 | 2 | [The Problem TMWTTY Solves](#2️⃣-the-problem-tmwtty-solves) |
 | 3 | [The 3 Stages](#3️⃣-the-3-stages) |
 | 4 | [Folder Structure](#4️⃣-folder-structure) |
-| 5 | [Philosophy](#5️⃣-philosophy) |
-| 6 | [Agent Protocol](#6️⃣-agent-protocol) |
-| 7 | [Reference](#7️⃣-reference) |
+| 5 | [Agent Modes](#5️⃣-agent-modes) |
+| 6 | [Philosophy](#6️⃣-philosophy) |
+| 7 | [Agent Protocol](#7️⃣-agent-protocol) |
+| 8 | [Reference](#8️⃣-reference) |
 
 ---
 
@@ -105,13 +106,27 @@ Every TMWTTY project follows this layout:
 
 ---
 
-## 5️⃣ Philosophy
+## 5️⃣ Agent Modes
+
+The plan assigns one of these modes to each item:
+
+| Mode | How It Works | Best For |
+|------|-------------|----------|
+| **Interactive Agent** | Agent and human work together step by step — the TMWTTY loop | Decisions, learning, risky changes, anything new |
+| **Autonomous Agent** | Agent works independently, human reviews the output | Well-defined tasks with clear specs |
+| **Multi-Agent Orchestration** | Multiple agents work in parallel on independent items | High volume, independent tasks, maximum throughput |
+
+> The agent guides you through configuring and running each mode — you don't need to know how upfront.
+
+---
+
+## 6️⃣ Philosophy
 
 The methodology is intentionally minimal — it's a conversation protocol, not a prescription. The agent and user negotiate the details (execution-log format, commit conventions, folder structure) during the interactive plan-building phase. Every project decides its own specifics through the TMWTTY loop.
 
 ---
 
-## 6️⃣ Agent Protocol
+## 7️⃣ Agent Protocol
 
 > If you are an AI agent reading this, here is exactly what to do.
 
@@ -151,11 +166,10 @@ For each item in the plan, run this loop:
 
 ---
 
-## 7️⃣ Reference
+## 8️⃣ Reference
 
 | I want to... | Go to... |
 |--------------|----------|
 | Start building | [`01-getting-started.md`](./01-getting-started.md) |
 | Write my seed prompt | [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) |
 | See the plan format | [`03-plan-format.md`](./03-plan-format.md) |
-| Understand agent modes | Defined in the seed prompt (`How To Work With Me` section) |
