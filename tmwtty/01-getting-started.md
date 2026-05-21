@@ -40,6 +40,5 @@ That's it. The agent will:
 | File | Purpose |
 |------|---------|
 | [`00-introduction.md`](./00-introduction.md) | The methodology — what the agent reads |
-| [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Your seed — what you fill in |
+| [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Your seed — includes agent modes and prompt structure |
 | [`03-plan-format.md`](./03-plan-format.md) | How the plan is structured |
-| [`04-agent-modes.md`](./04-agent-modes.md) | Interactive / Autopilot / Fleet reference |

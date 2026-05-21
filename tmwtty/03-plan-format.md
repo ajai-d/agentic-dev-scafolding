@@ -17,7 +17,7 @@
 
 ## Agent Mode for This Project
 
-[Which modes will be used — see 04-agent-modes.md]
+[Which modes will be used — Interactive Agent, Autonomous Agent, or Multi-Agent Orchestration]
 
 - **Interactive Agent** — TMWTTY loop with approval at every step
 - **Autonomous Agent** — agent works independently, human reviews output

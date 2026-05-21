@@ -23,3 +23,6 @@ Read `tmwtty/00-introduction.md` for the methodology.
 Build the plan interactively — propose items one at a time, I'll approve or adjust.
 Then execute each item using TMWTTY (tell me what to tell you for each step).
 Document every step in `replay-execution/` as we go.
+Use GitHub Copilot best practices.
+Use agent modes as appropriate: Interactive Agent, Autonomous Agent, or Multi-Agent Orchestration.
+Structure prompts using: Goal, Context, Specification, Sources, Guardrails, Verification.
