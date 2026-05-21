@@ -20,15 +20,6 @@
 ## Done Looks Like
 
 [How will you know it's complete? What's the minimum viable outcome?]
-
-## Guardrails (optional)
-
-[Constraints the agent must follow. Remove this section if not needed.]
-
-- Example: No external API calls — use hardcoded data for v1
-- Example: Python only — no JavaScript
-- Example: Must work offline
-- Example: Do not refactor existing code unless asked
 ```
 
 ---
@@ -56,11 +47,4 @@ with a TypeScript client and a simple React UI to display the results.
 - UI displays them in a clean table
 - All tests pass
 - Anyone can clone and run it locally
-
-## Guardrails
-
-- Use hardcoded stock data for v1 — no live API calls yet
-- Python for the MCP server, TypeScript for client and UI
-- One commit per plan item — atomic and traceable
-- Never self-merge — human approves every artifact
 ```

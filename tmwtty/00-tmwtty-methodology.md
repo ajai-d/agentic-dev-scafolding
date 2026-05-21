@@ -12,8 +12,9 @@
 | 4 | [Folder Structure](#4️⃣-folder-structure) |
 | 5 | [Agent Modes](#5️⃣-agent-modes) |
 | 6 | [Philosophy](#6️⃣-philosophy) |
-| 7 | [Agent Protocol](#7️⃣-agent-protocol) |
-| 8 | [Reference](#8️⃣-reference) |
+| 7 | [Guardrails](#7️⃣-guardrails) |
+| 8 | [Agent Protocol](#8️⃣-agent-protocol) |
+| 9 | [Reference](#9️⃣-reference) |
 
 ---
 
@@ -120,7 +121,25 @@ The methodology is intentionally minimal — it's a conversation protocol, not a
 
 ---
 
-## 7️⃣ Agent Protocol
+## 7️⃣ Guardrails
+
+During the plan-building phase, the agent guides the developer through establishing industry-standard guardrails appropriate to the project. These are not prescribed — they are negotiated through the TMWTTY loop based on the project's scope, stack, and risk profile.
+
+Areas to cover:
+
+| Category | Examples |
+|----------|----------|
+| **Security** | Secrets management, dependency scanning, least-privilege access |
+| **Quality** | Testing strategy, linting, type safety, code review gates |
+| **Architecture** | Separation of concerns, API contract design, dependency boundaries |
+| **Operations** | CI/CD pipeline, environment parity, observability |
+| **Process** | Commit conventions, branch strategy, approval workflows |
+
+> The agent surfaces the right guardrails at the right time — the developer doesn't need to know them upfront.
+
+---
+
+## 8️⃣ Agent Protocol
 
 > If you are an AI agent reading this, here is exactly what to do.
 
@@ -163,7 +182,7 @@ For each item in the plan, run this loop:
 
 ---
 
-## 8️⃣ Reference
+## 9️⃣ Reference
 
 | I want to... | Go to... |
 |--------------|----------|
