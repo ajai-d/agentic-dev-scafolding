@@ -1,11 +1,6 @@
 # 📘 Tell Me What To Tell You™ (TMWTTY)
 
-| | |
-|---|---|
-| **What** | A repeatable methodology for building software with AI agents |
-| **Outcome** | You understand the 3 stages and can apply TMWTTY to any project |
-| **Read time** | ~5 minutes |
-| **Prerequisites** | None |
+> A repeatable methodology for building software with AI agents.
 
 ---
 
