@@ -77,7 +77,7 @@ You review, refine, and approve before execution begins.
 
 ### Stage 3 — Execute
 
-For each item in the plan, follow **spec-driven development** using the **"Interview Me" method**: the AI conducts structured requirements elicitation — interviewing you to surface inputs, outputs, edge cases, and acceptance criteria — producing a spec before writing any code. Then execute against that spec.
+For each item in the plan, follow **spec-driven development** using the **"Interview Me" method**: the AI interviews you to surface requirements and acceptance criteria, produces a spec, then provides the exact prompt for you to send back. You send it, the AI executes, and the prompt + result are recorded in `replay-execution/` — creating a replayable script anyone can follow.
 
 | Step | Action |
 |:----:|--------|
@@ -85,9 +85,11 @@ For each item in the plan, follow **spec-driven development** using the **"Inter
 | 2 | AI interviews you — asks targeted questions to elicit requirements and acceptance criteria |
 | 3 | AI produces a spec from your answers |
 | 4 | You review and approve the spec |
-| 5 | AI implements against the approved spec |
-| 6 | You review the output |
-| 7 | AI commits, pushes, and documents the step |
+| 5 | AI provides the exact prompt for you to send |
+| 6 | You send the prompt back |
+| 7 | AI executes against the approved spec |
+| 8 | You review the output |
+| 9 | AI commits, pushes, and records the prompt + result in `replay-execution/` |
 
 > 🔁 Then move to the next item. Repeat until the plan is complete.
 
@@ -170,11 +172,15 @@ For each item in the plan, run this loop:
 | 2 | Interview the user — ask targeted questions to elicit requirements, inputs, outputs, edge cases, and acceptance criteria |
 | 3 | Synthesize the answers into a spec |
 | 4 | Present the spec for approval |
-| 5 | Implement against the approved spec |
-| 6 | Present the result for review |
-| 7 | On approval — commit, push, and document the step in `replay-execution/` |
+| 5 | Provide the exact prompt for the user to send back |
+| 6 | Wait for the user to send the prompt |
+| 7 | Execute against the approved spec |
+| 8 | Present the result for review |
+| 9 | On approval — commit, push, and record the prompt + result in `replay-execution/` |
 
 > 🔁 Repeat for every plan item until the project is complete.
+> 
+> The `replay-execution/` log is a **script of prompts** — anyone can copy-paste them into an AI agent to reproduce the same project.
 
 ### Rules
 
