@@ -152,6 +152,7 @@ Areas to cover:
 
 1. Read the user's seed prompt in [`plan/seed.md`](../plan/seed.md)
 2. Acknowledge the intent and confirm you understand what "done" looks like
+3. Clarify the project intent — **production** or **proof of concept** — and calibrate the plan accordingly
 
 ### Stage 2 — Build the Plan Interactively
 
