@@ -97,11 +97,12 @@ For each item in the plan, follow **spec-driven development** using the **"Inter
 
 Every TMWTTY project follows this layout:
 
-| Folder | Purpose |
-|--------|---------|
+| Folder / File | Purpose |
+|---------------|---------|
 | `tmwtty/` | The methodology reference (you're reading it) |
-| `plan/` | The structured plan for this project |
-| `replay-execution/` | Step-by-step playbook captured during execution |
+| `plan/seed.md` | The seed prompt — your project intent |
+| `plan/plan.md` | The structured plan — living document updated during execution |
+| `replay-execution/replay-execution.md` | Step-by-step playbook captured during execution |
 
 ---
 
