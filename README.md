@@ -20,7 +20,7 @@ A real project built from scratch using TMWTTY — a 3-stage methodology for wor
 
 ## Getting Started
 
-1. Read [`tmwtty/00-introduction.md`](./tmwtty/00-introduction.md) — understand the method
+1. Read [`tmwtty/00-tmwtty-methodology.md`](./tmwtty/00-tmwtty-methodology.md) — understand the method
 2. Follow [`tmwtty/01-getting-started.md`](./tmwtty/01-getting-started.md) — it walks you through
 3. Fill in [`tmwtty/02-seed-prompt-template.md`](./tmwtty/02-seed-prompt-template.md) — state what you want to build
 4. Generate and approve your plan in `plan/plan.md`

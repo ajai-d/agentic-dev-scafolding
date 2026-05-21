@@ -32,7 +32,7 @@
 
 ## How To Work With Me
 
-Follow `tmwtty/00-introduction.md`.
+Follow `tmwtty/00-tmwtty-methodology.md`.
 Use GitHub Copilot best practices.
 Use agent modes as appropriate: Interactive Agent, Autonomous Agent, or Multi-Agent Orchestration.
 Use structured prompts following context engineering best practices.
@@ -45,7 +45,7 @@ Use structured prompts following context engineering best practices.
 1. Copy the template above
 2. Fill in "What I Want To Build" and "Done Looks Like"
 3. Save it to `plan/seed.md`
-4. Give it to your AI agent with: *"Read `tmwtty/00-introduction.md` and follow TMWTTY."*
+4. Give it to your AI agent with: *"Read `tmwtty/00-tmwtty-methodology.md` and follow TMWTTY."*
 
 ---
 
@@ -73,7 +73,7 @@ with a TypeScript client and a simple React UI to display the results.
 
 ## How To Work With Me
 
-Follow `tmwtty/00-introduction.md`.
+Follow `tmwtty/00-tmwtty-methodology.md`.
 Use GitHub Copilot best practices.
 Use agent modes as appropriate: Interactive Agent, Autonomous Agent, or Multi-Agent Orchestration.
 Use structured prompts following context engineering best practices.

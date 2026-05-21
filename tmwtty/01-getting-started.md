@@ -25,7 +25,7 @@ Use [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) as an example t
 
 Paste your completed seed prompt and add this one line:
 
-> Read `tmwtty/00-introduction.md` and follow the TMWTTY methodology.
+> Read `tmwtty/00-tmwtty-methodology.md` and follow the TMWTTY methodology.
 
 That's it. The agent will:
 
@@ -40,6 +40,6 @@ That's it. The agent will:
 
 | File | Purpose |
 |------|---------|
-| [`00-introduction.md`](./00-introduction.md) | The methodology — what the agent reads |
+| [`00-tmwtty-methodology.md`](./00-tmwtty-methodology.md) | The methodology — what the agent reads |
 | [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Example template — use to create `plan/seed.md` |
 | [`03-plan-format.md`](./03-plan-format.md) | How the plan is structured |
