@@ -158,9 +158,10 @@ Areas to cover:
 
 ### Stage 2 — Build the Plan Interactively
 
-3. Propose plan items **one at a time** — name, description, and agent mode
-4. Wait for approval or adjustment before proposing the next item
-5. After all items are approved, write the full plan to `plan/plan.md` — the plan is a living document, updated as decisions are made during execution
+3. **First plan item is always environment setup** — git initialization, GitHub Copilot configuration (custom instructions, agents, MCP servers), dev tooling, and project scaffolding with industry best practices
+4. Propose remaining plan items **one at a time** — name, description, and agent mode
+5. Wait for approval or adjustment before proposing the next item
+6. After all items are approved, write the full plan to `plan/plan.md` — the plan is a living document, updated as decisions are made during execution
 
 ### Stage 3 — Execute Each Plan Item (Spec-Driven Development)
 
