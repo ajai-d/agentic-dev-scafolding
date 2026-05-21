@@ -71,16 +71,17 @@ You review, refine, and approve before execution begins.
 
 ### Stage 3 — Execute
 
-For each item in the plan, the TMWTTY loop runs:
+For each item in the plan, follow **spec-driven development**: the AI conducts structured requirements elicitation — interviewing you to surface inputs, outputs, edge cases, and acceptance criteria — producing a lightweight spec before writing any code. Then execute against that spec.
 
 | Step | Action |
 |:----:|--------|
-| 1 | AI explains the concept |
-| 2 | AI provides the exact prompt to send |
-| 3 | You send it back |
-| 4 | AI executes |
-| 5 | You review and approve |
-| 6 | AI commits, pushes, and documents the step |
+| 1 | AI explains the concept — what and why |
+| 2 | AI interviews you — asks targeted questions to elicit requirements and acceptance criteria |
+| 3 | AI produces a lightweight spec from your answers |
+| 4 | You review and approve the spec |
+| 5 | AI implements against the approved spec |
+| 6 | You review the output |
+| 7 | AI commits, pushes, and documents the step |
 
 > 🔁 Then move to the next item. Repeat until the plan is complete.
 
@@ -134,18 +135,19 @@ The methodology is intentionally minimal — it's a conversation protocol, not a
 4. Wait for approval or adjustment before proposing the next item
 5. After all items are approved, write the full plan to `plan/plan.md` using the format in [`03-plan-format.md`](./03-plan-format.md)
 
-### Stage 3 — Execute Each Plan Item
+### Stage 3 — Execute Each Plan Item (Spec-Driven Development)
 
 For each item in the plan, run this loop:
 
 | Step | You (the agent) do this |
 |:----:|-------------------------|
 | 1 | Explain the concept — what and why |
-| 2 | Provide the exact prompt the user should send back |
-| 3 | Wait for the user to send it |
-| 4 | Execute the work |
-| 5 | Present the result for review |
-| 6 | On approval — commit, push, and document the step in `replay-execution/` |
+| 2 | Interview the user — ask targeted questions to elicit requirements, inputs, outputs, edge cases, and acceptance criteria |
+| 3 | Synthesize the answers into a lightweight spec |
+| 4 | Present the spec for approval |
+| 5 | Implement against the approved spec |
+| 6 | Present the result for review |
+| 7 | On approval — commit, push, and document the step in `replay-execution/` |
 
 > 🔁 Repeat for every plan item until the project is complete.
 
