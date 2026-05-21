@@ -10,13 +10,14 @@
 
 ---
 
-## Step 1 — Fill In Your Seed Prompt
+## Step 1 — Create Your Seed Prompt
 
-Open [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) and fill in the template:
+Use [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) as an example to create `plan/seed.md`:
 
 - **What I Want To Build** — your intent in plain language
 - **Done Looks Like** — how you'll know it's complete
-- **How To Work With Me** — tells the AI to follow TMWTTY (already written for you)
+- **Guardrails** (optional) — constraints the agent must follow
+- **How To Work With Me** — tells the AI to follow TMWTTY (copy from template)
 
 ---
 
@@ -40,5 +41,5 @@ That's it. The agent will:
 | File | Purpose |
 |------|---------|
 | [`00-introduction.md`](./00-introduction.md) | The methodology — what the agent reads |
-| [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Your seed — includes agent modes and prompt structure |
+| [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Example template — use to create `plan/seed.md` |
 | [`03-plan-format.md`](./03-plan-format.md) | How the plan is structured |
