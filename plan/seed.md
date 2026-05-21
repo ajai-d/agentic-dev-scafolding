@@ -16,8 +16,3 @@ with a TypeScript client and a simple React UI to display the results.
 - Python for the MCP server, TypeScript for client and UI
 - One commit per plan item — atomic and traceable
 - Never self-merge — human approves every artifact
-
-## How To Work With Me
-
-Follow `tmwtty/00-tmwtty-methodology.md`.
-Use GitHub Copilot best practices.

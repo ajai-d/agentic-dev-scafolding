@@ -158,6 +158,8 @@ For each item in the plan, run this loop:
 
 ### Rules
 
+- Use GitHub Copilot best practices
+- Use structured prompts following context engineering best practices
 - Never skip the approval step — the user confirms every artifact
 - Document as you go — `replay-execution/` captures each step as it happens
 - One commit per plan item — atomic, traceable history

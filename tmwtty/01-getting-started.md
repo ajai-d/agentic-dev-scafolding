@@ -17,7 +17,6 @@ Use [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) as an example t
 - **What I Want To Build** — your intent in plain language
 - **Done Looks Like** — how you'll know it's complete
 - **Guardrails** (optional) — constraints the agent must follow
-- **How To Work With Me** — tells the AI to follow TMWTTY (copy from template)
 
 ---
 
