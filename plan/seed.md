@@ -1,7 +1,7 @@
 ## What I Want To Build
 
 An MCP server that returns the top 5 performing stocks of the day,
-with a TypeScript client and a simple React UI to display the results.
+with a client and a simple UI to display the results.
 
 ## Done Looks Like
 
