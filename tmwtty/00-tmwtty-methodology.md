@@ -1,7 +1,5 @@
 # 📘 Tell Me What To Tell You™ (TMWTTY)
 
-> 🎯 **The methodology.** Read once. Reference any time you start a new project.
-
 | | |
 |---|---|
 | **What** | A repeatable methodology for building software with AI agents |
