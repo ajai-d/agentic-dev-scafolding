@@ -77,13 +77,13 @@ You review, refine, and approve before execution begins.
 
 ### Stage 3 — Execute
 
-For each item in the plan, follow **spec-driven development**: the AI conducts structured requirements elicitation — interviewing you to surface inputs, outputs, edge cases, and acceptance criteria — producing a lightweight spec before writing any code. Then execute against that spec.
+For each item in the plan, follow **spec-driven development** using the **"Interview Me" method**: the AI conducts structured requirements elicitation — interviewing you to surface inputs, outputs, edge cases, and acceptance criteria — producing a spec before writing any code. Then execute against that spec.
 
 | Step | Action |
 |:----:|--------|
 | 1 | AI explains the concept — what and why |
 | 2 | AI interviews you — asks targeted questions to elicit requirements and acceptance criteria |
-| 3 | AI produces a lightweight spec from your answers |
+| 3 | AI produces a spec from your answers |
 | 4 | You review and approve the spec |
 | 5 | AI implements against the approved spec |
 | 6 | You review the output |
@@ -167,7 +167,7 @@ For each item in the plan, run this loop:
 |:----:|-------------------------|
 | 1 | Explain the concept — what and why |
 | 2 | Interview the user — ask targeted questions to elicit requirements, inputs, outputs, edge cases, and acceptance criteria |
-| 3 | Synthesize the answers into a lightweight spec |
+| 3 | Synthesize the answers into a spec |
 | 4 | Present the spec for approval |
 | 5 | Implement against the approved spec |
 | 6 | Present the result for review |
