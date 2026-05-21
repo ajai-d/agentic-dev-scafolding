@@ -35,7 +35,17 @@
 Follow `tmwtty/00-introduction.md`.
 Use GitHub Copilot best practices.
 Use agent modes as appropriate: Interactive Agent, Autonomous Agent, or Multi-Agent Orchestration.
-Structure prompts using: Goal, Context, Specification, Sources, Guardrails, Verification.
+
+Structure every prompt using these 6 elements:
+
+| # | Element | What It Answers |
+|:-:|---------|----------------|
+| 1 | **Goal** | What to produce |
+| 2 | **Context** | What the agent should already know |
+| 3 | **Specification** | Explicit requirements |
+| 4 | **Sources** | Citations to trusted references |
+| 5 | **Guardrails** | What *not* to do |
+| 6 | **Verification** | How to prove it worked |
 ```
 
 ---
@@ -46,21 +56,3 @@ Structure prompts using: Goal, Context, Specification, Sources, Guardrails, Veri
 2. Fill in "What I Want To Build" and "Done Looks Like"
 3. Save it to `plan/seed.md`
 4. Give it to your AI agent with: *"Read `tmwtty/00-introduction.md` and follow TMWTTY."*
-
----
-
-## 📐 The 6 Prompt Elements (reference)
-
-Every prompt the agent gives you is built from these six elements. You don't write them yourself — the agent does — but understanding them helps you evaluate the prompts you receive.
-
-| # | Element | What It Answers | Example |
-|:-:|---------|----------------|---------|
-| 1 | **Goal** | What to produce | "Create a Python MCP server with one tool" |
-| 2 | **Context** | What the agent should already know | "We're using FastMCP, Python 3.12, and pytest" |
-| 3 | **Specification** | Explicit requirements | "The tool returns 5 stock tickers with prices as JSON" |
-| 4 | **Sources** | Citations to trusted references | "Follow the FastMCP docs at https://..." |
-| 5 | **Guardrails** | What *not* to do | "Do not call external APIs — use hardcoded data" |
-| 6 | **Verification** | How to prove it worked | "Run pytest — all tests pass. Start the server — tool responds." |
-
-> These six elements come from agentic prompt engineering best practices.
-> A well-structured prompt hits all six. A vague prompt misses most of them.

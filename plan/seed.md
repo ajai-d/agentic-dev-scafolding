@@ -22,4 +22,14 @@ with a TypeScript client and a simple React UI to display the results.
 Follow `tmwtty/00-introduction.md`.
 Use GitHub Copilot best practices.
 Use agent modes as appropriate: Interactive Agent, Autonomous Agent, or Multi-Agent Orchestration.
-Structure prompts using: Goal, Context, Specification, Sources, Guardrails, Verification.
+
+Structure every prompt using these 6 elements:
+
+| # | Element | What It Answers |
+|:-:|---------|----------------|
+| 1 | **Goal** | What to produce |
+| 2 | **Context** | What the agent should already know |
+| 3 | **Specification** | Explicit requirements |
+| 4 | **Sources** | Citations to trusted references |
+| 5 | **Guardrails** | What *not* to do |
+| 6 | **Verification** | How to prove it worked |
