@@ -11,7 +11,7 @@
 
 ---
 
-| § | Topic |
+| | |
 |:-:|---|
 | 1 | [Executive Summary](#1️⃣-executive-summary) |
 | 2 | [The Problem TMWTTY Solves](#2️⃣-the-problem-tmwtty-solves) |
