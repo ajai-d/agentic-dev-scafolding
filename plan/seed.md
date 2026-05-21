@@ -25,11 +25,11 @@ Use agent modes as appropriate: Interactive Agent, Autonomous Agent, or Multi-Ag
 
 Structure every prompt using these 6 elements:
 
-| # | Element | What It Answers |
-|:-:|---------|----------------|
-| 1 | **Goal** | What to produce |
-| 2 | **Context** | What the agent should already know |
-| 3 | **Specification** | Explicit requirements |
-| 4 | **Sources** | Citations to trusted references |
-| 5 | **Guardrails** | What *not* to do |
-| 6 | **Verification** | How to prove it worked |
+| # | Element | What It Answers | Example |
+|:-:|---------|----------------|---------|
+| 1 | **Goal** | What to produce | "Create a Python MCP server with one tool" |
+| 2 | **Context** | What the agent should already know | "We're using FastMCP, Python 3.12, and pytest" |
+| 3 | **Specification** | Explicit requirements | "The tool returns 5 stock tickers with prices as JSON" |
+| 4 | **Sources** | Citations to trusted references | "Follow the FastMCP docs at https://..." |
+| 5 | **Guardrails** | What *not* to do | "Do not call external APIs — use hardcoded data" |
+| 6 | **Verification** | How to prove it worked | "Run pytest — all tests pass. Start the server — tool responds." |
