@@ -19,7 +19,7 @@
 
 | # | Item | Agent Mode | Status |
 |---|------|-----------|--------|
-| 1 | Project Scaffolding | Interactive Agent | ⬜ |
+| 1 | Project Scaffolding | Interactive Agent | ✅ |
 | 2 | MCP Server — Top 5 Stocks | Interactive Agent | ⬜ |
 | 3 | TypeScript MCP Client | Interactive Agent | ⬜ |
 | 4 | React UI — Stock Display | Interactive Agent | ⬜ |
