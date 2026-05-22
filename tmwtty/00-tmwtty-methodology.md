@@ -5,14 +5,14 @@
 | | |
 |:-:|---|
 | 1 | [What Is TMWTTY?](#1️⃣-what-is-tmwtty) |
-| 2 | [How It Works](#2️⃣-how-it-works) |
-| 3 | [Key Terms](#3️⃣-key-terms) |
-| 4 | [The Two Protocols](#4️⃣-the-two-protocols) |
-| 5 | [Applying TMWTTY to SDLC — The Pipeline](#5️⃣-applying-tmwtty-to-sdlc--the-pipeline) |
-| 6 | [Folder Structure](#6️⃣-folder-structure) |
-| 7 | [Runtime](#7️⃣-runtime) |
-| 8 | [Guardrails](#8️⃣-guardrails) |
-| 9 | [The Problem TMWTTY Solves](#9️⃣-the-problem-tmwtty-solves) |
+| 2 | [The Problem TMWTTY Solves](#2️⃣-the-problem-tmwtty-solves) |
+| 3 | [How It Works](#3️⃣-how-it-works) |
+| 4 | [Key Terms](#4️⃣-key-terms) |
+| 5 | [The Two Protocols](#5️⃣-the-two-protocols) |
+| 6 | [Applying TMWTTY to SDLC — The Pipeline](#6️⃣-applying-tmwtty-to-sdlc--the-pipeline) |
+| 7 | [Folder Structure](#7️⃣-folder-structure) |
+| 8 | [Runtime](#8️⃣-runtime) |
+| 9 | [Guardrails](#9️⃣-guardrails) |
 | 🔟 | [Agent Protocol (for AI agents)](#-agent-protocol-for-ai-agents) |
 | 1️⃣1️⃣ | [Reference](#1️⃣1️⃣-reference) |
 
@@ -26,21 +26,27 @@ The core idea is simple: **the user doesn't need to write prompts — the AI giv
 
 Every step is documented as it's executed — producing both the deliverable and a built-in history of how it was built. The result is a reusable replay-execution log that anyone, regardless of experience level, can follow to reproduce the same outcome.
 
-This solves three problems at once:
-
-| Problem | How TMWTTY solves it |
-|---------|----------------------|
-| You don't know what to ask the AI | The AI tells you what to ask |
-| You worry the AI will do something you didn't intend | Nothing happens until you explicitly send the prompt back |
-| You can't reproduce or share what you built | Every prompt + result is recorded in a replayable log |
-
 **TMWTTY is general-purpose** — it works for writing, research, data analysis, ops runbooks, or anything else.
 
 **In this repository, we apply TMWTTY to a full Agentic SDLC** (Software Development Life Cycle): going from a short idea to a running, deployed system, built entirely by AI agents under your direction.
 
 ---
 
-## 2️⃣ How It Works
+## 2️⃣ The Problem TMWTTY Solves
+
+| Challenge | Without TMWTTY | With TMWTTY |
+|-----------|----------------|-------------|
+| "I don't know what to ask the AI" | Trial and error | AI interviews you to elicit the right requirements |
+| "My process isn't repeatable" | Knowledge lives in someone's head | Every step captured in a replay-execution log |
+| "Others can't onboard quickly" | Tribal knowledge, shadowing | Self-service playbook anyone can follow |
+| "I don't know which AI mode to use" | Chat for everything | Plan assigns the right mode per task |
+| "Quality varies by person" | Inconsistent prompting | Standardized prompts, consistent output |
+| "I lost track of what was done" | Reconstruct from memory | Built-in history with decisions documented |
+| "Starting a new project from scratch" | Reinvent every time | Fork a replay-execution, adapt, ship faster |
+
+---
+
+## 3️⃣ How It Works
 
 Here's the core loop, called **the TMWTTY loop**:
 
@@ -72,7 +78,7 @@ The replay-execution log becomes a **script of prompts** anyone can copy-paste t
 
 ---
 
-## 3️⃣ Key Terms
+## 4️⃣ Key Terms
 
 | Term | Definition |
 |------|------------|
@@ -85,7 +91,7 @@ The replay-execution log becomes a **script of prompts** anyone can copy-paste t
 
 ---
 
-## 4️⃣ The Two Protocols
+## 5️⃣ The Two Protocols
 
 TMWTTY uses **two different conversation protocols** depending on what the AI needs from you.
 
@@ -99,11 +105,11 @@ Used only once, at the start of the Spec stage.
 
 Every other agent (Architecture, Design, Implementation, Test, etc.) already knows industry best practices. So instead of interviewing, it **proposes** — and you approve.
 
-This is the 7-step loop shown in Section 2 above.
+This is the 7-step loop shown in Section 3 above.
 
 ---
 
-## 5️⃣ Applying TMWTTY to SDLC — The Pipeline
+## 6️⃣ Applying TMWTTY to SDLC — The Pipeline
 
 When TMWTTY is applied to software development, it follows this pipeline:
 
@@ -166,7 +172,7 @@ Each stage is **informed by the prior stage's output**. No stage starts until th
 
 ---
 
-## 6️⃣ Folder Structure
+## 7️⃣ Folder Structure
 
 Every TMWTTY project follows this layout:
 
@@ -180,7 +186,7 @@ Every TMWTTY project follows this layout:
 
 ---
 
-## 7️⃣ Runtime
+## 8️⃣ Runtime
 
 TMWTTY runs in **GitHub Copilot CLI**. Every agent in the pipeline (Spec Agent, Architecture Agent, Implementation Agent, etc.) is a **role played by Copilot CLI** — one AI, many hats.
 
@@ -206,7 +212,7 @@ TMWTTY runs in **GitHub Copilot CLI**. Every agent in the pipeline (Spec Agent, 
 
 ---
 
-## 8️⃣ Guardrails
+## 9️⃣ Guardrails
 
 During the Plan stage, the Planning Agent guides the developer through establishing industry-standard guardrails appropriate to the project. Guardrails are **not prescribed** — they are negotiated through the TMWTTY loop based on the project's scope, stack, and risk profile.
 
@@ -219,20 +225,6 @@ During the Plan stage, the Planning Agent guides the developer through establish
 | **Process** | Commit conventions, branch strategy, approval workflows |
 
 > The agent surfaces the right guardrails at the right time — the developer doesn't need to know them upfront.
-
----
-
-## 9️⃣ The Problem TMWTTY Solves
-
-| Challenge | Without TMWTTY | With TMWTTY |
-|-----------|----------------|-------------|
-| "I don't know what to ask the AI" | Trial and error | AI interviews you to elicit the right requirements |
-| "My process isn't repeatable" | Knowledge lives in someone's head | Every step captured in a replay-execution log |
-| "Others can't onboard quickly" | Tribal knowledge, shadowing | Self-service playbook anyone can follow |
-| "I don't know which AI mode to use" | Chat for everything | Plan assigns the right mode per task |
-| "Quality varies by person" | Inconsistent prompting | Standardized prompts, consistent output |
-| "I lost track of what was done" | Reconstruct from memory | Built-in history with decisions documented |
-| "Starting a new project from scratch" | Reinvent every time | Fork a replay-execution, adapt, ship faster |
 
 ---
 
@@ -280,7 +272,7 @@ During the Plan stage, the Planning Agent guides the developer through establish
 - Document as you go — `replay-execution/` captures each step as it happens
 - One commit per artifact — atomic, traceable history
 - If uncertain, ask — don't assume
-- Guide the user through tooling — when an agent requires a specific Copilot mode (Agent, Coding Agent, MCP servers, custom instructions), walk the user step by step through configuring and running it (the user is not expected to know how)
+- Guide the user through tooling — when an agent requires a specific Copilot mode (Interactive, Autopilot, Plan, Fleet) or feature (Custom Agents, Subagents, Delegate, MCP), walk the user step by step through configuring and running it (the user is not expected to know how)
 
 ---
 
