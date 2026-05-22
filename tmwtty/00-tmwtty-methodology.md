@@ -1,7 +1,5 @@
 # 📘 Tell Me What To Tell You™ (TMWTTY)
 
-> A repeatable methodology for building software with AI agents.
-
 ---
 
 | | |
