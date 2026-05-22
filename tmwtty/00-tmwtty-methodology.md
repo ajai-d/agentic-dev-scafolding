@@ -22,7 +22,7 @@ TMWTTY is a structured framework for AI-assisted work. It eliminates the guesswo
 
 **All you need is a seed prompt stating your intent.** The AI takes it from there and guides you every step of the way.
 
-**TMWTTY is general-purpose.** It can be applied to anything: writing, research, data analysis, ops runbooks. **In this repository, we apply TMWTTY to implement a full Agentic SDLC** — Seed → Spec → Plan → Execute → Deploy → Operate.
+**TMWTTY is general-purpose.** It can be applied to anything: writing, research, data analysis, ops runbooks. **In this repository, we apply TMWTTY to implement a full Agentic SDLC** — Spec → Plan → Execute → Deploy → Operate.
 
 ---
 
