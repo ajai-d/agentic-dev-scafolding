@@ -2,23 +2,23 @@
 
 ---
 
-| | |
-|:-:|---|
-| 1 | [What Is TMWTTY?](#1️⃣-what-is-tmwtty) |
-| 2 | [The Problem TMWTTY Solves](#2️⃣-the-problem-tmwtty-solves) |
-| 3 | [How It Works](#3️⃣-how-it-works) |
-| 4 | [Key Terms](#4️⃣-key-terms) |
-| 5 | [The Two Protocols](#5️⃣-the-two-protocols) |
-| 6 | [Applying TMWTTY to SDLC — The Pipeline](#6️⃣-applying-tmwtty-to-sdlc--the-pipeline) |
-| 7 | [Folder Structure](#7️⃣-folder-structure) |
-| 8 | [Runtime](#8️⃣-runtime) |
-| 9 | [Guardrails](#9️⃣-guardrails) |
-| 🔟 | [Agent Protocol (for AI agents)](#-agent-protocol-for-ai-agents) |
-| 1️⃣1️⃣ | [Reference](#1️⃣1️⃣-reference) |
+| # | Section |
+|:-:|---------|
+| 1 | [What Is TMWTTY?](#1-what-is-tmwtty) |
+| 2 | [The Problem TMWTTY Solves](#2-the-problem-tmwtty-solves) |
+| 3 | [How It Works](#3-how-it-works) |
+| 4 | [Key Terms](#4-key-terms) |
+| 5 | [The Two Protocols](#5-the-two-protocols) |
+| 6 | [Applying TMWTTY to SDLC — The Pipeline](#6-applying-tmwtty-to-sdlc--the-pipeline) |
+| 7 | [Folder Structure](#7-folder-structure) |
+| 8 | [Runtime](#8-runtime) |
+| 9 | [Guardrails](#9-guardrails) |
+| 10 | [Agent Protocol (for AI agents)](#10-agent-protocol-for-ai-agents) |
+| 11 | [Reference](#11-reference) |
 
 ---
 
-## 1️⃣ What Is TMWTTY?
+## 1. What Is TMWTTY?
 
 **TMWTTY ("Tell Me What To Tell You")** is a framework for working with AI agents.
 
@@ -32,7 +32,7 @@ Every step is documented as it's executed — producing both the deliverable and
 
 ---
 
-## 2️⃣ The Problem TMWTTY Solves
+## 2. The Problem TMWTTY Solves
 
 | Challenge | Without TMWTTY | With TMWTTY |
 |-----------|----------------|-------------|
@@ -46,7 +46,7 @@ Every step is documented as it's executed — producing both the deliverable and
 
 ---
 
-## 3️⃣ How It Works
+## 3. How It Works
 
 Here's the core loop, called **the TMWTTY loop**:
 
@@ -78,7 +78,7 @@ The replay-execution log becomes a **script of prompts** anyone can copy-paste t
 
 ---
 
-## 4️⃣ Key Terms
+## 4. Key Terms
 
 | Term | Definition |
 |------|------------|
@@ -91,7 +91,7 @@ The replay-execution log becomes a **script of prompts** anyone can copy-paste t
 
 ---
 
-## 5️⃣ The Two Protocols
+## 5. The Two Protocols
 
 TMWTTY uses **two different conversation protocols** depending on what the AI needs from you.
 
@@ -109,7 +109,7 @@ This is the 7-step loop shown in Section 3 above.
 
 ---
 
-## 6️⃣ Applying TMWTTY to SDLC — The Pipeline
+## 6. Applying TMWTTY to SDLC — The Pipeline
 
 When TMWTTY is applied to software development, it follows this pipeline:
 
@@ -172,7 +172,7 @@ Each stage is **informed by the prior stage's output**. No stage starts until th
 
 ---
 
-## 7️⃣ Folder Structure
+## 7. Folder Structure
 
 Every TMWTTY project follows this layout:
 
@@ -186,7 +186,7 @@ Every TMWTTY project follows this layout:
 
 ---
 
-## 8️⃣ Runtime
+## 8. Runtime
 
 TMWTTY runs in **GitHub Copilot CLI**. Every agent in the pipeline (Spec Agent, Architecture Agent, Implementation Agent, etc.) is a **role played by Copilot CLI** — one AI, many hats.
 
@@ -212,7 +212,7 @@ TMWTTY runs in **GitHub Copilot CLI**. Every agent in the pipeline (Spec Agent, 
 
 ---
 
-## 9️⃣ Guardrails
+## 9. Guardrails
 
 During the Plan stage, the Planning Agent guides the developer through establishing industry-standard guardrails appropriate to the project. Guardrails are **not prescribed** — they are negotiated through the TMWTTY loop based on the project's scope, stack, and risk profile.
 
@@ -228,7 +228,7 @@ During the Plan stage, the Planning Agent guides the developer through establish
 
 ---
 
-## 🔟 Agent Protocol (for AI agents)
+## 10. Agent Protocol (for AI agents)
 
 > If you are an AI agent reading this, here is exactly what to do.
 
@@ -276,7 +276,7 @@ During the Plan stage, the Planning Agent guides the developer through establish
 
 ---
 
-## 1️⃣1️⃣ Reference
+## 11. Reference
 
 | I want to... | Go to... |
 |--------------|----------|
