@@ -184,15 +184,25 @@ Every TMWTTY project follows this layout:
 
 TMWTTY runs in **GitHub Copilot CLI**. Every agent in the pipeline (Spec Agent, Architecture Agent, Implementation Agent, etc.) is a **role played by Copilot CLI** — one AI, many hats.
 
-Copilot CLI supports the patterns TMWTTY needs:
+### Copilot CLI Agent Modes
 
-| Capability | When the Planning Agent uses it |
-|------------|----------------------------------|
-| **Custom agents** | Define each pipeline role (Spec, Architecture, Implementation, etc.) with focused instructions |
-| **Subagents** | Spawn specialized subagents for parallel or composable subtasks |
-| **Delegation to Coding Agent** | Hand off a fully-specified use case to run autonomously in the background (issue → PR) |
+| Mode | What it does | When TMWTTY uses it |
+|------|-------------|---------------------|
+| **Interactive** *(default)* | Each tool action requires explicit user approval | The TMWTTY loop — default for every stage |
+| **Autopilot** | Fully autonomous — no approvals needed | When the spec is precise and the work is low-risk |
+| **Plan** | Generates a multi-step plan, user approves, then executes | The Plan stage (Use Cases, Architecture, Design, Orchestration) |
+| **Fleet** (`/fleet`) | Breaks work into parallel subtasks across subagents | When use cases are independent and can run in parallel |
 
-> The Planning Agent chooses when to delegate, parallelize, or run sequentially based on the project's needs. You don't need to know how upfront — Copilot CLI is configured along the way.
+### Copilot CLI Features
+
+| Feature | Command | How TMWTTY uses it |
+|---------|---------|---------------------|
+| **Custom Agents** | `/agent <name>` | Define each pipeline role (Spec, Architecture, Implementation, etc.) as a persistent custom agent in `.github/agents` |
+| **Subagents** | (implicit) | Spawned by Plan/Fleet modes for specialized subtasks |
+| **Delegate** | `/delegate` | Hand off a fully-specified use case to the Coding Agent to run asynchronously (issue → PR) |
+| **MCP Servers** | per-agent config | Connect agents to external tools, data sources, or alternate models |
+
+> The Planning Agent decides when to switch modes, define custom agents, parallelize with Fleet, or delegate to the Coding Agent. You don't need to know how upfront — Copilot CLI is configured along the way.
 
 ---
 
