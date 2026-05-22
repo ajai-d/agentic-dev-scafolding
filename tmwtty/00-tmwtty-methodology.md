@@ -65,6 +65,7 @@ In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short
 | **Plan** | A living document containing use cases, architecture, design, and the agent orchestration plan. Saved in `plan/plan.md`. |
 | **Replay-execution log** | A markdown file capturing every prompt and result from the project. Acts as both project history and a reference template for similar future work. See [Limitations](#11-limitations) for caveats on direct replay. Saved in `replay-execution/replay-execution.md`. |
 | **Agent** | A specialized AI role assigned to a single responsibility (for example, Spec Agent or Implementation Agent). For lower-risk projects, a single AI plays all roles sequentially. For higher-risk projects, real subagents with isolated contexts are used (see [Section 9](#9-risk-calibration)). |
+| **Skill** | An atomic capability an agent can invoke (for example, *run tests*, *open a PR*, *search the web*, *generate documentation*). Skills are the building blocks; agents are the personas that orchestrate skills. |
 | **Risk level** | A 1–5 calibration of the project's risk profile that determines how much process the pipeline enforces. See [Section 9](#9-risk-calibration). |
 | **Agentic SDLC** | A software development lifecycle in which AI agents perform most of the work — designing, coding, testing, and deploying — under human direction. |
 
