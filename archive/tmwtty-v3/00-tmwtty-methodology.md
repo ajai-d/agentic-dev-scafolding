@@ -2,7 +2,7 @@
 
 > **A framework for AI-assisted work where the AI writes the prompts.**
 
-TMWTTY is a methodology for working with AI agents that removes the burden of prompt engineering. Instead of crafting prompts yourself, you provide a short statement of intent — and the AI proposes each next step, supplies the exact prompt to send back, and executes only after your explicit approval. Every interaction is captured in a replay-execution log that serves as both project history and a reproducible reference.
+TMWTTY is a methodology for working with AI agents that removes the burden of prompt engineering. Instead of crafting prompts yourself, you provide a short statement of intent — and the AI proposes each next step, supplies the exact prompt to send back, and executes only after your explicit approval. Every interaction is captured in a replayable log, making any project reproducible by anyone.
 
 This document is the canonical reference for the TMWTTY methodology and its application to a full Agentic Software Development Life Cycle (SDLC).
 
@@ -20,11 +20,8 @@ This document is the canonical reference for the TMWTTY methodology and its appl
 | 6 | [Repository layout](#6-repository-layout) | Required folders and files |
 | 7 | [Runtime](#7-runtime) | GitHub Copilot CLI modes and features |
 | 8 | [Guardrails](#8-guardrails) | Security, quality, and process boundaries |
-| 9 | [Risk calibration](#9-risk-calibration) | How the pipeline adapts to project risk |
-| 10 | [Failure handling](#10-failure-handling) | Retry, abandon, and escalation semantics |
-| 11 | [Limitations](#11-limitations) | Honest constraints of the methodology |
-| 12 | [Agent protocol](#12-agent-protocol) | Operating instructions for AI agents |
-| 13 | [Reference](#13-reference) | Related documents |
+| 9 | [Agent protocol](#9-agent-protocol) | Operating instructions for AI agents |
+| 10 | [Reference](#10-reference) | Related documents |
 
 ---
 
@@ -37,7 +34,7 @@ This document is the canonical reference for the TMWTTY methodology and its appl
 This approach delivers three core properties:
 
 - **Determinism** — Every action is explicitly approved by the user; nothing happens autonomously without consent.
-- **Reproducibility** — Every prompt and result is captured in a replay-execution log that documents how the project was built.
+- **Reproducibility** — Every prompt and result is captured in a replay-execution log that anyone can copy, paste, and re-run to produce the same outcome.
 - **Generality** — TMWTTY is not specific to software. It applies equally well to writing, research, data analysis, operational runbooks, and other domains.
 
 In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short statement of intent to a deployed, production-grade system, with AI agents doing the work under human direction.
@@ -46,7 +43,7 @@ In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short
 
 | Challenge | Without TMWTTY | With TMWTTY |
 |-----------|----------------|-------------|
-| *"I don't know what to ask the AI."* | Trial and error. | The AI interviews you to surface the right requirements. |
+| *"I don't know what to ask the AI."* | Trial and error | The AI interviews you to surface the right requirements. |
 | *"My process isn't repeatable."* | Knowledge lives in one person's head. | Every step is captured in a replay-execution log. |
 | *"Others can't onboard quickly."* | Tribal knowledge, shadowing. | A reproducible sequence of prompts that any team member can replay end to end. |
 | *"I don't know which AI mode to use."* | Chat for everything. | The plan assigns the appropriate mode to each task. |
@@ -58,21 +55,22 @@ In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short
 
 ## 2. Core concepts
 
+The following terms are used throughout the methodology. Each represents either an artifact produced during a project or a role played by the AI.
+
 | Term | Definition |
 |------|------------|
 | **Seed prompt** | A short description of what the user wants to build. Saved in `plan/seed.md`. Example: *"An MCP server that returns the top five performing stocks."* |
 | **Spec** | A document capturing requirements, acceptance criteria, and edge cases. Produced by the Spec Agent. Saved in `plan/spec.md`. |
 | **Plan** | A living document containing use cases, architecture, design, and the agent orchestration plan. Saved in `plan/plan.md`. |
-| **Replay-execution log** | A markdown file capturing every prompt and result from the project. Acts as both project history and a reference template for similar future work. See [Limitations](#11-limitations) for caveats on direct replay. Saved in `replay-execution/replay-execution.md`. |
-| **Agent** | A specialized AI role assigned to a single responsibility (for example, Spec Agent or Implementation Agent). For lower-risk projects, a single AI plays all roles sequentially. For higher-risk projects, real subagents with isolated contexts are used (see [Section 9](#9-risk-calibration)). |
-| **Risk level** | A 1–5 calibration of the project's risk profile that determines how much process the pipeline enforces. See [Section 9](#9-risk-calibration). |
+| **Replay-execution log** | A markdown file capturing every prompt and result from the project. Acts as a script anyone can copy and paste to reproduce the same outcome. Saved in `replay-execution/replay-execution.md`. |
+| **Agent** | A specialized AI role assigned to a single responsibility (for example, Spec Agent or Implementation Agent). In practice, a single AI plays all roles sequentially. |
 | **Agentic SDLC** | A software development lifecycle in which AI agents perform most of the work — designing, coding, testing, and deploying — under human direction. |
 
 ---
 
 ## 3. How it works
 
-The core mechanism of TMWTTY is a seven-step loop executed by the AI on every task. The user's role is to approve at two gates: the proposed artifact (step 2) and the result of execution (step 6).
+The core mechanism of TMWTTY is a seven-step loop executed by the AI on every task. The user's role is to approve at two gates: the proposed artifact (step 3) and the result of execution (step 6).
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -85,8 +83,8 @@ The core mechanism of TMWTTY is a seven-step loop executed by the AI on every ta
 │   3. AI gives prompt  →  "Here's the exact prompt to   │
 │                           send back to me."            │
 │                                                         │
-│   4. You send it      →  Review, refine, or say "go"   │
-│                           to send as-is                 │
+│   4. You send it      →  Review, refine if needed,     │
+│                           and send the prompt          │
 │                                                         │
 │   5. AI executes      →  Performs the work             │
 │                                                         │
@@ -100,11 +98,7 @@ The core mechanism of TMWTTY is a seven-step loop executed by the AI on every ta
                           ↻ repeat
 ```
 
-### Fast-path approval
-
-For low-risk steps, the user may respond to step 2 with **"go"** or **"approved — execute"** to skip the explicit prompt-review in step 4. The AI executes immediately and records what it ran. This trades the prompt-review gate for velocity and is appropriate when the user already understands and trusts the proposed approach.
-
-The risk calibration (see [Section 9](#9-risk-calibration)) determines whether fast-path is allowed for a given sub-step.
+The output of step 7 — the replay-execution log — is the project's most valuable artifact alongside the working deliverable. Anyone can read the log, copy the prompts in order, paste them into an AI agent, and reproduce the entire project end to end.
 
 ---
 
@@ -116,15 +110,15 @@ TMWTTY uses two distinct interaction protocols depending on what the AI needs fr
 
 Used **only by the Spec Agent**.
 
-The Spec Agent has no prior knowledge of what the user wants to build. It conducts a structured interview — asking targeted questions to elicit requirements, edge cases, and acceptance criteria — and synthesizes the responses into a formal specification.
-
-> **Note:** The Spec Agent should propose sensible defaults when the user lacks domain expertise (for example, suggesting OAuth 2.0 when the user says "I want secure login"). Pure interviewing without expert pushback risks producing weak specs.
+The Spec Agent has no prior knowledge of what the user wants to build. It therefore conducts a structured interview — asking targeted questions to elicit requirements, edge cases, and acceptance criteria — and synthesizes the responses into a formal specification.
 
 This protocol runs exactly once per project, at the start of the Spec stage.
 
 ### 4.2 TMWTTY loop
 
-Used by **every other agent** in the pipeline. These agents bring industry-standard expertise to their respective domains. Rather than interviewing the user, they propose an artifact for approval, supply the prompt to send back, execute, and record the result.
+Used by **every other agent** in the pipeline.
+
+These agents (Architecture, Design, Implementation, Test, and so on) bring industry-standard expertise to their respective domains. Rather than interviewing the user, they propose an artifact for approval, supply the prompt to send back, execute, and record the result. This is the seven-step loop described in Section 3.
 
 ---
 
@@ -136,9 +130,9 @@ When TMWTTY is applied to software development, it produces a structured, six-st
 SEED → SPEC → PLAN → EXECUTE → DEPLOY → OPERATE
 ```
 
-Each stage is **informed by the prior stage's output**. No stage begins until the prior stage is approved.
+Each stage is **informed by the prior stage's output**. No stage begins until the prior stage is approved. Each stage contains one or more sub-steps, and each sub-step has a specialized agent assigned to it.
 
-> **Note:** The sub-steps shown below are the default set. The Planning Agent tailors them to the project's [risk level](#9-risk-calibration). A risk-1 prototype may use only Implement and Test; a risk-5 system uses every sub-step plus additional gates.
+> **Note:** The sub-steps shown below are the default set. The Planning Agent tailors them to the project — for example, a proof of concept may omit Code Scanning and Security, while a production deployment uses the full pipeline.
 
 ### Seed
 
@@ -162,17 +156,6 @@ Each stage is **informed by the prior stage's output**. No stage begins until th
 | 2b. Architecture | Architecture Agent | System design, components, and tech stack |
 | 2c. Design | Design Agent | API contracts, data models, and interfaces |
 | 2d. Orchestration | Planning Agent | Atomic work breakdown and agent orchestration plan |
-
-#### Orchestration decision framework
-
-The Planning Agent assigns each use case to one of the following execution patterns:
-
-| Pattern | When to use |
-|---------|-------------|
-| **Sequential** | Use cases share files, depend on prior outputs, or require careful review. |
-| **Parallel (`/fleet`)** | Use cases are file-independent and can run concurrently (for example, separate microservices, separate components). |
-| **Delegated (`/delegate`)** | Use case is fully specified, has clear acceptance criteria, and can run asynchronously (issue → PR via the Coding Agent). |
-| **Hierarchical (subagents)** | Use case is large enough to need its own internal decomposition by a dedicated subagent. |
 
 ### Execute
 
@@ -220,9 +203,7 @@ Every TMWTTY project uses the following structure:
 
 ## 7. Runtime
 
-TMWTTY runs in **GitHub Copilot CLI**. Each agent in the pipeline is a role played by Copilot CLI.
-
-> **Important:** For projects at risk level 4 or 5 (see [Section 9](#9-risk-calibration)), each agent role must run as a **separate custom agent with an isolated context**, not as different roles played by a single shared context. Cosmetic role separation is acceptable for risk levels 1–3.
+TMWTTY runs in **GitHub Copilot CLI**. Each agent in the pipeline (Spec Agent, Architecture Agent, Implementation Agent, and so on) is a role played by Copilot CLI — one AI, many hats.
 
 ### 7.1 Agent modes
 
@@ -233,22 +214,24 @@ The Planning Agent selects the appropriate mode for each sub-step.
 | **Interactive** *(default)* | The user explicitly approves each tool action. | The default for every stage. Implements the TMWTTY loop. |
 | **Autopilot** | The agent runs fully autonomously without approval prompts. | Used when the spec is precise and the work is low risk. |
 | **Plan** | The agent generates a multi-step plan, waits for user approval, then executes. | Used during the Plan stage. |
-| **Fleet** (`/fleet`) | The agent decomposes work into parallel subtasks executed by subagents. | Used when use cases are file-independent and can run concurrently. |
+| **Fleet** (`/fleet`) | The agent decomposes work into parallel subtasks executed by subagents. | Used when use cases are independent and can run concurrently. |
 
 ### 7.2 Features
 
 | Feature | Command | TMWTTY usage |
 |---------|---------|--------------|
 | **Custom Agents** | `/agent <name>` | Each pipeline role is defined as a persistent custom agent in `.github/agents/`. |
-| **Subagents** | (implicit) | Spawned by Plan and Fleet modes for specialized subtasks. Required for risk levels 4–5. |
-| **Delegate** | `/delegate` | Hands off a fully specified use case to the GitHub Copilot Coding Agent for asynchronous execution. |
+| **Subagents** | (implicit) | Spawned by Plan and Fleet modes for specialized subtasks. |
+| **Delegate** | `/delegate` | Hands off a fully specified use case to the GitHub Copilot Coding Agent for asynchronous execution (issue → PR). |
 | **MCP Servers** | per-agent configuration | Connects agents to external tools, data sources, or alternate models. |
+
+> **Tip:** Users do not need to know how to configure these modes and features upfront. The Planning Agent guides the user through every configuration step as it becomes necessary.
 
 ---
 
 ## 8. Guardrails
 
-During the Plan stage, the Planning Agent guides the user through establishing industry-standard guardrails appropriate to the project. Guardrails are **negotiated, not prescribed** — they are determined through the TMWTTY loop based on the project's scope, technology stack, and [risk level](#9-risk-calibration).
+During the Plan stage, the Planning Agent guides the user through establishing industry-standard guardrails appropriate to the project. Guardrails are **negotiated, not prescribed** — they are determined through the TMWTTY loop based on the project's scope, technology stack, and risk profile.
 
 | Category | Examples |
 |----------|----------|
@@ -258,83 +241,38 @@ During the Plan stage, the Planning Agent guides the user through establishing i
 | **Operations** | CI/CD pipelines, environment parity, observability |
 | **Process** | Commit conventions, branch strategy, approval workflows |
 
----
-
-## 9. Risk calibration
-
-The TMWTTY pipeline scales with the project's risk profile. The Planning Agent assesses risk on a 1–5 scale and adjusts the depth of process accordingly.
-
-| Level | Profile | Pipeline behavior |
-|:-----:|---------|-------------------|
-| **1** | Throwaway prototype or experiment | Minimal sub-steps (Implement + light Test). Fast-path approval allowed throughout. Shared context. |
-| **2** | Internal tool, low blast radius | Spec is informal. Code review optional. Fast-path allowed for routine sub-steps. Shared context. |
-| **3** | Team-facing product, moderate stakes | Full Spec → Plan → Execute → Test. Fast-path allowed for Setup and routine implementations. Shared context acceptable. |
-| **4** | Customer-facing or revenue-impacting | Full pipeline including Code Scanning and Security. Fast-path disabled for Implement and Test. **Isolated subagent contexts required.** |
-| **5** | Regulated, safety-critical, or mission-critical | Full pipeline plus formal review gates. No fast-path. Mandatory isolated subagents. Mandatory threat modeling and external review. |
-
-The Planning Agent confirms the assessed risk level with the user during the Plan stage before proceeding.
+> **Note:** The user is not expected to know which guardrails apply in advance. The agent surfaces the right guardrails at the right time.
 
 ---
 
-## 10. Failure handling
+## 9. Agent protocol
 
-The methodology defines explicit semantics for when things go wrong.
+> This section provides operating instructions for AI agents executing TMWTTY. Human readers can skip to [Section 10](#10-reference).
 
-| State | Trigger | Response |
-|-------|---------|----------|
-| **Retry** | A sub-step fails on first attempt (transient error, simple mistake). | Agent retries up to twice with adjusted approach. |
-| **Refine** | User rejects the proposed artifact (steps 2 or 6). | Agent revises based on user feedback, then re-proposes. Maximum three refinement cycles per artifact. |
-| **Abandon** | Three refinement cycles fail to converge, or the user explicitly says "abandon this approach." | Agent records the failure in the replay-execution log, returns to the prior approved artifact, and asks the user how to proceed. |
-| **Escalate** | The agent detects ambiguity it cannot resolve, a guardrail violation, or a risk-level mismatch. | Agent halts, surfaces the issue clearly, and waits for human direction. Never proceeds on assumption. |
-
-Every abandon and escalate event is recorded in `replay-execution/replay-execution.md` with rationale, supporting future learning and process refinement.
-
----
-
-## 11. Limitations
-
-TMWTTY is not a silver bullet. Users should understand the following constraints.
-
-| Constraint | Explanation |
-|------------|-------------|
-| **Replay logs degrade over time** | Dependencies, model behavior, and file state shift. A six-month-old log replayed in a fresh repository will likely require adaptation. Treat the log as a **structured reference**, not a guaranteed-replayable script. |
-| **Velocity tax** | The full pipeline trades speed for safety. For routine production work, this overhead may exceed the benefit. Use risk calibration to right-size the process. |
-| **Spec quality depends on the user** | The Spec Agent can only elicit what the user knows. Domain expertise gaps produce weak specs. The Spec Agent mitigates this by proposing defaults but cannot fully replace expertise. |
-| **Cost** | Multiple agents with verbose context and interactive loops consume more tokens than single-agent autonomous execution. Plan for higher inference costs on complex projects. |
-| **Single-context role separation is cosmetic** | At risk levels 1–3, all roles share one AI context. Real isolation requires subagents (risk 4–5). |
-| **No native evaluation framework** | The methodology does not currently include automated evaluation of agent behavior or outcome quality. Teams should add their own evals for production use. |
-
----
-
-## 12. Agent protocol
-
-> This section provides operating instructions for AI agents executing TMWTTY. Human readers can skip to [Section 13](#13-reference).
-
-### 12.1 On first contact
+### 9.1 On first contact
 
 1. Read the user's seed prompt in [`plan/seed.md`](../plan/seed.md).
 2. Acknowledge the intent and confirm your understanding of what "done" looks like.
-3. Assess the project's [risk level](#9-risk-calibration) (1–5) and confirm it with the user.
-4. Calibrate the pipeline (which sub-steps apply, whether fast-path is allowed, whether subagents are required) based on the confirmed risk level.
+3. Clarify the project's intent — **production** or **proof of concept** — and calibrate the pipeline accordingly.
 
-### 12.2 For each stage and sub-step
+### 9.2 For each stage and sub-step
 
 1. Announce which agent role you are playing and which stage or sub-step you are entering.
 2. Use the agent's assigned protocol:
-   - **Spec Agent** → Interview Me (elicit requirements; propose defaults when the user lacks expertise).
+   - **Spec Agent** → Interview Me (elicit requirements through questions).
    - **All other agents** → TMWTTY loop (propose, approve, prompt, execute, record).
 3. Produce the defined artifact for the sub-step.
 4. Wait for explicit human approval at each gate before advancing.
 5. Each stage is informed by the prior stage — do not skip ahead.
 
-### 12.3 The TMWTTY loop
+### 9.3 The TMWTTY loop
 
 | Step | Action |
 |:----:|--------|
 | 1 | Explain the concept — what you are about to do and why. |
 | 2 | Propose the artifact (use cases, architecture, design, code, etc.). |
-| 3 | Wait for the user to approve the artifact. If the user says **"go"** and fast-path is allowed for this sub-step, skip to step 6. |
-| 4 | Provide the exact prompt for the user to send back. The user may review and refine before sending. |
+| 3 | Wait for the user to approve the artifact. |
+| 4 | Provide the exact prompt for the user to send back. The user may review and refine the prompt before sending. |
 | 5 | Wait for the user to send the prompt. |
 | 6 | Execute. |
 | 7 | Present the result for review. |
@@ -342,24 +280,19 @@ TMWTTY is not a silver bullet. Users should understand the following constraints
 
 Repeat for every sub-step until the pipeline is complete.
 
-### 12.4 Failure semantics
+### 9.4 Rules
 
-Follow the table in [Section 10](#10-failure-handling). Never proceed on assumption when escalation is warranted.
-
-### 12.5 Rules
-
-- **Optimize plans** for the shortest path to done given the risk level, minimal token usage, and industry-standard practices.
+- **Optimize plans** for the shortest path to done, minimal token usage, industry-standard architecture, coding best practices, and clear dependency ordering.
 - **Follow GitHub Copilot best practices** and use structured prompts that conform to context engineering principles.
-- **Never skip a gate** at risk levels 4–5. Fast-path is disabled for sensitive sub-steps.
-- **Document continuously.** The replay-execution log must capture each step, each abandon, and each escalation.
+- **Never skip an approval gate.** The user confirms every artifact.
+- **Document continuously.** The replay-execution log must capture each step as it happens.
 - **One commit per artifact** to preserve an atomic, traceable history.
 - **When uncertain, ask.** Do not assume.
-- **Guide the user through tooling.** When a sub-step requires a specific Copilot mode or feature, walk the user through the configuration step by step.
-- **Honor the risk level.** At levels 4–5, use isolated subagent contexts. At levels 1–3, shared context is acceptable.
+- **Guide the user through tooling.** When a sub-step requires a specific Copilot mode (Interactive, Autopilot, Plan, Fleet) or feature (Custom Agents, Subagents, Delegate, MCP), walk the user through the configuration step by step. The user is not expected to know how upfront.
 
 ---
 
-## 13. Reference
+## 10. Reference
 
 | To... | See... |
 |-------|--------|
