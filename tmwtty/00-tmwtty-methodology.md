@@ -220,7 +220,14 @@ Every TMWTTY project uses the following structure:
 
 ## 7. Runtime
 
-TMWTTY runs in **GitHub Copilot CLI**. Each agent in the pipeline is a role played by Copilot CLI.
+TMWTTY runs in **GitHub Copilot** — either of two runtimes plays the agent roles:
+
+| Runtime | Recommended for | Notes |
+|---------|-----------------|-------|
+| **VS Code Agent mode** | Code-heavy projects (recommended default) | Inline diffs, collapsible subagent panels, visual approval gates make the TMWTTY loop feel natural |
+| **Copilot CLI** | Ops, runbooks, headless or remote environments | Terminal-native; better for scripting and CI |
+
+Each agent in the pipeline is a role played by the chosen runtime. Both runtimes support the same set of modes and features described below.
 
 > **Important:** For projects at risk level 4 or 5 (see [Section 9](#9-risk-calibration)), each agent role must run as a **separate custom agent with an isolated context**, not as different roles played by a single shared context. Cosmetic role separation is acceptable for risk levels 1–3.
 
@@ -237,12 +244,13 @@ The Planning Agent selects the appropriate mode for each sub-step.
 
 ### 7.2 Features
 
-| Feature | Command | TMWTTY usage |
-|---------|---------|--------------|
-| **Custom Agents** | `/agent <name>` | Each pipeline role is defined as a persistent custom agent in `.github/agents/`. |
-| **Subagents** | (implicit) | Spawned by Plan and Fleet modes for specialized subtasks. Required for risk levels 4–5. |
-| **Delegate** | `/delegate` | Hands off a fully specified use case to the GitHub Copilot Coding Agent for asynchronous execution. |
-| **MCP Servers** | per-agent configuration | Connects agents to external tools, data sources, or alternate models. |
+| Feature | Command / Location | TMWTTY usage |
+|---------|--------------------|--------------|
+| **Custom Agents** | `.github/agents/<name>.md` | Each pipeline role is defined as a persistent custom agent with focused instructions, tools, and optional model selection. |
+| **AGENTS.md** | Repository root | Project-wide instructions that all agents read. Used to encode TMWTTY conventions, commit standards, and project context. |
+| **Subagents** | Auto-spawned or `/agent <name>` | Isolated-context agents for specialized subtasks. Required for risk levels 4–5. |
+| **Delegate** | `/delegate` | Hands off a fully specified use case to the GitHub Copilot Coding Agent (cloud, async) for issue-to-PR execution. |
+| **MCP Servers** | Per-agent configuration | Connects agents to external tools, data sources, or alternate models. |
 
 ---
 
