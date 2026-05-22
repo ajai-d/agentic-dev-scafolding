@@ -10,7 +10,7 @@
 | 4 | [The Two Protocols](#4️⃣-the-two-protocols) |
 | 5 | [Applying TMWTTY to SDLC — The Pipeline](#5️⃣-applying-tmwtty-to-sdlc--the-pipeline) |
 | 6 | [Folder Structure](#6️⃣-folder-structure) |
-| 7 | [Agent Modes](#7️⃣-agent-modes) |
+| 7 | [Runtime](#7️⃣-runtime) |
 | 8 | [Guardrails](#8️⃣-guardrails) |
 | 9 | [The Problem TMWTTY Solves](#9️⃣-the-problem-tmwtty-solves) |
 | 🔟 | [Agent Protocol (for AI agents)](#-agent-protocol-for-ai-agents) |
@@ -180,17 +180,19 @@ Every TMWTTY project follows this layout:
 
 ---
 
-## 7️⃣ Agent Modes
+## 7️⃣ Runtime
 
-The Orchestration Plan assigns one of these modes to each agent per sub-step. The mode determines how much autonomy the agent has.
+TMWTTY runs in **GitHub Copilot CLI**. Every agent in the pipeline (Spec Agent, Architecture Agent, Implementation Agent, etc.) is a **role played by Copilot CLI** — one AI, many hats.
 
-| Mode | How It Works | Best For |
-|------|-------------|----------|
-| **Interactive Agent** | Agent and human work together step by step using the TMWTTY loop | Decisions, learning, risky changes, anything new |
-| **Autonomous Agent** | Agent works independently end-to-end; human reviews the final output | Well-defined tasks with clear specs |
-| **Multi-Agent Orchestration** | Multiple agents work in parallel on independent items | High volume, independent tasks, maximum throughput |
+Copilot CLI supports the patterns TMWTTY needs:
 
-> The agent guides you through configuring and running each mode — you don't need to know how upfront.
+| Capability | When the Planning Agent uses it |
+|------------|----------------------------------|
+| **Custom agents** | Define each pipeline role (Spec, Architecture, Implementation, etc.) with focused instructions |
+| **Subagents** | Spawn specialized subagents for parallel or composable subtasks |
+| **Delegation to Coding Agent** | Hand off a fully-specified use case to run autonomously in the background (issue → PR) |
+
+> The Planning Agent chooses when to delegate, parallelize, or run sequentially based on the project's needs. You don't need to know how upfront — Copilot CLI is configured along the way.
 
 ---
 
