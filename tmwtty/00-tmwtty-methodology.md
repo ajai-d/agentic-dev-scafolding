@@ -226,7 +226,7 @@ During the Plan stage, the Planning Agent guides the developer through establish
 
 | Challenge | Without TMWTTY | With TMWTTY |
 |-----------|----------------|-------------|
-| "I don't know what to ask the AI" | Trial and error | AI provides the exact prompts; you send them back |
+| "I don't know what to ask the AI" | Trial and error | AI interviews you to elicit the right requirements |
 | "My process isn't repeatable" | Knowledge lives in someone's head | Every step captured in a replay-execution log |
 | "Others can't onboard quickly" | Tribal knowledge, shadowing | Self-service playbook anyone can follow |
 | "I don't know which AI mode to use" | Chat for everything | Plan assigns the right mode per task |
