@@ -45,7 +45,7 @@ In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short
 |-----------|----------------|-------------|
 | *"I don't know what to ask the AI."* | Trial and error | The AI interviews you to surface the right requirements. |
 | *"My process isn't repeatable."* | Knowledge lives in one person's head. | Every step is captured in a replay-execution log. |
-| *"Others can't onboard quickly."* | Tribal knowledge, shadowing. | A self-service playbook anyone can follow. |
+| *"Others can't onboard quickly."* | Tribal knowledge, shadowing. | A reproducible sequence of prompts that any team member can replay end to end. |
 | *"I don't know which AI mode to use."* | Chat for everything. | The plan assigns the appropriate mode to each task. |
 | *"Quality varies by person."* | Inconsistent prompting. | Standardized prompts produce consistent output. |
 | *"I lost track of what was done."* | Reconstruct from memory. | Built-in history with documented decisions. |
