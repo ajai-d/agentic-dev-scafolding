@@ -22,7 +22,7 @@
 
 **TMWTTY ("Tell Me What To Tell You")** is a framework for working with AI agents.
 
-The core idea is simple: **the user doesn't write prompts — the AI writes them.** The AI proposes what should happen next, hands you the exact prompt to send back, and **only executes after you approve and send it.** The prompt you send back is your explicit approval — your way of saying *"yes, do this."*
+The core idea is simple: **the user doesn't need to write prompts — the AI gives them to you.** The AI proposes what should happen next, hands you the exact prompt to send back, and **only executes after you approve and send it.** The prompt you send back is your explicit approval — your way of saying *"yes, do this."*
 
 Every step is documented as it's executed — producing both the deliverable and a built-in history of how it was built. The result is a reusable replay-execution log that anyone, regardless of experience level, can follow to reproduce the same outcome.
 
