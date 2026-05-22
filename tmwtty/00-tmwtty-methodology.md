@@ -83,7 +83,8 @@ The core mechanism of TMWTTY is a seven-step loop executed by the AI on every ta
 │   3. AI gives prompt  →  "Here's the exact prompt to   │
 │                           send back to me."            │
 │                                                         │
-│   4. You send it      →  (copy and paste the prompt)   │
+│   4. You send it      →  Review, refine if needed,     │
+│                           and send the prompt          │
 │                                                         │
 │   5. AI executes      →  Performs the work             │
 │                                                         │
