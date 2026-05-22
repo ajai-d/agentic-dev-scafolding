@@ -36,7 +36,7 @@ This solves three problems at once:
 
 **TMWTTY is general-purpose** — it works for writing, research, data analysis, ops runbooks, or anything else.
 
-**In this repository, we apply TMWTTY to a full Agentic SDLC** (Software Development Life Cycle): going from a one-sentence idea to a running, deployed system, built entirely by AI agents under your direction.
+**In this repository, we apply TMWTTY to a full Agentic SDLC** (Software Development Life Cycle): going from a short idea to a running, deployed system, built entirely by AI agents under your direction.
 
 ---
 
@@ -117,7 +117,7 @@ Each stage is **informed by the prior stage's output**. No stage starts until th
 
 | Sub-step | Agent | Output |
 |----------|-------|--------|
-| 0a. Intent | Human | 1-sentence intent in `plan/seed.md` |
+| 0a. Intent | Human | Short description of intent in `plan/seed.md` |
 
 ### 📋 Spec
 
