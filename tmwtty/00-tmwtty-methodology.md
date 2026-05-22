@@ -1,121 +1,152 @@
 # 📘 Tell Me What To Tell You™ (TMWTTY)
 
-> A repeatable methodology for building software with AI agents — an Agentic SDLC pipeline.
+> A repeatable methodology for building software with AI agents.
 
 ---
 
 | | |
 |:-:|---|
-| 1 | [Executive Summary](#1-executive-summary) |
-| 2 | [The Golden Rule](#2-the-golden-rule) |
-| 3 | [The Pipeline](#3-the-pipeline) |
-| 4 | [Agents](#4-agents) |
-| 5 | [Two Interaction Protocols](#5-two-interaction-protocols) |
-| 6 | [Folder Structure](#6-folder-structure) |
-| 7 | [Guardrails](#7-guardrails) |
-| 8 | [Agent Protocol](#8-agent-protocol) |
-| 9 | [Reference](#9-reference) |
+| 1 | [Executive Summary](#1️⃣-executive-summary) |
+| 2 | [The Problem TMWTTY Solves](#2️⃣-the-problem-tmwtty-solves) |
+| 3 | [The Pipeline](#3️⃣-the-pipeline) |
+| 4 | [Folder Structure](#4️⃣-folder-structure) |
+| 5 | [Agent Modes](#5️⃣-agent-modes) |
+| 6 | [Philosophy](#6️⃣-philosophy) |
+| 7 | [Guardrails](#7️⃣-guardrails) |
+| 8 | [Agent Protocol](#8️⃣-agent-protocol) |
+| 9 | [Reference](#9️⃣-reference) |
 
 ---
 
-## 1. Executive Summary
+## 1️⃣ Executive Summary
 
-TMWTTY is an Agentic SDLC pipeline. Software is built by specialized AI agents — one per SDLC stage — coordinated by a human. Each stage produces a concrete artifact, gated by human approval, and every step is recorded as a replayable script.
+TMWTTY is a structured framework for AI-assisted work. It eliminates the guesswork of prompt engineering — **the AI provides the exact prompts**, the user sends them back, and the AI executes. Every step is recorded as a replayable script, so any engineer — regardless of experience level — can follow it to reproduce the same outcome.
 
-> **Pipeline:** Seed → Spec → Plan → Setup → Implement → Test → Deploy → Operate
+**All you need is a seed prompt stating your intent.** The AI takes it from there and guides you every step of the way.
 
----
-
-## 2. The Golden Rule
-
-> **Humans set intent. Agents execute. Humans govern outcomes.**
-
-- **Intent** = the seed and the spec
-- **Execute** = agents run the orchestration plan
-- **Govern** = human approves every artifact at every gate
+**TMWTTY is general-purpose.** It can be applied to anything: writing, research, data analysis, ops runbooks. **In this repository, we apply TMWTTY to implement a full Agentic SDLC** — Seed → Spec → Plan → Execute → Deploy → Operate.
 
 ---
 
-## 3. The Pipeline
+## 2️⃣ The Problem TMWTTY Solves
+
+| Challenge | Without TMWTTY | With TMWTTY |
+|-----------|----------------|-------------|
+| "I don't know what to ask the AI" | Trial and error | AI provides the exact prompts; you send them back |
+| "My process isn't repeatable" | Knowledge lives in someone's head | Every step captured in a replay-execution log |
+| "Others can't onboard quickly" | Tribal knowledge, shadowing | Self-service playbook anyone can follow |
+| "I don't know which AI mode to use" | Chat for everything | Plan assigns the right mode per task |
+| "Quality varies by person" | Inconsistent prompting | Standardized prompts, consistent output |
+| "I lost track of what was done" | Reconstruct from memory | Built-in history with decisions documented |
+| "Starting a new project from scratch" | Reinvent every time | Fork a replay-execution, adapt, ship faster |
+
+---
+
+## 3️⃣ The Pipeline
 
 ```
-SEED → SPEC → PLAN → SETUP → IMPLEMENT → TEST → DEPLOY → OPERATE
+SEED → SPEC → PLAN → EXECUTE → DEPLOY → OPERATE
 ```
 
-| # | Stage | Driver | Output | Informed by |
-|---|-------|--------|--------|-------------|
-| 0 | **Seed** | Human | 1-sentence intent in `plan/seed.md` | — |
-| 1 | **Spec** | Spec Agent | Requirements spec — what, why, acceptance criteria, edge cases | Seed |
-| 2 | **Plan** | Architecture + Design + Planning Agents | Architecture, design, use case breakdown, agent orchestration plan | Spec |
-| 3 | **Setup** | Setup Agent | Git, dev environment, Copilot config (custom instructions, agents, MCP servers), agent registry | Plan |
-| 4 | **Implement** | Implementation Agents | Working code per use case | Setup |
-| 5 | **Test** | Test Agents | Validated code — unit, integration, e2e | Implement |
-| 6 | **Deploy** | Deployment Agent | CI/CD, infrastructure as code, running system | Test |
-| 7 | **Operate** | Human + Agents | Monitoring, observability, iteration | Deploy |
+Each stage is informed by the prior stage's output. No stage starts until the prior stage is approved. Sub-stages can vary per project — the Planning Agent decides which apply based on intent (PoC vs. production).
 
-Each stage is informed by the prior stage. No stage starts until the prior stage is approved.
+### 🌱 Seed
 
----
+| Sub-step | Agent | Output |
+|----------|-------|--------|
+| 0a. Intent | Human | 1-sentence intent in `plan/seed.md` |
 
-## 4. Agents
+### 📋 Spec
 
-Each agent has one job, one input, one output.
+| Sub-step | Agent | Output |
+|----------|-------|--------|
+| 1a. Discovery Interview | Spec Agent | Raw interview notes |
+| 1b. Requirements Doc | Spec Agent | Documented requirements |
+| 1c. Acceptance Criteria | Spec Agent | Measurable "done" criteria |
 
-| Agent | Job | Protocol |
-|-------|-----|----------|
-| **Spec Agent** | Elicit requirements from the human | Interview Me |
-| **Architecture Agent** | Propose system design and tech stack | TMWTTY |
-| **Design Agent** | Define API contracts, data models, interfaces | TMWTTY |
-| **Planning Agent** | Break work into use cases; produce orchestration plan | TMWTTY |
-| **Setup Agent** | Initialize git, dev env, Copilot config, agent registry | TMWTTY |
-| **Implementation Agent** | Build code per use case | TMWTTY |
-| **Test Agent** | Validate code | TMWTTY |
-| **Deployment Agent** | CI/CD, IaC, deploy | TMWTTY |
+### 🗺️ Plan
 
-> One AI may play all roles sequentially. The roles constrain behavior so the AI stays on track.
+| Sub-step | Agent | Output |
+|----------|-------|--------|
+| 2a. Use Cases | Use Case Agent | Business use cases, dependencies, complexity |
+| 2b. Architecture | Architecture Agent | System design, components, tech stack |
+| 2c. Design | Design Agent | API contracts, data models, interfaces |
+| 2d. Orchestration | Planning Agent | Atomic work breakdown + agent orchestration plan |
 
----
+### 🛠️ Execute
 
-## 5. Two Interaction Protocols
+| Sub-step | Agent | Output |
+|----------|-------|--------|
+| 3a. Setup | Setup Agent | Git, env, Copilot config, agent registry |
+| 3b. Implement | Implementation Agent | Working code per use case |
+| 3c. Code Review | Code Review Agent | Reviewed code — quality, best practices, anti-patterns |
+| 3d. Code Scanning | Code Scanning Agent | SAST, dependency scan, license compliance |
+| 3e. Security | Security Agent | Threat modeling, secrets scan, OWASP checks |
+| 3f. Test | Test Agent | Unit, integration, e2e tests |
 
-### Interview Me (Spec Agent only)
+### 🚀 Deploy
 
-The Spec Agent doesn't know what you want. It interviews you — asks targeted questions to surface intent, requirements, edge cases, and acceptance criteria — then synthesizes the spec.
+| Sub-step | Agent | Output |
+|----------|-------|--------|
+| 4a. CI/CD Pipeline | Deployment Agent | Build + deploy automation |
+| 4b. Infrastructure as Code | Deployment Agent | IaC templates (Bicep, Terraform, etc.) |
+| 4c. Deployment | Deployment Agent | Running system in target environment |
+| 4d. Smoke Tests | Deployment Agent | Verified deployment |
 
-### TMWTTY (every other agent)
+### 📡 Operate
 
-All other agents already know best practices. They propose, you approve, they execute:
-
-| Step | Action |
-|:----:|--------|
-| 1 | Agent explains the concept — what and why |
-| 2 | Agent proposes an artifact (architecture, design, plan, code, etc.) |
-| 3 | You review and approve the artifact |
-| 4 | Agent provides the exact prompt for you to send |
-| 5 | You send the prompt back |
-| 6 | Agent executes |
-| 7 | You review the output |
-| 8 | Agent commits, pushes, and records the prompt + result in `replay-execution/` |
-
-> 🔁 The `replay-execution/` log is a **script of prompts** — anyone can copy-paste them to reproduce the same project.
+| Sub-step | Agent | Output |
+|----------|-------|--------|
+| 5a. Monitoring | Monitoring Agent | Alerts, dashboards |
+| 5b. Observability | Observability Agent | Logs, metrics, traces |
+| 5c. Iteration | Human + Agents | Feedback loop into next Seed |
 
 ---
 
-## 6. Folder Structure
+## 4️⃣ Folder Structure
+
+Every TMWTTY project follows this layout:
 
 | Folder / File | Purpose |
 |---------------|---------|
 | `tmwtty/` | The methodology reference (you're reading it) |
 | `plan/seed.md` | The seed prompt — your project intent |
 | `plan/spec.md` | Requirements spec produced by Spec Agent |
-| `plan/plan.md` | Architecture, design, use cases, orchestration plan |
+| `plan/plan.md` | Use cases, architecture, design, orchestration — living document |
 | `replay-execution/replay-execution.md` | Step-by-step playbook captured during execution |
 
 ---
 
-## 7. Guardrails
+## 5️⃣ Agent Modes
 
-The Planning Agent guides the developer through establishing industry-standard guardrails appropriate to the project. Areas to cover:
+The orchestration plan assigns one of these modes to each agent per sub-step:
+
+| Mode | How It Works | Best For |
+|------|-------------|----------|
+| **Interactive Agent** | Agent and human work together step by step — the TMWTTY loop | Decisions, learning, risky changes, anything new |
+| **Autonomous Agent** | Agent works independently, human reviews the output | Well-defined tasks with clear specs |
+| **Multi-Agent Orchestration** | Multiple agents work in parallel on independent items | High volume, independent tasks, maximum throughput |
+
+> The agent guides you through configuring and running each mode — you don't need to know how upfront.
+
+---
+
+## 6️⃣ Philosophy
+
+The methodology is intentionally minimal — it's a conversation protocol, not a prescription. The agent and user negotiate the details (execution-log format, commit conventions, sub-stage selection) during the interactive plan-building phase. Every project decides its own specifics through the TMWTTY loop.
+
+**Two interaction protocols:**
+
+- **Interview Me** — used only by the **Spec Agent**. The agent doesn't know what you want, so it interviews you to elicit requirements.
+- **TMWTTY** — used by every other agent. The agent already knows best practices. It proposes, you approve, it provides the prompt, you send it back, it executes, the prompt + result are recorded.
+
+---
+
+## 7️⃣ Guardrails
+
+During the plan-building phase, the Planning Agent guides the developer through establishing industry-standard guardrails appropriate to the project. These are not prescribed — they are negotiated through the TMWTTY loop based on the project's scope, stack, and risk profile.
+
+Areas to cover:
 
 | Category | Examples |
 |----------|----------|
@@ -125,39 +156,61 @@ The Planning Agent guides the developer through establishing industry-standard g
 | **Operations** | CI/CD pipeline, environment parity, observability |
 | **Process** | Commit conventions, branch strategy, approval workflows |
 
+> The agent surfaces the right guardrails at the right time — the developer doesn't need to know them upfront.
+
 ---
 
-## 8. Agent Protocol
+## 8️⃣ Agent Protocol
 
 > If you are an AI agent reading this, here is exactly what to do.
 
 ### On First Contact
 
 1. Read the user's seed prompt in [`plan/seed.md`](../plan/seed.md)
-2. Acknowledge the intent and confirm what "done" looks like
-3. Clarify the project intent — **production** or **proof of concept** — and calibrate accordingly
+2. Acknowledge the intent and confirm you understand what "done" looks like
+3. Clarify the project intent — **production** or **proof of concept** — and calibrate the pipeline accordingly
 
-### For Each Stage
+### For Each Stage & Sub-step
 
-1. Announce which agent you are playing and which stage you are entering
-2. Use the agent's assigned protocol (Interview Me for Spec, TMWTTY for everything else)
-3. Produce the stage's defined artifact
+1. Announce which agent you are playing and which stage/sub-step you are entering
+2. Use the agent's assigned protocol:
+   - **Spec Agent → Interview Me** (elicit requirements through questions)
+   - **All other agents → TMWTTY** (propose, approve, prompt, execute, record)
+3. Produce the defined artifact for that sub-step
 4. Wait for human approval at the gate before advancing
 5. Each stage is informed by the prior stage — do not skip ahead
+
+### The TMWTTY Loop (used by every non-Spec agent)
+
+| Step | You (the agent) do this |
+|:----:|-------------------------|
+| 1 | Explain the concept — what and why |
+| 2 | Propose the artifact (use cases, architecture, design, code, etc.) |
+| 3 | Wait for the user to approve the artifact |
+| 4 | Provide the exact prompt for the user to send back |
+| 5 | Wait for the user to send the prompt |
+| 6 | Execute |
+| 7 | Present the result for review |
+| 8 | On approval — commit, push, and record the prompt + result in `replay-execution/` |
+
+> 🔁 Repeat for every sub-step until the pipeline is complete.
+>
+> The `replay-execution/` log is a **script of prompts** — anyone can copy-paste them into an AI agent to reproduce the same project.
 
 ### Rules
 
 - Optimize every plan for: shortest path to done, minimal token usage, industry-standard architecture, coding best practices, and clear dependency ordering
-- Use GitHub Copilot best practices and structured prompts (context engineering)
-- Never skip a gate — the user approves every artifact
+- Use GitHub Copilot best practices
+- Use structured prompts following context engineering best practices
+- Never skip the approval step — the user confirms every artifact
 - Document as you go — `replay-execution/` captures each step as it happens
 - One commit per artifact — atomic, traceable history
 - If uncertain, ask — don't assume
-- Guide the user through tooling — when an agent requires Copilot configuration (Agent mode, Coding Agent, MCP servers, custom instructions), walk the user step by step through configuring and running it
+- Guide the user through tooling — when an agent requires a specific Copilot mode (Agent, Coding Agent, MCP servers, custom instructions), walk the user step by step through configuring and running it (the user is not expected to know how)
 
 ---
 
-## 9. Reference
+## 9️⃣ Reference
 
 | I want to... | Go to... |
 |--------------|----------|
