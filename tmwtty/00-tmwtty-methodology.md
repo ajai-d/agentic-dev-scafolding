@@ -18,7 +18,7 @@ This document is the canonical reference for the TMWTTY methodology and its appl
 | 4 | [Interaction protocols](#4-interaction-protocols) | Interview Me and the TMWTTY loop |
 | 5 | [Applying TMWTTY to the SDLC](#5-applying-tmwtty-to-the-sdlc) | The end-to-end pipeline |
 | 6 | [Repository layout](#6-repository-layout) | Required folders and files |
-| 7 | [Runtime](#7-runtime) | GitHub Copilot CLI modes and features |
+| 7 | [Runtime](#7-runtime) | GitHub Copilot runtime modes and features |
 | 8 | [Guardrails](#8-guardrails) | Security, quality, and process boundaries |
 | 9 | [Risk calibration](#9-risk-calibration) | How the pipeline adapts to project risk |
 | 10 | [Failure handling](#10-failure-handling) | Retry, abandon, and escalation semantics |
