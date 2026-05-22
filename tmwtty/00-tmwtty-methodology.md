@@ -76,7 +76,7 @@ The replay-execution log becomes a **script of prompts** anyone can copy-paste t
 
 | Term | Definition |
 |------|------------|
-| **Seed prompt** | A single sentence stating what you want to build (e.g., *"I want an MCP server that returns the top 5 stocks"*). Saved in `plan/seed.md`. |
+| **Seed prompt** | A short description of what you want to build (e.g., *"I want an MCP server that returns the top 5 stocks"*). Saved in `plan/seed.md`. |
 | **Spec** | A document describing requirements, acceptance criteria, and edge cases. Produced by the Spec Agent. Saved in `plan/spec.md`. |
 | **Plan** | The architecture, design, use cases, and orchestration plan for the project. Saved in `plan/plan.md`. |
 | **Replay-execution log** | A markdown file capturing every prompt and result from the project, so anyone can copy-paste their way to the same outcome. Saved in `replay-execution/replay-execution.md`. |
