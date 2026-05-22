@@ -248,6 +248,7 @@ The Planning Agent selects the appropriate mode for each sub-step.
 | Feature | Command / Location | TMWTTY usage |
 |---------|--------------------|--------------|
 | **Custom Agents** | `.github/agents/<name>.md` | Each pipeline role is defined as a persistent custom agent with focused instructions, tools, and optional model selection. |
+| **Skills** | Per-agent skill declarations | Atomic capabilities (run tests, open PR, scan dependencies, generate docs, etc.). Agents declare which skills they need; the runtime invokes them when appropriate. Custom skills can be added per project. |
 | **AGENTS.md** | Repository root | Project-wide instructions that all agents read. Used to encode TMWTTY conventions, commit standards, and project context. |
 | **Subagents** | Auto-spawned or `/agent <name>` | Isolated-context agents for specialized subtasks. Required for risk levels 4–5. |
 | **Delegate** | `/delegate` | Hands off a fully specified use case to the GitHub Copilot Coding Agent (cloud, async) for issue-to-PR execution. |
