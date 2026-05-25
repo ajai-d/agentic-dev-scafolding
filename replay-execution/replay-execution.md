@@ -60,3 +60,60 @@ Synthesize the interview responses into a formal spec at plan/spec.md with: summ
 Created `plan/spec.md` with full specification. User approved via fast-path ("go").
 
 ---
+
+## Step 3 — Plan (2a–2d)
+
+| Field | Value |
+|-------|-------|
+| **Stage** | Plan (2a–2d) |
+| **Agent** | Planning Agent (interactive) |
+| **Risk Level** | 2 |
+| **Date** | 2026-05-25 |
+
+### Sub-steps
+
+| # | Sub-step | Output |
+|---|----------|--------|
+| 2a | Use Cases | 7 use cases (UC-1 → UC-7) with dependency graph |
+| 2b | Architecture | ASCII system diagram, component table, key decisions |
+| 2c | Design | TypeScript interfaces, MCP tool schema, file structure |
+| 2d | Orchestration | Agent Registry (4 agents), invocation sequence, rationale |
+
+### Prompt (iterative — one sub-step per "go")
+
+```
+Write 2a Use Cases → approved
+Write 2b Architecture → approved
+Write 2c Design → approved
+Write 2d Orchestration → revised after feedback (needed proper agent definitions, not a task table) → approved
+```
+
+### Result
+
+All 4 sub-steps written to `plan/plan.md`. Plan stage complete.
+
+---
+
+## Step 4 — Create Execute-Stage Agent Definitions
+
+| Field | Value |
+|-------|-------|
+| **Stage** | Execute (setup) |
+| **Agent** | Planning Agent |
+| **Risk Level** | 2 |
+| **Date** | 2026-05-25 |
+
+### Files Created
+
+| Agent | File | Mode |
+|-------|------|------|
+| Setup Agent | `.github/agents/setup-agent.md` | Autopilot |
+| Implementation Agent | `.github/agents/impl-agent.md` | Interactive |
+| Test Agent | `.github/agents/test-agent.md` | Autopilot |
+| Integration Agent | `.github/agents/integration-agent.md` | Interactive |
+
+### Result
+
+All 4 agent definition files created. Ready for `@setup-agent` invocation.
+
+---

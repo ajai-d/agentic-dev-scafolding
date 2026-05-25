@@ -134,7 +134,22 @@ Used by **every other agent** in the pipeline. These agents bring industry-stand
 When TMWTTY is applied to software development, it produces a structured, six-stage pipeline:
 
 ```
-SEED → SPEC → PLAN → EXECUTE → DEPLOY → OPERATE
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                         TMWTTY Agentic SDLC Pipeline                         │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+  ┌────────┐     ┌────────┐     ┌────────┐     ┌─────────┐     ┌────────┐     ┌─────────┐
+  │  SEED  │────▶│  SPEC  │────▶│  PLAN  │────▶│ EXECUTE │────▶│ DEPLOY │────▶│ OPERATE │
+  │        │     │        │     │        │     │         │     │        │     │         │
+  │ Intent │     │ What   │     │ How    │     │ Build   │     │ Ship   │     │ Run     │
+  └────────┘     └────────┘     └────────┘     └─────────┘     └────────┘     └─────────┘
+       │              │              │               │               │              │
+       ▼              ▼              ▼               ▼               ▼              ▼
+   seed.md        spec.md        plan.md        src/ + tests/    CI/CD + IaC    Monitoring
+                                                                                    │
+                                                                                    │
+                                              ◀─────────────────────────────────────┘
+                                                    Feedback loop → next Seed
 ```
 
 Each stage is **informed by the prior stage's output**. No stage begins until the prior stage is approved.
@@ -147,6 +162,19 @@ Each stage is **informed by the prior stage's output**. No stage begins until th
 |----------|-------|--------|
 | 0a. Intent | Human | A short description of intent in `plan/seed.md` |
 
+```
+┌─────────────────────────────────────┐
+│             SEED Stage              │
+└─────────────────────────────────────┘
+
+  Human writes intent
+         │
+         ▼
+  ┌─────────────┐
+  │ 0a. Intent  │──▶  plan/seed.md
+  └─────────────┘
+```
+
 ### Spec
 
 | Sub-step | Agent | Output |
@@ -154,6 +182,33 @@ Each stage is **informed by the prior stage's output**. No stage begins until th
 | 1a. Discovery interview | Spec Agent | Raw interview notes |
 | 1b. Requirements document | Spec Agent | Documented requirements |
 | 1c. Acceptance criteria | Spec Agent | Measurable definition of done |
+
+```
+┌─────────────────────────────────────┐
+│             SPEC Stage              │
+│        (Interview Me protocol)      │
+└─────────────────────────────────────┘
+
+  ┌──────────────────────┐
+  │ 1a. Discovery        │  Spec Agent asks 3–5 targeted questions
+  │     Interview        │  User answers; defaults proposed
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 1b. Requirements     │  FR-n, NFR-n synthesized from answers
+  │     Document         │
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 1c. Acceptance       │  AC-n: measurable "done" criteria
+  │     Criteria         │
+  └──────────┬───────────┘
+             │
+             ▼
+        plan/spec.md
+```
 
 ### Plan
 
@@ -163,6 +218,36 @@ Each stage is **informed by the prior stage's output**. No stage begins until th
 | 2b. Architecture | Architecture Agent | System design, components, and tech stack |
 | 2c. Design | Design Agent | API contracts, data models, and interfaces |
 | 2d. Orchestration | Planning Agent | Atomic work breakdown and agent orchestration plan |
+
+```
+┌─────────────────────────────────────┐
+│             PLAN Stage              │
+│         (TMWTTY loop × 4)          │
+└─────────────────────────────────────┘
+
+  ┌──────────────────────┐
+  │ 2a. Use Cases        │  UC-n with dependencies + complexity
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 2b. Architecture     │  System diagram, components, tech stack
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 2c. Design           │  Interfaces, schemas, file structure
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 2d. Orchestration    │  Agent registry, execution pattern,
+  │                      │  mode assignments, invocation sequence
+  └──────────┬───────────┘
+             │
+             ▼
+        plan/plan.md
+```
 
 #### Orchestration decision framework
 
@@ -186,6 +271,45 @@ The Planning Agent assigns each use case to one of the following execution patte
 | 3e. Security | Security Agent | Threat modeling, secrets scanning, and OWASP checks |
 | 3f. Test | Test Agent | Unit, integration, and end-to-end tests |
 
+```
+┌──────────────────────────────────────────────────────────────┐
+│                       EXECUTE Stage                           │
+│  (Agents invoked per 2d Orchestration — mode varies)         │
+└──────────────────────────────────────────────────────────────┘
+
+  ┌──────────────────┐
+  │ 3a. Setup        │  Scaffold, deps, config          [Autopilot]
+  └────────┬─────────┘
+           │
+           ▼
+  ┌──────────────────┐
+  │ 3b. Implement    │  Write src/ per design           [Interactive]
+  └────────┬─────────┘
+           │
+           ▼
+  ┌──────────────────┐
+  │ 3c. Code Review  │  Quality + best practices        [Interactive]
+  └────────┬─────────┘
+           │
+           ▼
+  ┌──────────────────┐
+  │ 3d. Code Scan    │  SAST, deps, licenses            [Autopilot]
+  └────────┬─────────┘
+           │
+           ▼
+  ┌──────────────────┐
+  │ 3e. Security     │  Threat model, OWASP             [Interactive]
+  └────────┬─────────┘
+           │
+           ▼
+  ┌──────────────────┐
+  │ 3f. Test         │  Unit + integration tests        [Autopilot]
+  └────────┬─────────┘
+           │
+           ▼
+      src/ + tests/ (all passing)
+```
+
 ### Deploy
 
 | Sub-step | Agent | Output |
@@ -195,6 +319,35 @@ The Planning Agent assigns each use case to one of the following execution patte
 | 4c. Deployment | Deployment Agent | Running system in the target environment |
 | 4d. Smoke tests | Deployment Agent | Verified deployment |
 
+```
+┌─────────────────────────────────────┐
+│           DEPLOY Stage              │
+└─────────────────────────────────────┘
+
+  ┌──────────────────────┐
+  │ 4a. CI/CD Pipeline   │  GitHub Actions / Azure Pipelines
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 4b. Infrastructure   │  Bicep / Terraform / Pulumi
+  │     as Code          │
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 4c. Deployment       │  Push to target environment
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 4d. Smoke Tests      │  Verify running system
+  └──────────┬───────────┘
+             │
+             ▼
+      System live in target env
+```
+
 ### Operate
 
 | Sub-step | Agent | Output |
@@ -202,6 +355,29 @@ The Planning Agent assigns each use case to one of the following execution patte
 | 5a. Monitoring | Monitoring Agent | Alerts and dashboards |
 | 5b. Observability | Observability Agent | Logs, metrics, and traces |
 | 5c. Iteration | Human + Agents | Feedback loop into the next Seed |
+
+```
+┌─────────────────────────────────────┐
+│           OPERATE Stage             │
+└─────────────────────────────────────┘
+
+  ┌──────────────────────┐
+  │ 5a. Monitoring       │  Alerts, dashboards, SLOs
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 5b. Observability    │  Logs, metrics, distributed traces
+  └──────────┬───────────┘
+             │
+             ▼
+  ┌──────────────────────┐
+  │ 5c. Iteration        │  Feedback loop
+  └──────────┬───────────┘
+             │
+             ▼
+      New SEED (next cycle)
+```
 
 ---
 
