@@ -375,3 +375,39 @@ Plan stage is complete when:
 - 2b Design is approved.
 - 2c Orchestration is approved.
 - Execute sequence, ownership, and gates are explicit enough to begin 3a Setup without additional planning.
+
+---
+
+## SPEC-002 Plan Delta (UI Theme Enhancement)
+
+### 2a Architecture Delta
+
+Scope is presentation-only and confined to `web/styles.css`.
+- No API, data, or repository changes.
+- No schema, endpoint, or validation updates.
+- Runtime and dependency footprint unchanged.
+
+### 2b Design Delta
+
+Theme token and style behavior:
+- Introduce yellow-theme color tokens at `:root`.
+- Apply atmospheric page background treatment.
+- Keep `.container` and `.panel` surfaces neutral for readability.
+- Update control border, focus, and action button styles for contrast.
+- Preserve all existing DOM structure and JS behavior.
+
+Use-case mapping:
+- UC-002-01 -> body/container/panel visual treatment.
+- UC-002-02 -> form controls and button affordance/focus states.
+- UC-002-03 -> mobile spacing adjustments via media query.
+
+### 2c Orchestration Delta
+
+Execute sequence for SPEC-002:
+1. Implement theme styles in `web/styles.css`.
+2. Run `npm run quality:check`.
+3. Record replay evidence and update spec registry status.
+
+Gate criteria:
+- Quality gate passes with no lint/test regressions.
+- UI behavior remains functionally unchanged.

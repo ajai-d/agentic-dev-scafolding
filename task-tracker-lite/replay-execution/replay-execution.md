@@ -239,3 +239,34 @@ Approved
 ### Notes
 - Execute stage complete for risk level 2 scope
 - Current cycle status: Ready for demo test drive
+
+## Entry 012 - SPEC-002 UI Theme Enhancement (Spec -> Plan -> Execute)
+
+### Approved prompt
+Enhance the app UI with a pretty yellow theme and run through the full TMWTTY flow (spec, use cases, plan, execute, and verification evidence).
+
+### Execution result
+- Updated `plan/spec-ui-theme.md` with:
+	- Business requirements
+	- Use cases (UC-002-01, UC-002-02, UC-002-03)
+	- Traceability mapping to implementation
+- Updated `plan/plan.md` with `SPEC-002 Plan Delta` (2a/2b/2c)
+- Implemented yellow theme in `web/styles.css` with:
+	- Theme tokens and layered yellow background
+	- Neutral readable surfaces for container/panels
+	- Form control focus and action button accent updates
+	- Mobile spacing media-query refinements
+- Updated `plan/spec.md` Spec Registry:
+	- SPEC-002 set to `Implemented, Verified`
+- Ran `npm run quality:check` successfully:
+	- lint passed
+	- tests passed (11/11)
+	- UI smoke test passed
+
+### Review outcome
+Approved
+
+### Notes
+- Functional behavior unchanged (presentation-layer-only update)
+- Enhancement cycle status: Ready for demo test drive
+- Issue-driven artifact added: `plan/github/spec-002-ui-theme-issue-pr-pack.md`
