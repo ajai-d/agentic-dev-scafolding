@@ -88,7 +88,7 @@ This document defines the core method first, then shows the SDLC profile as an i
 
 ## 3. How it works
 
-The operational mechanism of TMWTTY is a five-step interaction loop repeated inside every stage.
+The operational mechanism of TMWTTY is an interaction loop repeated inside every stage.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -149,7 +149,7 @@ The discovery-stage agent has no prior knowledge of what the user wants to build
 
 > **Note:** The discovery-stage agent should propose sensible defaults when the user lacks domain expertise. Pure interviewing without expert pushback risks weak requirements.
 
-The interview protocol runs once per project, during initial discovery. Subsequent stages use the standard TMWTTY loop (propose + write prompt → approve/modify → execute → record).
+The interview protocol runs once per project, during initial discovery. Subsequent stages use the standard TMWTTY loop (propose + write prompt → approve/modify → execute → review → record).
 
 In the SDLC profile (Section 5), this maps to **Spec sub-step 1a**.
 
@@ -404,7 +404,7 @@ TMWTTY is not a silver bullet. Users should understand the following constraints
 1. Announce which agent role you are playing and which stage or sub-step you are entering.
 2. Use the agent's assigned protocol:
   - **Discovery-stage agent** → Interview Me (elicit requirements; propose defaults when the user lacks expertise).
-  - **All non-discovery agents** → TMWTTY loop (propose, approve, prompt, execute, record).
+  - **All non-discovery agents** → TMWTTY loop (propose + write prompt, approve/modify, execute, review, record).
 3. Produce the defined artifact for the sub-step.
 4. Wait for explicit human approval at each gate before advancing.
 5. Each stage is informed by the prior stage — do not skip ahead.
