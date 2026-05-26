@@ -134,25 +134,26 @@ Used by **every other agent** in the pipeline. These agents bring industry-stand
 When TMWTTY is applied to software development, it produces a structured, six-stage pipeline. The stages follow the textbook requirements-engineering progression: business context first, then scenario discovery, then formal specification, then planning and execution.
 
 ```
-                        TMWTTY Agentic SDLC Pipeline
+                          TMWTTY Agentic SDLC Pipeline
 
-    SEED         SPEC                    PLAN         EXECUTE      DEPLOY       OPERATE
-   ──────       ──────                  ──────       ─────────    ────────     ─────────
-   Intent   →   Requirements   →   Architecture  →   Build   →    Ship    →    Run
-                                    & Design
+    SEED ─────▶ SPEC ─────▶ PLAN ─────▶ EXECUTE ─────▶ DEPLOY ─────▶ OPERATE
+   Intent    Requirements  Architecture    Build         Ship           Run
+                            & Design
 
-  ┌──────┐    ┌──────────────┐    ┌────────────┐   ┌────────┐   ┌───────┐   ┌────────┐
-  │      │    │ 1a. Interview│    │2a. Arch    │   │3a.Setup│   │4a.CI/ │   │5a.Mon- │
-  │ 0a.  │───▶│ 1b. BRD      │───▶│2b. Design  │──▶│3b.Impl │──▶│   CD  │──▶│  itor  │
-  │Intent│    │ 1c. Use Cases│    │2c. Orchestr│   │3c–f.   │   │4b–d.  │   │5b–c.   │
-  │      │    │ 1d. Tech Spec│    │            │   │        │   │       │   │        │
-  └──────┘    └──────────────┘    └────────────┘   └────────┘   └───────┘   └────────┘
-      │               │                  │               │            │           │
-      ▼               ▼                  ▼               ▼            ▼           ▼
-  seed.md         spec.md           plan.md        src/ tests/   CI/CD+IaC   Monitoring
-                                                                                  │
-                                         ◀────────────────────────────────────────┘
-                                              Feedback loop → next Seed
+  ╔═══════════╤══════════════╤═════════════╤══════════════╤════════════╤═══════════╗
+  ║   SEED    │     SPEC     │    PLAN     │   EXECUTE    │   DEPLOY   │  OPERATE  ║
+  ╠═══════════╪══════════════╪═════════════╪══════════════╪════════════╪═══════════╣
+  ║ 0a.Intent │1a. Interview │2a. Arch     │3a. Setup     │4a. CI/CD   │5a. Monitor║
+  ║           │1b. BRD       │2b. Design   │3b. Implement │4b. IaC     │5b. Observe║
+  ║           │1c. Use Cases │2c. Orchestr.│3c. Review    │4c. Deploy  │5c. Iterate║
+  ║           │1d. Tech Spec │             │3d. Scan      │4d. Smoke   │           ║
+  ║           │              │             │3e. Security  │            │           ║
+  ║           │              │             │3f. Test      │            │           ║
+  ╠═══════════╪══════════════╪═════════════╪══════════════╪════════════╪═══════════╣
+  ║  seed.md  │   spec.md    │   plan.md   │ src/ tests/  │ CI/CD+IaC  │Monitoring ║
+  ╚═══════════╧══════════════╧═════════════╧══════════════╧════════════╧═══════════╝
+                                                                              │
+                              ◀──── Feedback loop ── next Seed ───────────────┘
 ```
 
 Each stage is **informed by the prior stage's output**. No stage begins until the prior stage is approved.
