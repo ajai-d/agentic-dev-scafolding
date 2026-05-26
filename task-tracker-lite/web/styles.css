@@ -127,9 +127,69 @@ h1 {
   background: #fffef9;
   border-radius: 8px;
   padding: 10px 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.task-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
+}
+
+.task-summary {
+  display: grid;
+  gap: 4px;
+}
+
+.task-controls {
+  display: flex;
+  align-items: center;
+}
+
+.task-open-btn,
+.task-action-btn {
+  border: 1px solid var(--surface-border);
+  background: #fff8de;
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-open-btn:hover,
+.task-action-btn:hover {
+  background: #ffeeb9;
+}
+
+.task-detail {
+  border-top: 1px solid var(--surface-border);
+  padding-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.task-detail-row {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.task-detail-actions {
+  margin-top: 4px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-action-btn.danger {
+  border-color: #e7b2a1;
+  background: #ffe7df;
+}
+
+.task-action-btn.danger:hover {
+  background: #ffd7cb;
 }
 
 .task-item.empty {
@@ -146,5 +206,18 @@ h1 {
   .container {
     margin: 20px 12px;
     padding: 18px;
+  }
+
+  .task-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-controls {
+    width: 100%;
+  }
+
+  .task-open-btn {
+    width: 100%;
   }
 }

@@ -411,3 +411,49 @@ Execute sequence for SPEC-002:
 Gate criteria:
 - Quality gate passes with no lint/test regressions.
 - UI behavior remains functionally unchanged.
+
+---
+
+## SPEC-003 Plan Delta (Inline Task Detail + Quick Actions)
+
+### 2a Architecture Delta
+
+Scope is frontend behavior and styling only.
+- Primary changes in `web/app.js` and `web/styles.css`.
+- No API contract or data model changes.
+- Existing endpoints reused for actions (`PATCH /tasks/:id`, `DELETE /tasks/:id`).
+
+### 2b Design Delta
+
+Interaction model:
+- Each task row provides an Open/Close control.
+- Exactly one task can be expanded at a time.
+- Expanded detail renders inline below the selected task row.
+
+Detail content model:
+- title, description, priority, status, dueDate, createdAt, updatedAt.
+- Missing values display as `N/A`.
+
+Quick actions:
+- Mark Done shown only when task status is `open`.
+- Delete shown for all tasks.
+- Actions call existing API endpoints and refresh list state.
+
+Use-case mapping:
+- UC-003-01 -> Open/Close and inline detail rendering.
+- UC-003-02 -> Single `expandedTaskId` policy.
+- UC-003-03 -> Detail action handlers and task refresh behavior.
+
+### 2c Orchestration Delta
+
+Execute sequence for SPEC-003:
+1. Add SPEC-003 addendum and update spec registry.
+2. Implement inline detail behavior and quick actions in web tier.
+3. Update UI smoke tests for expansion and actions.
+4. Run `npm run quality:check`.
+5. Record replay evidence and close status.
+
+Gate criteria:
+- One-open-only behavior verified by UI smoke test.
+- Quick actions verified through UI behavior and persisted API state.
+- Quality gate passes with no regressions.
