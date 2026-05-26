@@ -2,27 +2,39 @@
 
 ---
 
-## Step 1 — Create Your Seed Prompt
+## Step 1 — Create Your Project Folder
 
-Use [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) as an example to create `plan/seed.md`:
+Create a project-specific folder using a stable slug name, for example:
+
+```text
+stock-ticker-mcp/
+```
+
+Inside it, create:
+
+```text
+stock-ticker-mcp/
+	plan/
+	replay-execution/
+```
+
+---
+
+## Step 2 — Create Your Seed Prompt
+
+Use [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) as an example to create `<project-folder>/plan/seed.md`:
 
 - **What I Want To Build** — your intent in plain language
 - **Done Looks Like** — how you'll know it's complete
 
 ---
 
-## Step 2 — Give It To Your AI Agent
+## Step 3 — Give It To Your AI Agent
 
-Paste your completed seed prompt and add this one line:
-
+Give this prompt to your AI Agent.
 > Read `tmwtty/00-tmwtty-methodology.md` and follow the TMWTTY methodology.
 
-That's it. The agent will:
-
-1. Read the methodology
-2. Interview you to build the plan interactively
-3. Execute each item using the TMWTTY loop
-4. Document everything in `replay-execution/`
+You're off to the races.
 
 ---
 
@@ -31,4 +43,4 @@ That's it. The agent will:
 | File | Purpose |
 |------|---------|
 | [`00-tmwtty-methodology.md`](./00-tmwtty-methodology.md) | The methodology — what the agent reads |
-| [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Example template — use to create `plan/seed.md` |
+| [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) | Example template — use to create `<project-folder>/plan/seed.md` |
