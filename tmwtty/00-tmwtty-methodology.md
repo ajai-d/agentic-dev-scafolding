@@ -82,6 +82,8 @@ This document defines the core method first, then shows the SDLC profile as an i
 | **Agent** | A specialized AI role assigned to a single responsibility (for example, Discovery Agent or Delivery Agent). For lower-risk projects, a single AI plays all roles sequentially. For higher-risk projects, real subagents with isolated contexts are used (see [Section 9](#9-risk-calibration)). |
 | **Skill** | An atomic capability an agent can invoke (for example, *run tests*, *open a PR*, *search the web*, *generate documentation*). Skills are the building blocks; agents are the personas that orchestrate skills. |
 | **Domain profile** | A domain-specific mapping of the four core stages to concrete sub-steps, artifacts, and agent roles. |
+| **Branch** | A parallel line of development in Git where a single work item is implemented before merging back. |
+| **Pull Request (PR)** | A request to merge a branch into a target branch (usually `main`) after review and checks. |
 | **Risk level** | A 1–5 calibration of the project's risk profile that determines how much process the pipeline enforces. See [Section 9](#9-risk-calibration). |
 
 ---
@@ -253,6 +255,7 @@ Each stage is **informed by the prior stage's output**. No stage begins until th
 
 - Requirements are completed in **Spec** before design and implementation begin.
 - **Plan** defines sequencing and execution mode before **Execute** starts.
+- For software projects in GitHub, **Execute** follows a PR-based development lifecycle: branch per work item, validate, open PR, review, merge.
 - In this profile, deployment and operations are part of **Execute**, not separate top-level stages.
 - The replay-execution log is updated throughout all stages.
 
@@ -434,6 +437,7 @@ Follow the table in [Section 10](#10-failure-handling). Never proceed on assumpt
 - **Never skip a gate** at risk levels 4–5. Fast-path is disabled for sensitive sub-steps.
 - **Document continuously.** The replay-execution log must capture each step, each abandon, and each escalation.
 - **One recorded change-set per artifact** to preserve atomic, traceable history.
+- **Use branch-per-work-item and PR-based integration** unless the repository is explicitly operating in solo/direct-push mode.
 - **When uncertain, ask.** Do not assume.
 - **Guide the user through tooling.** When a sub-step requires a specific Copilot mode or feature, walk the user through the configuration step by step.
 - **Honor the risk level.** At levels 4–5, use isolated subagent contexts. At levels 1–3, shared context is acceptable.

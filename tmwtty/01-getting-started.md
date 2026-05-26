@@ -32,7 +32,7 @@ Use [`02-seed-prompt-template.md`](./02-seed-prompt-template.md) as an example t
 ## Step 3 — Give It To Your AI Agent
 
 Give this prompt to your AI Agent.
-> Read `tmwtty/00-tmwtty-methodology.md` and follow the TMWTTY methodology.
+> Read `tmwtty/00-tmwtty-methodology.md` and follow the TMWTTY methodology with the seed file at <seed file location>
 
 You're off to the races.
 
