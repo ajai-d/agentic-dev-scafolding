@@ -2,7 +2,7 @@
 
 > **A framework for AI-assisted work where the AI writes the prompts.**
 
-TMWTTY is a methodology for working with AI agents that removes the burden of prompt engineering. Instead of crafting prompts yourself, you provide a short statement of intent — and the AI proposes each next step, supplies the exact prompt to send back, and executes only after your explicit approval. Every interaction is captured in a replay-execution log that serves as both project history and a reproducible reference.
+TMWTTY is a methodology for working with AI agents that removes the burden of prompt engineering. Instead of crafting prompts yourself, you provide a short statement of intent — and the AI proposes each next step, then executes only after your explicit approval or modification. Every interaction is captured in a replay-execution log that serves as both project history and a reproducible reference.
 
 This document is the canonical reference for the TMWTTY methodology and its application to a full Agentic Software Development Life Cycle (SDLC).
 
@@ -32,12 +32,12 @@ This document is the canonical reference for the TMWTTY methodology and its appl
 
 ### What is TMWTTY?
 
-**TMWTTY ("Tell Me What To Tell You")** is a framework for AI-assisted work. The defining characteristic of TMWTTY is that **the user does not need to write prompts**. Instead, the AI proposes each action, supplies the exact prompt to send back, and waits for the user to send it before executing.
+**TMWTTY ("Tell Me What To Tell You")** is a framework for AI-assisted work. The defining characteristic of TMWTTY is that **the user does not need to write prompts**. Instead, the AI proposes each action and waits for the user to approve or modify before executing.
 
 This approach delivers three core properties:
 
 - **Determinism** — Every action is explicitly approved by the user; nothing happens autonomously without consent.
-- **Reproducibility** — Every prompt and result is captured in a replay-execution log that documents how the project was built.
+- **Reproducibility** — Every proposal and result is captured in a replay-execution log that documents how the project was built.
 - **Generality** — TMWTTY is not specific to software. It applies equally well to writing, research, data analysis, operational runbooks, and other domains.
 
 In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short statement of intent to a deployed, production-grade system, with AI agents doing the work under human direction.
@@ -48,9 +48,9 @@ In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short
 |-----------|----------------|-------------|
 | *"I don't know what to ask the AI."* | Trial and error. | The AI interviews you to surface the right requirements. |
 | *"My process isn't repeatable."* | Knowledge lives in one person's head. | Every step is captured in a replay-execution log. |
-| *"Others can't onboard quickly."* | Tribal knowledge, shadowing. | A reproducible sequence of prompts that any team member can replay end to end. |
+| *"Others can't onboard quickly."* | Tribal knowledge, shadowing. | A reproducible sequence of decisions that any team member can replay end to end. |
 | *"I don't know which AI mode to use."* | Chat for everything. | The plan assigns the appropriate mode to each task. |
-| *"Quality varies by person."* | Inconsistent prompting. | Standardized prompts produce consistent output. |
+| *"Quality varies by person."* | Inconsistent prompting. | Standardized proposals produce consistent output. |
 | *"I lost track of what was done."* | Reconstruct from memory. | Built-in history with documented decisions. |
 | *"I'm starting from scratch again."* | Reinvent every time. | Fork an existing replay-execution log, adapt, and ship faster. |
 
@@ -63,7 +63,7 @@ In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short
 | **Seed prompt** | A short description of what the user wants to build. Saved in `plan/seed.md`. Example: *"An MCP server that returns the top five performing stocks."* |
 | **Spec** | A document capturing requirements, acceptance criteria, and edge cases. Produced by the Spec Agent. Saved in `plan/spec.md`. |
 | **Plan** | A living document containing use cases, architecture, design, and the agent orchestration plan. Saved in `plan/plan.md`. |
-| **Replay-execution log** | A markdown file capturing every prompt and result from the project. Acts as both project history and a reference template for similar future work. See [Limitations](#11-limitations) for caveats on direct replay. Saved in `replay-execution/replay-execution.md`. |
+| **Replay-execution log** | A markdown file capturing every proposal and result from the project. Acts as both project history and a reference template for similar future work. See [Limitations](#11-limitations) for caveats on direct replay. Saved in `replay-execution/replay-execution.md`. |
 | **Agent** | A specialized AI role assigned to a single responsibility (for example, Spec Agent or Implementation Agent). For lower-risk projects, a single AI plays all roles sequentially. For higher-risk projects, real subagents with isolated contexts are used (see [Section 9](#9-risk-calibration)). |
 | **Skill** | An atomic capability an agent can invoke (for example, *run tests*, *open a PR*, *search the web*, *generate documentation*). Skills are the building blocks; agents are the personas that orchestrate skills. |
 | **Risk level** | A 1–5 calibration of the project's risk profile that determines how much process the pipeline enforces. See [Section 9](#9-risk-calibration). |
@@ -73,7 +73,7 @@ In this repository, TMWTTY is applied to a full Agentic SDLC: going from a short
 
 ## 3. How it works
 
-The core mechanism of TMWTTY is a seven-step loop executed by the AI on every task. The user's role is to approve at two gates: the proposed artifact (step 2) and the result of execution (step 6).
+The core mechanism of TMWTTY is a five-step loop executed by the AI on every task. The user's role is to approve or modify the proposal (step 2) and verify the result (step 4).
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -81,19 +81,14 @@ The core mechanism of TMWTTY is a seven-step loop executed by the AI on every ta
 │   1. AI proposes      →  "Here's what I think we       │
 │                           should do next, and why."    │
 │                                                         │
-│   2. You approve      →  "Yes, that's right."          │
+│   2. You approve      →  "Approved" / "Approved with   │
+│      or modify            these changes: ..."          │
 │                                                         │
-│   3. AI gives prompt  →  "Here's the exact prompt to   │
-│                           send back to me."            │
+│   3. AI executes      →  Performs the work             │
 │                                                         │
-│   4. You send it      →  Review, refine, or say "go"   │
-│                           to send as-is                 │
+│   4. You review       →  Verify the result             │
 │                                                         │
-│   5. AI executes      →  Performs the work             │
-│                                                         │
-│   6. You review       →  Verify the result             │
-│                                                         │
-│   7. AI records       →  Commits the prompt and        │
+│   5. AI records       →  Commits the proposal and      │
 │                           result to the replay-        │
 │                           execution log                │
 │                                                         │
@@ -101,11 +96,17 @@ The core mechanism of TMWTTY is a seven-step loop executed by the AI on every ta
                           ↻ repeat
 ```
 
-### Fast-path approval
+### Approval options
 
-For low-risk steps, the user may respond to step 2 with **"go"** or **"approved — execute"** to skip the explicit prompt-review in step 4. The AI executes immediately and records what it ran. This trades the prompt-review gate for velocity and is appropriate when the user already understands and trusts the proposed approach.
+At step 2, the user has three responses:
 
-The risk calibration (see [Section 9](#9-risk-calibration)) determines whether fast-path is allowed for a given sub-step.
+| Response | Effect |
+|----------|--------|
+| **"Approved"** / **"Go"** | AI executes as proposed. |
+| **"Approved with changes: ..."** | AI incorporates the modification, then executes. |
+| **"Reject — try again because ..."** | AI revises the proposal (see [Section 10](#10-failure-handling)). |
+
+The risk calibration (see [Section 9](#9-risk-calibration)) determines whether fast-path (immediate "go") is allowed for a given sub-step.
 
 ---
 
@@ -125,7 +126,7 @@ The interview protocol runs exactly once per project, at the start of the Spec s
 
 ### 4.2 TMWTTY loop
 
-Used by **every other agent** in the pipeline. These agents bring industry-standard expertise to their respective domains. Rather than interviewing the user, they propose an artifact for approval, supply the prompt to send back, execute, and record the result.
+Used by **every other agent** in the pipeline. These agents bring industry-standard expertise to their respective domains. Rather than interviewing the user, they propose an artifact for approval, execute on approval (or after incorporating modifications), and record the result.
 
 ---
 
@@ -519,12 +520,10 @@ TMWTTY is not a silver bullet. Users should understand the following constraints
 |:----:|--------|
 | 1 | Explain the concept — what you are about to do and why. |
 | 2 | Propose the artifact (use cases, architecture, design, code, etc.). |
-| 3 | Wait for the user to approve the artifact. If the user says **"go"** and fast-path is allowed for this sub-step, skip to step 6. |
-| 4 | Provide the exact prompt for the user to send back. The user may review and refine before sending. |
-| 5 | Wait for the user to send the prompt. |
-| 6 | Execute. |
-| 7 | Present the result for review. |
-| 8 | On approval, commit, push, and record the prompt and result in `replay-execution/`. |
+| 3 | Wait for the user to approve, modify, or reject. If **"go"** and fast-path is allowed, proceed immediately. If modifications are provided, incorporate them. |
+| 4 | Execute. |
+| 5 | Present the result for review. |
+| 6 | On approval, commit, push, and record the proposal and result in `replay-execution/`. |
 
 Repeat for every sub-step until the pipeline is complete.
 
