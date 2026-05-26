@@ -83,6 +83,7 @@ This document defines the core method first, then shows the SDLC profile as an i
 | **Skill** | An atomic capability an agent can invoke (for example, *run tests*, *open a PR*, *search the web*, *generate documentation*). Skills are the building blocks; agents are the personas that orchestrate skills. |
 | **Domain profile** | A domain-specific mapping of the four core stages to concrete sub-steps, artifacts, and agent roles. |
 | **Branch** | A parallel line of development in Git where a single work item is implemented before merging back. |
+| **Issue** | A tracked work item in GitHub (feature, bug, task, or spike) used as the source of truth for scope and status. |
 | **Pull Request (PR)** | A request to merge a branch into a target branch (usually `main`) after review and checks. |
 | **Risk level** | A 1–5 calibration of the project's risk profile that determines how much process the pipeline enforces. See [Section 9](#9-risk-calibration). |
 
@@ -255,7 +256,7 @@ Each stage is **informed by the prior stage's output**. No stage begins until th
 
 - Requirements are completed in **Spec** before design and implementation begin.
 - **Plan** defines sequencing and execution mode before **Execute** starts.
-- For software projects in GitHub, **Execute** follows a PR-based development lifecycle: branch per work item, validate, open PR, review, merge.
+- For software projects in GitHub, **Execute** follows an issue-driven PR lifecycle: issue -> branch -> validate -> pull request -> review -> merge.
 - In this profile, deployment and operations are part of **Execute**, not separate top-level stages.
 - The replay-execution log is updated throughout all stages.
 
@@ -323,6 +324,7 @@ The Planning Agent selects the appropriate mode for each sub-step.
 | **Custom Agents** | `.github/agents/<name>.md` | Each pipeline role is defined as a persistent custom agent with focused instructions, tools, and optional model selection. |
 | **Skills** | Per-agent skill declarations | Atomic capabilities (run tests, open PR, scan dependencies, generate docs, etc.). Agents declare which skills they need; the runtime invokes them when appropriate. Custom skills can be added per project. |
 | **AGENTS.md** | Repository root | Project-wide instructions that all agents read. Used to encode TMWTTY conventions, workflow standards, and project context. |
+| **GitHub Issues** | Repository issue tracker | Work management backbone for Execute: each non-trivial work item is tracked as an issue, then implemented through branch and PR flow. |
 | **Subagents** | Auto-spawned or `/agent <name>` | Isolated-context agents for specialized subtasks. Required for risk levels 4–5. |
 | **Delegate** | `/delegate` | Hands off a fully specified work item to the GitHub Copilot Coding Agent (cloud, async) for issue-to-PR execution. |
 | **MCP Servers** | Per-agent configuration | Connects agents to external tools, data sources, or alternate models. |
@@ -438,6 +440,7 @@ Follow the table in [Section 10](#10-failure-handling). Never proceed on assumpt
 - **Document continuously.** The replay-execution log must capture each step, each abandon, and each escalation.
 - **One recorded change-set per artifact** to preserve atomic, traceable history.
 - **Use branch-per-work-item and PR-based integration** unless the repository is explicitly operating in solo/direct-push mode.
+- **Use issue-based work management** for GitHub projects: each non-trivial execution item maps to a GitHub issue with clear scope, owner, and acceptance criteria.
 - **When uncertain, ask.** Do not assume.
 - **Guide the user through tooling.** When a sub-step requires a specific Copilot mode or feature, walk the user through the configuration step by step.
 - **Honor the risk level.** At levels 4–5, use isolated subagent contexts. At levels 1–3, shared context is acceptable.
