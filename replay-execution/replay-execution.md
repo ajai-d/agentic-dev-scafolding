@@ -37,12 +37,12 @@ Created `.github/agents/spec-agent.md` with Interview Me protocol, structured qu
 
 | Field | Value |
 |-------|-------|
-| **Stage** | Spec (1a–1c) |
+| **Stage** | Spec (1a–1d) |
 | **Agent** | Spec Agent (played by Planning Agent in shared context) |
 | **Risk Level** | 2 |
 | **Date** | 2026-05-21 |
 
-### Interview Questions
+### Interview Questions (1a)
 
 1. Data source → Mock first, upgrade to Yahoo Finance later
 2. Tech stack → AI picks (TypeScript throughout)
@@ -52,20 +52,21 @@ Created `.github/agents/spec-agent.md` with Interview Me protocol, structured qu
 ### Prompt
 
 ```
-Synthesize the interview responses into a formal spec at plan/spec.md with: summary, functional requirements (FR-1 through FR-5), non-functional requirements (NFR-1 through NFR-3), acceptance criteria (AC-1 through AC-5), out of scope, and open questions.
+Synthesize the interview responses into plan/spec.md following the textbook
+requirements order: 1b BRD → 1c Use Cases → 1d Technical Specification.
 ```
 
 ### Result
 
-Created `plan/spec.md` with full specification. User approved via fast-path ("go").
+Created `plan/spec.md` with BRD (goal, stakeholders, success metrics, constraints), 7 use cases (UC-1–UC-7 with dependency graph), and technical spec (FR-1–FR-5, NFR-1–NFR-3, AC-1–AC-5, traceability to UCs). User approved via fast-path.
 
 ---
 
-## Step 3 — Plan (2a–2d)
+## Step 3 — Plan (2a–2c)
 
 | Field | Value |
 |-------|-------|
-| **Stage** | Plan (2a–2d) |
+| **Stage** | Plan (2a–2c) |
 | **Agent** | Planning Agent (interactive) |
 | **Risk Level** | 2 |
 | **Date** | 2026-05-25 |
@@ -74,23 +75,21 @@ Created `plan/spec.md` with full specification. User approved via fast-path ("go
 
 | # | Sub-step | Output |
 |---|----------|--------|
-| 2a | Use Cases | 7 use cases (UC-1 → UC-7) with dependency graph |
-| 2b | Architecture | ASCII system diagram, component table, key decisions |
-| 2c | Design | TypeScript interfaces, MCP tool schema, file structure |
-| 2d | Orchestration | Agent Registry (4 agents), invocation sequence, rationale |
+| 2a | Architecture | ASCII system diagram, component table, key decisions |
+| 2b | Design | TypeScript interfaces, MCP tool schema, file structure |
+| 2c | Orchestration | Agent Registry (4 agents), invocation sequence, rationale |
 
 ### Prompt (iterative — one sub-step per "go")
 
 ```
-Write 2a Use Cases → approved
-Write 2b Architecture → approved
-Write 2c Design → approved
-Write 2d Orchestration → revised after feedback (needed proper agent definitions, not a task table) → approved
+Write 2a Architecture → approved
+Write 2b Design → approved
+Write 2c Orchestration → revised after feedback (needed proper agent definitions, not a task table) → approved
 ```
 
 ### Result
 
-All 4 sub-steps written to `plan/plan.md`. Plan stage complete.
+All 3 sub-steps written to `plan/plan.md`. Plan stage complete.
 
 ---
 
@@ -115,5 +114,34 @@ All 4 sub-steps written to `plan/plan.md`. Plan stage complete.
 ### Result
 
 All 4 agent definition files created. Ready for `@setup-agent` invocation.
+
+---
+
+## Step 5 — Methodology Restructure (BRD → Use Cases → Spec)
+
+| Field | Value |
+|-------|-------|
+| **Stage** | Process improvement |
+| **Agent** | Planning Agent |
+| **Risk Level** | 2 |
+| **Date** | 2026-05-25 |
+
+### Rationale
+
+During the Plan stage, the team identified that Use Cases (2a) were placed *after* the Technical Spec — the reverse of textbook requirements engineering. Use cases are a discovery tool that should *drive* the formal spec, not restate it.
+
+### Changes Made
+
+| File | Change |
+|------|--------|
+| `tmwtty/00-tmwtty-methodology.md` | Restructured Spec stage: 1a Interview → 1b BRD → 1c Use Cases → 1d Tech Spec. Removed Use Cases from Plan stage. Renumbered Plan to 2a–2c. Cleaned up all diagrams to consistent style. |
+| `plan/spec.md` | Reorganized into BRD (1b) + Use Cases (1c) + Technical Spec (1d) with FR/AC traceability to UCs. |
+| `plan/plan.md` | Removed Use Cases section. Renumbered: Architecture (2a), Design (2b), Orchestration (2c). |
+| `.github/agents/spec-agent.md` | Updated to produce 4 sub-steps (1a–1d) with BRD and Use Cases before Tech Spec. |
+| `replay-execution/replay-execution.md` | Retroactively corrected step numbering to match new structure. |
+
+### Result
+
+Methodology now follows textbook order: elicitation → business context → scenario discovery → formal specification. Traceability from FR → UC established.
 
 ---

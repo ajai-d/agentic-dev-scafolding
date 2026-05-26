@@ -5,29 +5,7 @@
 
 ---
 
-## 2a. Use Cases
-
-| UC | Name | Description | Dependencies | Complexity |
-|:--:|------|-------------|--------------|:----------:|
-| UC-1 | Data provider interface | Define the TypeScript interface (`StockProvider`) that any data source must implement | None | Low |
-| UC-2 | Mock data provider | Implement a mock provider returning 5 hardcoded stocks with realistic data | UC-1 | Low |
-| UC-3 | MCP server (dual-transport) | Create the MCP server exposing `get_top_stocks` tool. Supports stdio (default) and SSE (`TRANSPORT=sse`) for future Azure deployment | UC-1 | Medium |
-| UC-4 | MCP client | TypeScript client connecting via stdio, calls `get_top_stocks` | UC-3 | Low |
-| UC-5 | Web UI | Simple HTML page with table displaying 5 stocks (served locally) | UC-4 | Low |
-| UC-6 | Tests | Unit tests for provider interface, mock provider, and MCP tool response shape | UC-1, UC-2, UC-3 | Low |
-| UC-7 | Documentation | README with setup, run, test, and provider-swap instructions | All | Low |
-
-**Dependency graph:**
-```
-UC-1 → UC-2 → UC-3 → UC-4 → UC-5
-  ↓                         ↗
-UC-6 ───────────────────────┘
-UC-7 (after all)
-```
-
----
-
-## 2b. Architecture
+## 2a. Architecture
 
 ### System Diagram
 
@@ -77,7 +55,7 @@ UC-7 (after all)
 
 ---
 
-## 2c. Design
+## 2b. Design
 
 ### Data Types
 
@@ -140,7 +118,7 @@ README.md
 
 ---
 
-## 2d. Orchestration
+## 2c. Orchestration
 
 ### Risk Level: 2 (shared context, fast-path allowed)
 
@@ -153,7 +131,7 @@ All agents share a single VS Code Agent Mode context. User invokes each agent in
 | # | Agent | Definition File | Mode | Autonomous? | Scope |
 |---|-------|----------------|------|-------------|-------|
 | 1 | Setup Agent | `.github/agents/setup-agent.md` | Autopilot | Yes | Scaffold project, install deps, configure tsconfig/vitest |
-| 2 | Implementation Agent | `.github/agents/impl-agent.md` | Interactive | No — approve per file | Write all `src/` files per 2c Design |
+| 2 | Implementation Agent | `.github/agents/impl-agent.md` | Interactive | No — approve per file | Write all `src/` files per 2b Design |
 | 3 | Test Agent | `.github/agents/test-agent.md` | Autopilot | Yes | Write + run tests; fail = escalate |
 | 4 | Integration Agent | `.github/agents/integration-agent.md` | Interactive | No — final review | Wire end-to-end, smoke test, write README |
 

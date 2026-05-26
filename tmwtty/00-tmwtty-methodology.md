@@ -115,13 +115,13 @@ TMWTTY uses two distinct interaction protocols depending on what the AI needs fr
 
 ### 4.1 Interview Me
 
-Used **only by the Spec Agent**.
+Used **only by the Spec Agent** during sub-step 1a (Discovery Interview).
 
-The Spec Agent has no prior knowledge of what the user wants to build. It conducts a structured interview — asking targeted questions to elicit requirements, edge cases, and acceptance criteria — and synthesizes the responses into a formal specification.
+The Spec Agent has no prior knowledge of what the user wants to build. It conducts a structured interview — asking targeted questions to elicit requirements, edge cases, and acceptance criteria. Once the interview is complete, the Spec Agent switches to the TMWTTY loop for the remaining sub-steps (1b BRD → 1c Use Cases → 1d Technical Spec), synthesizing the interview into progressively more formal artifacts.
 
 > **Note:** The Spec Agent should propose sensible defaults when the user lacks domain expertise (for example, suggesting OAuth 2.0 when the user says "I want secure login"). Pure interviewing without expert pushback risks producing weak specs.
 
-This protocol runs exactly once per project, at the start of the Spec stage.
+The interview protocol runs exactly once per project, at the start of the Spec stage. The subsequent sub-steps use the standard TMWTTY loop (propose → approve → execute → record).
 
 ### 4.2 TMWTTY loop
 
@@ -131,25 +131,28 @@ Used by **every other agent** in the pipeline. These agents bring industry-stand
 
 ## 5. Applying TMWTTY to the SDLC
 
-When TMWTTY is applied to software development, it produces a structured, six-stage pipeline:
+When TMWTTY is applied to software development, it produces a structured, six-stage pipeline. The stages follow the textbook requirements-engineering progression: business context first, then scenario discovery, then formal specification, then planning and execution.
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                         TMWTTY Agentic SDLC Pipeline                         │
-└──────────────────────────────────────────────────────────────────────────────┘
+                        TMWTTY Agentic SDLC Pipeline
 
-  ┌────────┐     ┌────────┐     ┌────────┐     ┌─────────┐     ┌────────┐     ┌─────────┐
-  │  SEED  │────▶│  SPEC  │────▶│  PLAN  │────▶│ EXECUTE │────▶│ DEPLOY │────▶│ OPERATE │
-  │        │     │        │     │        │     │         │     │        │     │         │
-  │ Intent │     │ What   │     │ How    │     │ Build   │     │ Ship   │     │ Run     │
-  └────────┘     └────────┘     └────────┘     └─────────┘     └────────┘     └─────────┘
-       │              │              │               │               │              │
-       ▼              ▼              ▼               ▼               ▼              ▼
-   seed.md        spec.md        plan.md        src/ + tests/    CI/CD + IaC    Monitoring
-                                                                                    │
-                                                                                    │
-                                              ◀─────────────────────────────────────┘
-                                                    Feedback loop → next Seed
+    SEED         SPEC                    PLAN         EXECUTE      DEPLOY       OPERATE
+   ──────       ──────                  ──────       ─────────    ────────     ─────────
+   Intent   →   Requirements   →   Architecture  →   Build   →    Ship    →    Run
+                                    & Design
+
+  ┌──────┐    ┌──────────────┐    ┌────────────┐   ┌────────┐   ┌───────┐   ┌────────┐
+  │      │    │ 1a. Interview│    │2a. Arch    │   │3a.Setup│   │4a.CI/ │   │5a.Mon- │
+  │ 0a.  │───▶│ 1b. BRD      │───▶│2b. Design  │──▶│3b.Impl │──▶│   CD  │──▶│  itor  │
+  │Intent│    │ 1c. Use Cases│    │2c. Orchestr│   │3c–f.   │   │4b–d.  │   │5b–c.   │
+  │      │    │ 1d. Tech Spec│    │            │   │        │   │       │   │        │
+  └──────┘    └──────────────┘    └────────────┘   └────────┘   └───────┘   └────────┘
+      │               │                  │               │            │           │
+      ▼               ▼                  ▼               ▼            ▼           ▼
+  seed.md         spec.md           plan.md        src/ tests/   CI/CD+IaC   Monitoring
+                                                                                  │
+                                         ◀────────────────────────────────────────┘
+                                              Feedback loop → next Seed
 ```
 
 Each stage is **informed by the prior stage's output**. No stage begins until the prior stage is approved.
@@ -163,13 +166,10 @@ Each stage is **informed by the prior stage's output**. No stage begins until th
 | 0a. Intent | Human | A short description of intent in `plan/seed.md` |
 
 ```
-┌─────────────────────────────────────┐
-│             SEED Stage              │
-└─────────────────────────────────────┘
+  SEED
+  ────
+  Human writes a short intent statement.
 
-  Human writes intent
-         │
-         ▼
   ┌─────────────┐
   │ 0a. Intent  │──▶  plan/seed.md
   └─────────────┘
@@ -177,76 +177,79 @@ Each stage is **informed by the prior stage's output**. No stage begins until th
 
 ### Spec
 
+The Spec stage follows textbook requirements engineering order: elicit → contextualize → discover scenarios → formalize. Use cases *drive* the technical spec — not the other way around.
+
 | Sub-step | Agent | Output |
 |----------|-------|--------|
-| 1a. Discovery interview | Spec Agent | Raw interview notes |
-| 1b. Requirements document | Spec Agent | Documented requirements |
-| 1c. Acceptance criteria | Spec Agent | Measurable definition of done |
+| 1a. Discovery interview | Spec Agent | Raw interview notes (elicitation) |
+| 1b. Business Requirements (BRD) | Spec Agent | Goals, stakeholders, success metrics, constraints |
+| 1c. Use Cases | Spec Agent | UC-n: actors, triggers, main flow, exceptions, dependencies |
+| 1d. Technical Specification | Spec Agent | FR-n, NFR-n, AC-n (traced to use cases) |
 
 ```
-┌─────────────────────────────────────┐
-│             SPEC Stage              │
-│        (Interview Me protocol)      │
-└─────────────────────────────────────┘
+  SPEC  (Interview Me protocol)
+  ────
 
-  ┌──────────────────────┐
-  │ 1a. Discovery        │  Spec Agent asks 3–5 targeted questions
-  │     Interview        │  User answers; defaults proposed
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 1b. Requirements     │  FR-n, NFR-n synthesized from answers
-  │     Document         │
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 1c. Acceptance       │  AC-n: measurable "done" criteria
-  │     Criteria         │
-  └──────────┬───────────┘
-             │
-             ▼
-        plan/spec.md
+  ┌──────────────────────────┐
+  │ 1a. Discovery Interview  │  Spec Agent asks targeted questions.
+  │                          │  User answers; agent proposes defaults.
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 1b. Business Reqts (BRD) │  WHY: goals, stakeholders, success
+  │                          │  metrics, constraints, assumptions.
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 1c. Use Cases            │  WHO does WHAT: actors, triggers,
+  │                          │  main flow, exceptions, complexity.
+  └────────────┬─────────────┘
+               │  Use cases drive ↓
+               ▼
+  ┌──────────────────────────┐
+  │ 1d. Technical Spec       │  FR-n (traced to UC-n), NFR-n, AC-n.
+  │                          │  Formal, measurable, testable.
+  └────────────┬─────────────┘
+               │
+               ▼
+          plan/spec.md
 ```
+
+**Key principle:** Use cases are a *discovery* tool. They surface what the system must do before that behavior is formalized into requirements. Every FR traces back to at least one UC.
 
 ### Plan
 
+The Plan stage is pure "how to build it" — no requirements content. It consumes the approved spec and produces architecture, design, and an execution strategy.
+
 | Sub-step | Agent | Output |
 |----------|-------|--------|
-| 2a. Use cases | Use Case Agent | Business use cases with dependencies and complexity assessment |
-| 2b. Architecture | Architecture Agent | System design, components, and tech stack |
-| 2c. Design | Design Agent | API contracts, data models, and interfaces |
-| 2d. Orchestration | Planning Agent | Atomic work breakdown and agent orchestration plan |
+| 2a. Architecture | Architecture Agent | System design, components, and tech stack |
+| 2b. Design | Design Agent | API contracts, data models, and interfaces |
+| 2c. Orchestration | Planning Agent | Work breakdown and agent orchestration plan |
 
 ```
-┌─────────────────────────────────────┐
-│             PLAN Stage              │
-│         (TMWTTY loop × 4)          │
-└─────────────────────────────────────┘
+  PLAN  (TMWTTY loop × 3)
+  ────
 
-  ┌──────────────────────┐
-  │ 2a. Use Cases        │  UC-n with dependencies + complexity
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 2b. Architecture     │  System diagram, components, tech stack
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 2c. Design           │  Interfaces, schemas, file structure
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 2d. Orchestration    │  Agent registry, execution pattern,
-  │                      │  mode assignments, invocation sequence
-  └──────────┬───────────┘
-             │
-             ▼
-        plan/plan.md
+  ┌──────────────────────────┐
+  │ 2a. Architecture         │  System diagram, components, tech stack.
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 2b. Design               │  Interfaces, schemas, file structure.
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 2c. Orchestration        │  Agent registry, execution pattern,
+  │                          │  mode assignments, invocation sequence.
+  └────────────┬─────────────┘
+               │
+               ▼
+          plan/plan.md
 ```
 
 #### Orchestration decision framework
@@ -272,42 +275,40 @@ The Planning Agent assigns each use case to one of the following execution patte
 | 3f. Test | Test Agent | Unit, integration, and end-to-end tests |
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                       EXECUTE Stage                           │
-│  (Agents invoked per 2d Orchestration — mode varies)         │
-└──────────────────────────────────────────────────────────────┘
+  EXECUTE  (Agents invoked per 2c Orchestration — mode varies)
+  ───────
 
-  ┌──────────────────┐
-  │ 3a. Setup        │  Scaffold, deps, config          [Autopilot]
-  └────────┬─────────┘
-           │
-           ▼
-  ┌──────────────────┐
-  │ 3b. Implement    │  Write src/ per design           [Interactive]
-  └────────┬─────────┘
-           │
-           ▼
-  ┌──────────────────┐
-  │ 3c. Code Review  │  Quality + best practices        [Interactive]
-  └────────┬─────────┘
-           │
-           ▼
-  ┌──────────────────┐
-  │ 3d. Code Scan    │  SAST, deps, licenses            [Autopilot]
-  └────────┬─────────┘
-           │
-           ▼
-  ┌──────────────────┐
-  │ 3e. Security     │  Threat model, OWASP             [Interactive]
-  └────────┬─────────┘
-           │
-           ▼
-  ┌──────────────────┐
-  │ 3f. Test         │  Unit + integration tests        [Autopilot]
-  └────────┬─────────┘
-           │
-           ▼
-      src/ + tests/ (all passing)
+  ┌──────────────────────────┐
+  │ 3a. Setup                │  Scaffold, deps, config.       [Autopilot]
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 3b. Implement            │  Write src/ per design.        [Interactive]
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 3c. Code Review          │  Quality + best practices.     [Interactive]
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 3d. Code Scan            │  SAST, deps, licenses.         [Autopilot]
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 3e. Security             │  Threat model, OWASP.          [Interactive]
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 3f. Test                 │  Unit + integration tests.     [Autopilot]
+  └────────────┬─────────────┘
+               │
+               ▼
+          src/ + tests/ (all passing)
 ```
 
 ### Deploy
@@ -320,32 +321,31 @@ The Planning Agent assigns each use case to one of the following execution patte
 | 4d. Smoke tests | Deployment Agent | Verified deployment |
 
 ```
-┌─────────────────────────────────────┐
-│           DEPLOY Stage              │
-└─────────────────────────────────────┘
+  DEPLOY
+  ──────
 
-  ┌──────────────────────┐
-  │ 4a. CI/CD Pipeline   │  GitHub Actions / Azure Pipelines
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 4b. Infrastructure   │  Bicep / Terraform / Pulumi
-  │     as Code          │
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 4c. Deployment       │  Push to target environment
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 4d. Smoke Tests      │  Verify running system
-  └──────────┬───────────┘
-             │
-             ▼
-      System live in target env
+  ┌──────────────────────────┐
+  │ 4a. CI/CD Pipeline       │  GitHub Actions / Azure Pipelines.
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 4b. Infrastructure       │  Bicep / Terraform / Pulumi.
+  │     as Code              │
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 4c. Deployment           │  Push to target environment.
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 4d. Smoke Tests          │  Verify running system.
+  └────────────┬─────────────┘
+               │
+               ▼
+          System live in target env
 ```
 
 ### Operate
@@ -357,26 +357,25 @@ The Planning Agent assigns each use case to one of the following execution patte
 | 5c. Iteration | Human + Agents | Feedback loop into the next Seed |
 
 ```
-┌─────────────────────────────────────┐
-│           OPERATE Stage             │
-└─────────────────────────────────────┘
+  OPERATE
+  ───────
 
-  ┌──────────────────────┐
-  │ 5a. Monitoring       │  Alerts, dashboards, SLOs
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 5b. Observability    │  Logs, metrics, distributed traces
-  └──────────┬───────────┘
-             │
-             ▼
-  ┌──────────────────────┐
-  │ 5c. Iteration        │  Feedback loop
-  └──────────┬───────────┘
-             │
-             ▼
-      New SEED (next cycle)
+  ┌──────────────────────────┐
+  │ 5a. Monitoring           │  Alerts, dashboards, SLOs.
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 5b. Observability        │  Logs, metrics, distributed traces.
+  └────────────┬─────────────┘
+               │
+               ▼
+  ┌──────────────────────────┐
+  │ 5c. Iteration            │  Feedback loop.
+  └────────────┬─────────────┘
+               │
+               ▼
+          New SEED (next cycle)
 ```
 
 ---
@@ -389,8 +388,8 @@ Every TMWTTY project uses the following structure:
 |------|---------|
 | `tmwtty/` | The methodology reference (this document). |
 | `plan/seed.md` | The seed prompt expressing project intent. |
-| `plan/spec.md` | The requirements specification produced by the Spec Agent. |
-| `plan/plan.md` | Use cases, architecture, design, and orchestration — maintained as a living document. |
+| `plan/spec.md` | The full requirements package: BRD, Use Cases, and Technical Spec (FR/NFR/AC). |
+| `plan/plan.md` | Architecture, design, and orchestration — maintained as a living document. |
 | `replay-execution/replay-execution.md` | The step-by-step playbook captured during execution. |
 
 ---
