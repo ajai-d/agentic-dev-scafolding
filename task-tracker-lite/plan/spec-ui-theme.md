@@ -2,7 +2,7 @@
 
 Spec ID: SPEC-002
 Parent spec: `plan/spec.md`
-Status: Planned
+Status: Implemented, Verified
 
 ## Goal
 
@@ -72,6 +72,11 @@ Exceptions:
 - Text and controls remain readable on desktop and mobile.
 - Existing functionality remains unchanged.
 - `npm run quality:check` still passes.
+
+## Verification Evidence
+
+- Quality gate: `npm run quality:check` passed (lint, API tests, UI smoke).
+- Pull request: `#1` merged into `main`.
 
 ## Traceability
 

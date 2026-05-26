@@ -270,3 +270,4 @@ Approved
 - Functional behavior unchanged (presentation-layer-only update)
 - Enhancement cycle status: Ready for demo test drive
 - Issue-driven artifact added: `plan/github/spec-002-ui-theme-issue-pr-pack.md`
+- PR lifecycle closed: PR `#1` merged to `main` (merge commit `4f0887e3de9a9860691acca6845d9719e8f46cdd`)
