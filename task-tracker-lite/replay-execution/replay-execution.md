@@ -271,3 +271,33 @@ Approved
 - Enhancement cycle status: Ready for demo test drive
 - Issue-driven artifact added: `plan/github/spec-002-ui-theme-issue-pr-pack.md`
 - PR lifecycle closed: PR `#1` merged to `main` (merge commit `4f0887e3de9a9860691acca6845d9719e8f46cdd`)
+
+## Entry 013 - SPEC-003 Inline Task Detail Enhancement (Spec -> Plan -> Execute)
+
+### Approved prompt
+Add inline task detail that opens when users click Open, allow only one open detail at a time, and include quick actions for Mark Done and Delete.
+
+### Execution result
+- Added SPEC-003 addendum at `plan/spec-task-detail-inline.md` with business requirements, use cases UC-003-01..03, acceptance criteria, and traceability.
+- Updated `plan/spec.md` Spec Registry with SPEC-003 as `Implemented, Verified`.
+- Updated `plan/plan.md` with `SPEC-003 Plan Delta` (2a/2b/2c).
+- Implemented frontend behavior in `web/app.js`:
+	- Open/Close control per task
+	- Inline detail rendering with full fields
+	- Single-open state model
+	- Quick actions: Mark Done and Delete
+- Added styles in `web/styles.css` for task controls, detail panel, and action buttons.
+- Extended `tests/ui/smoke.ui.test.js` with coverage for:
+	- inline expansion
+	- one-open-only behavior
+	- Mark Done and Delete quick actions
+- Ran `npm run quality:check` successfully:
+	- lint passed
+	- tests passed
+	- UI smoke tests passed
+
+### Review outcome
+Approved
+
+### Notes
+- Enhancement remains within risk level 2 boundaries (frontend-only; no API contract changes)

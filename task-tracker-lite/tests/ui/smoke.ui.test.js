@@ -106,4 +106,75 @@ describe("UI smoke test", () => {
     expect(tasksResponse.status).toBe(200);
     expect(tasksResponse.body.some((task) => task.title === "UI smoke task")).toBe(true);
   });
+
+  it("opens inline detail, keeps one open at a time, and supports quick actions", async () => {
+    const appInstance = createApp({
+      documentRef: document,
+      fetchImpl: fetch,
+      baseUrl,
+    });
+
+    await appInstance.initApp();
+
+    document.getElementById("title-input").value = "Detail Task One";
+    document.getElementById("description-input").value = "first detail test task";
+    document.getElementById("priority-input").value = "low";
+    document.getElementById("task-form").dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+
+    await waitFor(() => document.querySelectorAll("#task-list .task-item").length >= 1);
+
+    document.getElementById("title-input").value = "Detail Task Two";
+    document.getElementById("description-input").value = "second detail test task";
+    document.getElementById("priority-input").value = "high";
+    document.getElementById("task-form").dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+
+    await waitFor(() => {
+      const items = [...document.querySelectorAll("#task-list .task-item")];
+      return items.some((item) => item.textContent.includes("Detail Task One")) && items.some((item) => item.textContent.includes("Detail Task Two"));
+    });
+
+    let firstTaskItem = [...document.querySelectorAll("#task-list .task-item")].find((item) => item.textContent.includes("Detail Task One"));
+    expect(firstTaskItem).toBeTruthy();
+
+    firstTaskItem.querySelector("button[data-action='toggle-open']").click();
+
+    await waitFor(() => {
+      const refreshedFirst = [...document.querySelectorAll("#task-list .task-item")].find((item) => item.textContent.includes("Detail Task One"));
+      const detail = refreshedFirst && refreshedFirst.querySelector(".task-detail");
+      return detail && detail.textContent.includes("Description:") && detail.textContent.includes("Created At:");
+    });
+
+    const secondTaskItem = [...document.querySelectorAll("#task-list .task-item")].find((item) => item.textContent.includes("Detail Task Two"));
+    expect(secondTaskItem).toBeTruthy();
+
+    secondTaskItem.querySelector("button[data-action='toggle-open']").click();
+
+    await waitFor(() => {
+      const refreshedItems = [...document.querySelectorAll("#task-list .task-item")];
+      const refreshedFirst = refreshedItems.find((item) => item.textContent.includes("Detail Task One"));
+      const refreshedSecond = refreshedItems.find((item) => item.textContent.includes("Detail Task Two"));
+      return refreshedSecond.querySelector(".task-detail") && !refreshedFirst.querySelector(".task-detail");
+    });
+
+    let refreshedSecond = [...document.querySelectorAll("#task-list .task-item")].find((item) => item.textContent.includes("Detail Task Two"));
+    refreshedSecond.querySelector("button[data-action='mark-done']").click();
+
+    await waitFor(() => {
+      const updatedTask = [...document.querySelectorAll("#task-list .task-item")].find((item) => item.textContent.includes("Detail Task Two"));
+      return updatedTask && updatedTask.textContent.includes("done");
+    });
+
+    await waitFor(() => {
+      const updatedTask = [...document.querySelectorAll("#task-list .task-item")].find((item) => item.textContent.includes("Detail Task Two"));
+      return updatedTask && updatedTask.querySelector("button[data-action='delete']");
+    });
+
+    refreshedSecond = [...document.querySelectorAll("#task-list .task-item")].find((item) => item.textContent.includes("Detail Task Two"));
+    refreshedSecond.querySelector("button[data-action='delete']").click();
+
+    await waitFor(() => {
+      const items = [...document.querySelectorAll("#task-list .task-item")];
+      return !items.some((item) => item.textContent.includes("Detail Task Two"));
+    });
+  });
 });
