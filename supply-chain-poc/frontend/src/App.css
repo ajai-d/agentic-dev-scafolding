@@ -1,0 +1,39 @@
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+}
+
+.app-shell {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 1.25rem;
+}
+
+h1 {
+  margin-bottom: 0.25rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d8dee9;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
